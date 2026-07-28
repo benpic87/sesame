@@ -1,0 +1,38 @@
+{
+  "identifier" : "A1B2C3D4",
+  "nonRenewingSubscriptions" : [
+
+  ],
+  "products" : [
+    {
+      "displayPrice" : "4.99",
+      "familyShareable" : false,
+      "internalID" : "F0E1D2C3",
+      "localizations" : [
+        {
+          "description" : "Coffre illimité, pour toujours",
+          "displayName" : "Sésame Premium",
+          "locale" : "fr"
+        },
+        {
+          "description" : "Unlimited vault, forever",
+          "displayName" : "Sésame Premium",
+          "locale" : "en"
+        }
+      ],
+      "productID" : "app.sesame.premium",
+      "referenceName" : "Premium",
+      "type" : "NonConsumable"
+    }
+  ],
+  "settings" : {
+
+  },
+  "subscriptionGroups" : [
+
+  ],
+  "version" : {
+    "major" : 3,
+    "minor" : 0
+  }
+}

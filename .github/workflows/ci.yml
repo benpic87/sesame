@@ -1,0 +1,30 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  build-and-test:
+    name: Build & tests (simulateur iOS)
+    runs-on: macos-15
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Version d'Xcode
+        run: xcodebuild -version
+
+      - name: Simulateurs disponibles
+        run: xcrun simctl list devices available | head -30
+
+      - name: Build + tests unitaires
+        run: |
+          set -o pipefail
+          xcodebuild test \
+            -project Sesame.xcodeproj \
+            -scheme Sesame \
+            -destination 'platform=iOS Simulator,name=iPhone 16' \
+            CODE_SIGNING_ALLOWED=NO \
+            | xcbeautify --renderer github-actions

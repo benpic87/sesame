@@ -1,0 +1,79 @@
+# Sésame
+
+Coffre-fort de documents **100 % local** pour iOS : aucun cloud, aucun compte, aucun serveur, aucune requête réseau. Passeports, cartes, PDF et notes sont chiffrés individuellement sur l'appareil.
+
+Design : direction « Pop clair » du handoff (`design_handoff_sesame/README.md`), recréée en SwiftUI.
+
+## Prérequis
+
+- Xcode 16+ (macOS), iOS 17 minimum, Swift 5.10+
+- Aucune dépendance externe : uniquement les frameworks système (SwiftUI, SwiftData, CryptoKit, LocalAuthentication, VisionKit, PhotosUI, PDFKit)
+
+Ouvrir `Sesame.xcodeproj`, sélectionner un simulateur ou un appareil, ⌘R. Tests : ⌘U (cibles `SesameTests`). Le projet utilise les groupes synchronisés d'Xcode 16 : tout fichier ajouté sous `Sesame/` ou `SesameTests/` est automatiquement inclus dans la cible.
+
+> Note : Face ID et l'appareil photo nécessitent un appareil réel (le simulateur permet de tester le PIN et les imports de fichiers).
+
+## Architecture
+
+MVVM léger : les vues SwiftUI observent des services injectés par l'environnement (`@Environment`), les listes passent par `@Query` (SwiftData) pour la mise à jour automatique.
+
+```
+Sesame/
+├── SesameApp.swift          Point d'entrée, ModelContainer, verrouillage au passage en arrière-plan
+├── Models/                  Document, Category (SwiftData) — un document ⇄ plusieurs étiquettes
+├── Services/
+│   ├── CryptoService.swift  AES-GCM ; clé maîtresse 256 bits dans le Keychain
+│   │                        (kSecAttrAccessibleWhenUnlockedThisDeviceOnly) ;
+│   │                        conteneurs à phrase de passe (PBKDF2-HMAC-SHA256, 210 000 itérations)
+│   ├── AuthService.swift    Face ID → PIN (6 chiffres) → mot de passe ; AutoLockPolicy (logique pure testable)
+│   ├── VaultStore.swift     Source de vérité : import chiffré, vignettes chiffrées, catégories,
+│   │                        effacement ; répertoire du coffre exclu des sauvegardes (isExcludedFromBackup)
+│   ├── ShareService.swift   Archive chiffrée .sesame, copie AirDrop temporaire, sauvegarde .sesamebackup
+│   ├── StoreService.swift   Freemium StoreKit 2 : limite gratuite de 2 documents, achat unique Premium
+│   ├── PassphraseGenerator.swift  Mots de passe « corail-lampe-92-nuit » (mot-mot-nombre-mot)
+│   └── KeychainStore.swift  Accès Keychain injectable (InMemoryKeychain pour les tests)
+├── Views/
+│   ├── RootView.swift       Onboarding → verrouillage → coffre ; écran de garde dans l'app switcher
+│   ├── Lock/                Déverrouillage (Face ID), pavé PIN, repli mot de passe
+│   ├── Home/                Coffre : chips-filtres par catégorie, grille 2 colonnes, pilule « + Ajouter »
+│   ├── Add/                 5 méthodes : scanner VisionKit (multi-pages → PDF), photo, galerie
+│   │                        (avec proposition de suppression de l'original), fichier, note chiffrée
+│   ├── Detail/              Aperçu, étiquettes éditables, métadonnées, alerte expiration (< 6 mois)
+│   ├── Search/              Recherche temps réel par nom, filtres Tout/Images/PDF/Notes, surlignage
+│   ├── Share/               Bottom sheet : archive chiffrée + mot de passe généré, ou AirDrop simple
+│   ├── Settings/            Sécurité, catégories, sauvegarde chiffrée, langue, effacement (double confirmation)
+│   └── Onboarding/          3 étapes : promesse locale-only → PIN/Face ID → premières catégories
+├── Support/Theme.swift      Design tokens (couleurs, rayons, ombres, police mise à l'échelle Dynamic Type)
+└── Resources/               Localizable.xcstrings (fr = langue source), Assets
+```
+
+## Monétisation (freemium)
+
+- **Version gratuite** : coffre limité à **2 documents** (toutes les autres fonctions restent ouvertes). Un bandeau sur l'accueil affiche le compteur ; le bouton « + Ajouter » ouvre l'écran Premium quand la limite est atteinte.
+- **Sésame Premium** : achat unique non consommable `app.sesame.premium` (StoreKit 2, aucun SDK tiers, pas d'abonnement, pas de publicité) → documents illimités. Restauration des achats dans les Réglages et sur l'écran de vente.
+- La limite ne s'applique qu'à l'**ajout** : si un achat est remboursé, les documents existants restent accessibles — jamais de données prises en otage.
+- **Test local** : sélectionner `Sesame.storekit` dans le schéma (Product ▸ Scheme ▸ Edit Scheme ▸ Run ▸ Options ▸ StoreKit Configuration) pour tester l'achat sans App Store Connect. En production, créer le produit `app.sesame.premium` dans App Store Connect.
+
+## Localisation
+
+L'interface est traduite en 11 langues : français (langue de développement), anglais, allemand, espagnol, italien, portugais (pt-PT), néerlandais, japonais, coréen, chinois simplifié et arabe (avec les 6 formes plurielles CLDR). Les chaînes du code sont les clés françaises ; les traductions vivent dans `Resources/Localizable.xcstrings`. L'arabe bénéficie automatiquement de la disposition droite-à-gauche gérée par SwiftUI.
+
+## Sécurité
+
+- **Clé maîtresse** : 256 bits, générée au premier lancement, stockée dans le Keychain avec `kSecAttrAccessibleWhenUnlockedThisDeviceOnly` (jamais synchronisée, jamais migrée).
+- **Fichiers** : chaque document et chaque vignette est chiffré individuellement en AES-GCM avant toute écriture disque (`.completeFileProtection` en plus). Rien en clair sur le disque ; le répertoire `Application Support/Vault` est exclu des sauvegardes.
+- **PIN / mot de passe** : jamais stockés — seulement une empreinte PBKDF2 salée dans le Keychain, comparée à temps constant.
+- **Verrouillage** : automatique après 60 s d'inactivité (délai réglable : 30 s à 5 min) et immédiat à chaque passage en arrière-plan ; le contenu est masqué dans le sélecteur d'apps.
+- **Partage chiffré** : le format `.sesame` (et `.sesamebackup` pour la sauvegarde) est un conteneur autoportant : `"SESAME01"` ‖ sel 16 octets ‖ AES-GCM (nonce + chiffré + tag). Clé dérivée de la phrase de passe par PBKDF2-HMAC-SHA256 (210 000 itérations). Le mot de passe généré doit être communiqué **par un autre canal**. (La maquette évoquait un « .zip + mot de passe » : le format zip AES nécessiterait une dépendance tierce, exclue par les contraintes ; le conteneur documenté ci-dessus assure la même garantie et reste importable.)
+- **AirDrop simple** : copie déchiffrée temporaire, supprimée dès la fermeture de la share sheet (chiffrée en transit par AirDrop lui-même).
+
+## Tests
+
+`SesameTests` couvre :
+- `CryptoServiceTests` : aller-retour chiffrer/déchiffrer, rejet de clé erronée, détection d'altération, persistance de la clé maîtresse, conteneurs à phrase de passe, empreintes PIN.
+- `AutoLockTests` : politique d'auto-verrouillage (délai, report par activité), déverrouillage PIN/mot de passe.
+- `PassphraseGeneratorTests` : format « mot-mot-nombre-mot ».
+
+## Hors périmètre v1
+
+Mode sombre, iPad, import de sauvegarde (`.sesamebackup` — export uniquement pour l'instant), ouverture des fichiers `.sesame` reçus.

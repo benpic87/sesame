@@ -1,0 +1,12 @@
+# Xcode
+xcuserdata/
+*.xcuserstate
+DerivedData/
+build/
+*.moved-aside
+*.xccheckout
+
+# macOS
+.DS_Store
+Sesame mobile app concepts.zip
+.claude/

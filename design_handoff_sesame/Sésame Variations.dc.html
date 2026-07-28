@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet data-dc-atomics><meta name="design_doc_mode" content="canvas"><style>body{margin:0;background:#f0eee9;font-family:system-ui,-apple-system,sans-serif}a{color:#2a78d6;text-decoration:none}a:hover{color:#1b5aa8}.dv-turn{padding:40px 44px 32px;border-bottom:1px solid rgba(0,0,0,.08);scroll-margin-top:16px}.dv-thd{display:flex;align-items:baseline;gap:10px;margin:0 0 20px}.dv-tid{font:600 10px ui-monospace,Menlo,monospace;padding:3px 7px;background:#1a1a1a;color:#fff;border-radius:4px;text-decoration:none}.dv-tname{font:600 13px/1.2 system-ui,sans-serif;color:#1a1a1a}.dv-opts{display:flex;flex-wrap:wrap;gap:28px;align-items:flex-start}.dv-opt{flex:none;display:flex;flex-direction:column;gap:9px;scroll-margin-top:16px}.dv-oid{font:600 10.5px ui-monospace,Menlo,monospace;padding:3px 7px;background:rgba(0,0,0,.08);color:#1a1a1a;border-radius:5px;text-decoration:none}.dv-olabel{display:flex;align-items:baseline;gap:8px;font:400 11px/1.3 system-ui,sans-serif;color:rgba(0,0,0,.55)}.dv-opt:target .dv-oid{background:#2a78d6;color:#fff}.dv-next{margin:22px 0 0;font:12px/1.5 system-ui,sans-serif;color:rgba(0,0,0,.5)}</style></helmet>
+<section class="dv-turn" id="t2" data-screen-label="Turn 2 — Pop clair complet">
+<div class="dv-thd"><a class="dv-tid" href="#t2">2</a><span class="dv-tname">Direction <a class="dv-oid" href="#1c">1c</a> retenue — écrans complémentaires</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="2a" data-screen-label="2a Onboarding + Recherche + Détail">
+<div class="dv-olabel"><a class="dv-oid" href="#2a">2a</a>Onboarding · Recherche · Détail document</div>
+<div style="display:flex;gap:20px;flex-wrap:wrap">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:#fbfbfd;padding:64px 28px 0">
+    <div style="margin-top:8px;display:flex;gap:6px"><span style="width:22px;height:6px;border-radius:999px;background:#5b5bd6;display:block"></span><span style="width:6px;height:6px;border-radius:999px;background:#d5d5de;display:block"></span><span style="width:6px;height:6px;border-radius:999px;background:#d5d5de;display:block"></span></div>
+    <div style="margin-top:28px;font-size:34px;font-weight:800;color:#17171f;letter-spacing:-.03em;line-height:1.1">Vos documents,<br>seulement ici.</div>
+    <div style="margin-top:14px;font-size:16px;color:#71717d;line-height:1.5;max-width:290px">Sésame garde vos passeports, cartes et papiers importants chiffrés sur votre téléphone. Pas de compte, pas de nuage, pas de trace.</div>
+    <div style="margin-top:36px;display:flex;flex-direction:column;gap:14px">
+      <div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;border-radius:12px;background:#ececfa;display:flex;align-items:center;justify-content:center"><span style="width:13px;height:13px;border:2.5px solid #5b5bd6;border-radius:4px;display:block"></span></div><div style="font-size:14.5px;color:#17171f;font-weight:600">Chiffrement sur l'appareil</div></div>
+      <div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;border-radius:12px;background:#e2f4ed;display:flex;align-items:center;justify-content:center"><span style="width:13px;height:13px;border:2.5px solid #1e8f6e;border-radius:50%;display:block"></span></div><div style="font-size:14.5px;color:#17171f;font-weight:600">Aucun serveur, aucun compte</div></div>
+      <div style="display:flex;gap:12px;align-items:center"><div style="width:36px;height:36px;border-radius:12px;background:#f9e9f3;display:flex;align-items:center;justify-content:center"><span style="width:13px;height:13px;background:#c15c9a;border-radius:4px;transform:rotate(45deg);display:block"></span></div><div style="font-size:14.5px;color:#17171f;font-weight:600">Partage AirDrop chiffré</div></div>
+    </div>
+    <div style="margin-top:auto;margin-bottom:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="background:#5b5bd6;color:#fff;font-size:16px;font-weight:700;padding:16px;border-radius:16px;text-align:center;box-shadow:0 10px 24px rgba(91,91,214,.25)">Commencer</div>
+      <div style="text-align:center;font-size:13px;color:#a5a5b0">Étape suivante : choisir Face ID ou un code PIN</div>
+    </div>
+  </div>
+</x-import>
+<x-import component-from-global-scope="IOSDevice" keyboard="{{ true }}" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:#fbfbfd;padding:64px 20px 0;overflow:hidden">
+    <div style="display:flex;gap:10px;align-items:center">
+      <div style="flex:1;background:#f0f0f4;border-radius:14px;padding:11px 14px;display:flex;gap:8px;align-items:center;font-size:15px"><div style="width:14px;height:14px;border:2px solid #71717d;border-radius:50%"></div><span style="color:#17171f;font-weight:500">passe</span><span style="width:2px;height:18px;background:#5b5bd6;display:block"></span></div>
+      <div style="font-size:16px;color:#5b5bd6;font-weight:600">Annuler</div>
+    </div>
+    <div style="margin-top:16px;display:flex;gap:8px"><span style="font-size:12.5px;font-weight:600;color:#fff;background:#5b5bd6;padding:6px 13px;border-radius:999px">Tout</span><span style="font-size:12.5px;font-weight:600;color:#71717d;background:#f0f0f4;padding:6px 13px;border-radius:999px">Images</span><span style="font-size:12.5px;font-weight:600;color:#71717d;background:#f0f0f4;padding:6px 13px;border-radius:999px">PDF</span><span style="font-size:12.5px;font-weight:600;color:#71717d;background:#f0f0f4;padding:6px 13px;border-radius:999px">Notes</span></div>
+    <div style="margin-top:18px;font-size:13px;color:#a5a5b0;font-weight:600;letter-spacing:.04em;text-transform:uppercase">2 résultats</div>
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
+      <div style="background:#fff;border:1px solid #ececf1;border-radius:16px;padding:10px 12px;display:flex;gap:12px;align-items:center"><div style="width:44px;height:44px;border-radius:10px;background:repeating-linear-gradient(45deg,#efeff4,#efeff4 6px,#f7f7fa 6px,#f7f7fa 12px)"></div><div style="flex:1"><div style="font-size:15px;font-weight:700;color:#17171f"><span style="background:#ececfa;color:#5b5bd6;border-radius:4px;padding:0 2px">Passe</span>port – Camille</div><div style="margin-top:4px;display:flex;gap:5px"><span style="font-size:10.5px;font-weight:600;color:#5b5bd6;background:#ececfa;padding:3px 8px;border-radius:999px">Identité</span><span style="font-size:10.5px;font-weight:600;color:#b3762a;background:#faf0df;padding:3px 8px;border-radius:999px">Voyage</span></div></div><div style="color:#d5d5de">›</div></div>
+      <div style="background:#fff;border:1px solid #ececf1;border-radius:16px;padding:10px 12px;display:flex;gap:12px;align-items:center"><div style="width:44px;height:44px;border-radius:10px;background:repeating-linear-gradient(45deg,#efeff4,#efeff4 6px,#f7f7fa 6px,#f7f7fa 12px);display:flex;align-items:center;justify-content:center"><span style="font-size:10px;font-weight:700;color:#c15c9a;background:#f9e9f3;padding:2px 6px;border-radius:5px">PDF</span></div><div style="flex:1"><div style="font-size:15px;font-weight:700;color:#17171f"><span style="background:#ececfa;color:#5b5bd6;border-radius:4px;padding:0 2px">Passe</span>port – Élio (enfant)</div><div style="margin-top:4px;display:flex;gap:5px"><span style="font-size:10.5px;font-weight:600;color:#5b5bd6;background:#ececfa;padding:3px 8px;border-radius:999px">Identité</span></div></div><div style="color:#d5d5de">›</div></div>
+    </div>
+  </div>
+</x-import>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:#fbfbfd;padding:64px 20px 0;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-size:16px;color:#5b5bd6;font-weight:600">‹ Coffre</div><div style="font-size:16px;color:#5b5bd6;font-weight:600">Modifier</div></div>
+    <div style="margin-top:16px;border-radius:20px;height:240px;background:repeating-linear-gradient(45deg,#efeff4,#efeff4 8px,#f7f7fa 8px,#f7f7fa 16px);border:1px solid #ececf1;display:flex;align-items:center;justify-content:center"><span style="font-family:ui-monospace,monospace;font-size:12px;color:#71717d;background:#fff;padding:4px 10px;border-radius:6px">photo du passeport</span></div>
+    <div style="margin-top:16px;font-size:24px;font-weight:800;color:#17171f;letter-spacing:-.03em">Passeport – Camille</div>
+    <div style="margin-top:10px;display:flex;gap:6px"><span style="font-size:12px;font-weight:600;color:#5b5bd6;background:#ececfa;padding:5px 12px;border-radius:999px">Identité</span><span style="font-size:12px;font-weight:600;color:#b3762a;background:#faf0df;padding:5px 12px;border-radius:999px">Voyage</span><span style="font-size:12px;color:#71717d;border:1.5px dashed #d5d5de;padding:5px 12px;border-radius:999px">+ étiquette</span></div>
+    <div style="margin-top:16px;background:#fff;border:1px solid #ececf1;border-radius:18px;padding:4px 16px">
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0f0f4;font-size:14.5px"><span style="color:#71717d">Ajouté le</span><span style="color:#17171f;font-weight:600">12 juin 2026</span></div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0f0f4;font-size:14.5px"><span style="color:#71717d">Expire le</span><span style="color:#c15c9a;font-weight:700">3 mars 2027</span></div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;font-size:14.5px"><span style="color:#71717d">Taille</span><span style="color:#17171f;font-weight:600">2,4 Mo · JPG</span></div>
+    </div>
+    <div style="margin-top:auto;margin-bottom:22px;display:flex;flex-direction:column;gap:10px">
+      <div style="background:#5b5bd6;color:#fff;font-size:16px;font-weight:700;padding:15px;border-radius:16px;text-align:center;box-shadow:0 10px 24px rgba(91,91,214,.22)">Partager par AirDrop sécurisé</div>
+      <div style="background:#fff;border:1px solid #ececf1;color:#17171f;font-size:16px;font-weight:700;padding:15px;border-radius:16px;text-align:center">Exporter chiffré (.zip + mot de passe)</div>
+    </div>
+  </div>
+</x-import>
+</div>
+</div>
+
+<div class="dv-opt" id="2b" data-screen-label="2b AirDrop + Réglages">
+<div class="dv-olabel"><a class="dv-oid" href="#2b">2b</a>Partage AirDrop sécurisé · Réglages</div>
+<div style="display:flex;gap:20px;flex-wrap:wrap">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:rgba(23,23,31,.4);justify-content:flex-end">
+    <div style="background:#fbfbfd;border-radius:28px 28px 0 0;padding:22px 22px 0;display:flex;flex-direction:column;min-height:600px">
+      <div style="align-self:center;width:36px;height:5px;border-radius:999px;background:#d5d5de"></div>
+      <div style="margin-top:18px;font-size:20px;font-weight:800;color:#17171f">Partage sécurisé</div>
+      <div style="margin-top:4px;font-size:14px;color:#71717d;line-height:1.45">Passeport – Camille · 2,4 Mo</div>
+      <div style="margin-top:20px;display:flex;flex-direction:column;gap:10px">
+        <div style="background:#fff;border:2px solid #5b5bd6;border-radius:16px;padding:16px;display:flex;gap:12px;align-items:flex-start"><div style="width:22px;height:22px;border-radius:50%;background:#5b5bd6;color:#fff;font-size:13px;display:flex;align-items:center;justify-content:center;flex:none">✓</div><div><div style="font-size:15px;font-weight:700;color:#17171f">Chiffré avec mot de passe</div><div style="margin-top:3px;font-size:13px;color:#71717d;line-height:1.4">Le fichier est verrouillé. Communiquez le mot de passe de vive voix ou par un autre canal.</div></div></div>
+        <div style="background:#fff;border:1px solid #ececf1;border-radius:16px;padding:16px;display:flex;gap:12px;align-items:flex-start"><div style="width:22px;height:22px;border-radius:50%;border:2px solid #d5d5de;flex:none"></div><div><div style="font-size:15px;font-weight:700;color:#17171f">Envoi AirDrop simple</div><div style="margin-top:3px;font-size:13px;color:#71717d;line-height:1.4">Déjà chiffré en transit par AirDrop, lisible dès réception.</div></div></div>
+      </div>
+      <div style="margin-top:18px;background:#ececfa;border-radius:16px;padding:14px 16px;display:flex;justify-content:space-between;align-items:center"><div><div style="font-size:12px;color:#5b5bd6;font-weight:700;letter-spacing:.05em;text-transform:uppercase">Mot de passe généré</div><div style="margin-top:3px;font-family:ui-monospace,monospace;font-size:17px;font-weight:600;color:#17171f;letter-spacing:.06em">corail-lampe-92-nuit</div></div><div style="font-size:13px;color:#5b5bd6;font-weight:700">Copier</div></div>
+      <div style="margin-top:auto;margin-bottom:22px;background:#5b5bd6;color:#fff;font-size:16px;font-weight:700;padding:16px;border-radius:16px;text-align:center;box-shadow:0 10px 24px rgba(91,91,214,.25)">Continuer vers AirDrop</div>
+    </div>
+  </div>
+</x-import>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:#fbfbfd;padding:64px 20px 0;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-size:16px;color:#5b5bd6;font-weight:600">‹ Coffre</div></div>
+    <div style="margin-top:12px;font-size:30px;font-weight:800;color:#17171f;letter-spacing:-.03em">Réglages</div>
+    <div style="margin-top:18px;font-size:12.5px;color:#a5a5b0;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding-left:4px">Sécurité</div>
+    <div style="margin-top:8px;background:#fff;border:1px solid #ececf1;border-radius:18px;padding:4px 16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid #f0f0f4"><span style="font-size:15px;color:#17171f;font-weight:500">Face ID</span><div style="width:46px;height:28px;border-radius:999px;background:#5b5bd6;display:flex;align-items:center;justify-content:flex-end;padding:2px"><span style="width:24px;height:24px;border-radius:50%;background:#fff;display:block"></span></div></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid #f0f0f4"><span style="font-size:15px;color:#17171f;font-weight:500">Code PIN</span><span style="font-size:14px;color:#a5a5b0">Modifier ›</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0"><span style="font-size:15px;color:#17171f;font-weight:500">Verrouillage auto</span><span style="font-size:14px;color:#a5a5b0">60 secondes ›</span></div>
+    </div>
+    <div style="margin-top:18px;font-size:12.5px;color:#a5a5b0;font-weight:700;letter-spacing:.05em;text-transform:uppercase;padding-left:4px">Données</div>
+    <div style="margin-top:8px;background:#fff;border:1px solid #ececf1;border-radius:18px;padding:4px 16px">
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid #f0f0f4"><span style="font-size:15px;color:#17171f;font-weight:500">Gérer les catégories</span><span style="font-size:14px;color:#a5a5b0">6 ›</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0;border-bottom:1px solid #f0f0f4"><div><div style="font-size:15px;color:#17171f;font-weight:500">Sauvegarde chiffrée locale</div><div style="font-size:12.5px;color:#a5a5b0">Export manuel vers Fichiers, jamais automatique</div></div><span style="font-size:14px;color:#a5a5b0">›</span></div>
+      <div style="display:flex;justify-content:space-between;align-items:center;padding:13px 0"><span style="font-size:15px;color:#17171f;font-weight:500">Langue</span><span style="font-size:14px;color:#a5a5b0">Français ›</span></div>
+    </div>
+    <div style="margin-top:18px;background:#fff;border:1px solid #ececf1;border-radius:18px;padding:4px 16px">
+      <div style="display:flex;justify-content:center;padding:13px 0"><span style="font-size:15px;color:#c15c9a;font-weight:600">Effacer tout le coffre…</span></div>
+    </div>
+    <div style="margin-top:auto;margin-bottom:24px;text-align:center;font-size:12px;color:#a5a5b0">Sésame 1.0 · aucune donnée collectée</div>
+  </div>
+</x-import>
+</div>
+</div>
+
+</div>
+<p class="dv-next">À essayer : « prototype cliquable de <a class="dv-oid" href="#1c">1c</a> » · « montre l'écran de scan avec recadrage » · « variante de <a class="dv-oid" href="#2b">2b</a> avec expiration du partage »</p>
+</section>
+<section class="dv-turn" id="t1" data-screen-label="Turn 1 — Directions visuelles">
+<div class="dv-thd"><a class="dv-tid" href="#t1">1</a><span class="dv-tname">Sésame — 3 directions visuelles · Déverrouillage / Accueil / Détail document</span></div>
+<div class="dv-opts">
+
+<div class="dv-opt" id="1a" data-screen-label="1a Douceur">
+<div class="dv-olabel"><a class="dv-oid" href="#1a">1a</a>Douceur — crème chaleureux, accent sarcelle, convivial</div>
+<div style="display:flex;gap:20px;flex-wrap:wrap">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:0;background:#f6f4ef;padding:32px">
+    <div style="width:76px;height:76px;border-radius:22px;background:#2a9d8f;display:flex;align-items:center;justify-content:center;color:#f6f4ef;font-size:34px;font-weight:700">S</div>
+    <div style="margin-top:18px;font-size:28px;font-weight:700;color:#22302d;letter-spacing:-.02em">Sésame</div>
+    <div style="margin-top:6px;font-size:15px;color:#6b756f;text-align:center;max-width:240px;line-height:1.4">Vos documents restent sur cet appareil. Rien dans le nuage.</div>
+    <div style="margin-top:44px;width:64px;height:64px;border:2.5px dashed #2a9d8f;border-radius:18px;display:flex;align-items:center;justify-content:center"><div style="width:26px;height:26px;border-radius:50%;border:2.5px solid #2a9d8f"></div></div>
+    <div style="margin-top:22px;background:#2a9d8f;color:#fff;font-size:16px;font-weight:600;padding:15px 32px;border-radius:999px">Déverrouiller avec Face ID</div>
+    <div style="margin-top:16px;font-size:15px;color:#2a9d8f;font-weight:500">Utiliser le code PIN</div>
+    <div style="margin-top:auto;font-size:12px;color:#9aa39d;display:flex;gap:6px;align-items:center"><span style="width:6px;height:6px;border-radius:50%;background:#2a9d8f"></span>Chiffré · 100 % hors ligne</div>
+  </div>
+</x-import>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:#f6f4ef;padding:64px 20px 0;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between">
+      <div><div style="font-size:14px;color:#8a948e">Bonjour Camille</div><div style="font-size:26px;font-weight:700;color:#22302d;letter-spacing:-.02em">Mon coffre</div></div>
+      <div style="width:38px;height:38px;border-radius:50%;background:#fff;border:1px solid #e5e1d8;display:flex;align-items:center;justify-content:center;color:#8a948e;font-size:16px">⚙</div>
+    </div>
+    <div style="margin-top:16px;background:#fff;border:1px solid #e5e1d8;border-radius:14px;padding:12px 14px;display:flex;gap:8px;align-items:center;color:#9aa39d;font-size:15px"><div style="width:14px;height:14px;border:2px solid #9aa39d;border-radius:50%"></div>Rechercher un document…</div>
+    <div style="margin-top:22px;display:flex;align-items:baseline;justify-content:space-between"><div style="font-size:16px;font-weight:700;color:#22302d">Catégories</div><div style="font-size:13px;color:#2a9d8f;font-weight:500">Nouvelle</div></div>
+    <div style="margin-top:12px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div style="background:#fff;border:1px solid #e5e1d8;border-radius:16px;padding:16px"><div style="width:32px;height:32px;border-radius:10px;background:#e7f2f0;display:flex;align-items:center;justify-content:center"><span style="width:12px;height:12px;border-radius:4px;background:#2a9d8f;display:block"></span></div><div style="margin-top:10px;font-size:15px;font-weight:600;color:#22302d">Identité</div><div style="font-size:12.5px;color:#9aa39d">6 documents</div></div>
+      <div style="background:#fff;border:1px solid #e5e1d8;border-radius:16px;padding:16px"><div style="width:32px;height:32px;border-radius:10px;background:#f2ece0;display:flex;align-items:center;justify-content:center"><span style="width:12px;height:12px;border-radius:50%;background:#c9a24b;display:block"></span></div><div style="margin-top:10px;font-size:15px;font-weight:600;color:#22302d">Voyage</div><div style="font-size:12.5px;color:#9aa39d">4 documents</div></div>
+      <div style="background:#fff;border:1px solid #e5e1d8;border-radius:16px;padding:16px"><div style="width:32px;height:32px;border-radius:10px;background:#ece7f2;display:flex;align-items:center;justify-content:center"><span style="width:12px;height:12px;transform:rotate(45deg);background:#7a6bb5;display:block"></span></div><div style="margin-top:10px;font-size:15px;font-weight:600;color:#22302d">Santé</div><div style="font-size:12.5px;color:#9aa39d">9 documents</div></div>
+      <div style="background:#fff;border:1px solid #e5e1d8;border-radius:16px;padding:16px"><div style="width:32px;height:32px;border-radius:10px;background:#f2e3e0;display:flex;align-items:center;justify-content:center"><span style="width:12px;height:12px;border-radius:4px 4px 50% 50%;background:#c26b5a;display:block"></span></div><div style="margin-top:10px;font-size:15px;font-weight:600;color:#22302d">Finances</div><div style="font-size:12.5px;color:#9aa39d">12 documents</div></div>
+    </div>
+    <div style="margin-top:22px;font-size:16px;font-weight:700;color:#22302d">Récents</div>
+    <div style="margin-top:10px;display:flex;flex-direction:column;gap:8px">
+      <div style="background:#fff;border:1px solid #e5e1d8;border-radius:14px;padding:10px 12px;display:flex;gap:12px;align-items:center"><div style="width:44px;height:44px;border-radius:10px;background:repeating-linear-gradient(45deg,#e9e5da,#e9e5da 6px,#f2efe7 6px,#f2efe7 12px)"></div><div style="flex:1"><div style="font-size:15px;font-weight:600;color:#22302d">Passeport – Camille</div><div style="font-size:12.5px;color:#9aa39d">Identité · Voyage</div></div><div style="color:#c8c3b8">›</div></div>
+      <div style="background:#fff;border:1px solid #e5e1d8;border-radius:14px;padding:10px 12px;display:flex;gap:12px;align-items:center"><div style="width:44px;height:44px;border-radius:10px;background:repeating-linear-gradient(45deg,#e9e5da,#e9e5da 6px,#f2efe7 6px,#f2efe7 12px)"></div><div style="flex:1"><div style="font-size:15px;font-weight:600;color:#22302d">Carte d'assurance maladie</div><div style="font-size:12.5px;color:#9aa39d">Santé</div></div><div style="color:#c8c3b8">›</div></div>
+    </div>
+    <div style="position:relative;margin-top:auto;align-self:flex-end;margin-bottom:24px"><div style="width:58px;height:58px;border-radius:50%;background:#2a9d8f;color:#fff;font-size:28px;display:flex;align-items:center;justify-content:center;box-shadow:0 8px 20px rgba(42,157,143,.35)">+</div></div>
+  </div>
+</x-import>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:#f6f4ef;padding:64px 20px 0;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-size:16px;color:#2a9d8f">‹ Identité</div><div style="font-size:16px;color:#2a9d8f">Modifier</div></div>
+    <div style="margin-top:16px;border-radius:18px;height:250px;background:repeating-linear-gradient(45deg,#e9e5da,#e9e5da 8px,#f2efe7 8px,#f2efe7 16px);border:1px solid #e5e1d8;display:flex;align-items:center;justify-content:center"><span style="font-family:ui-monospace,monospace;font-size:12px;color:#9aa39d;background:#fff;padding:4px 10px;border-radius:6px">photo du passeport</span></div>
+    <div style="margin-top:18px;font-size:22px;font-weight:700;color:#22302d;letter-spacing:-.02em">Passeport – Camille</div>
+    <div style="margin-top:10px;display:flex;gap:8px"><span style="font-size:12.5px;font-weight:600;color:#2a7d72;background:#e7f2f0;padding:5px 12px;border-radius:999px">Identité</span><span style="font-size:12.5px;font-weight:600;color:#96762e;background:#f2ece0;padding:5px 12px;border-radius:999px">Voyage</span><span style="font-size:12.5px;color:#9aa39d;border:1px dashed #c8c3b8;padding:5px 12px;border-radius:999px">+ étiquette</span></div>
+    <div style="margin-top:18px;background:#fff;border:1px solid #e5e1d8;border-radius:16px;padding:4px 16px">
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0ede4;font-size:14.5px"><span style="color:#8a948e">Ajouté le</span><span style="color:#22302d;font-weight:500">12 juin 2026</span></div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #f0ede4;font-size:14.5px"><span style="color:#8a948e">Expire le</span><span style="color:#c26b5a;font-weight:600">3 mars 2027</span></div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;font-size:14.5px"><span style="color:#8a948e">Taille</span><span style="color:#22302d;font-weight:500">2,4 Mo · JPG</span></div>
+    </div>
+    <div style="margin-top:auto;margin-bottom:20px;display:flex;flex-direction:column;gap:10px">
+      <div style="background:#2a9d8f;color:#fff;font-size:16px;font-weight:600;padding:15px;border-radius:14px;text-align:center">Partager par AirDrop sécurisé</div>
+      <div style="background:#fff;border:1px solid #e5e1d8;color:#22302d;font-size:16px;font-weight:600;padding:15px;border-radius:14px;text-align:center">Exporter chiffré (.zip + mot de passe)</div>
+    </div>
+  </div>
+</x-import>
+</div>
+</div>
+
+<div class="dv-opt" id="1b" data-screen-label="1b Nocturne">
+<div class="dv-olabel"><a class="dv-oid" href="#1b">1b</a>Nocturne — coffre-fort sombre, accent ambre, rassurant</div>
+<div style="display:flex;gap:20px;flex-wrap:wrap">
+<x-import component-from-global-scope="IOSDevice" dark="{{ true }}" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#10141c;padding:32px">
+    <div style="width:84px;height:84px;border-radius:50%;border:2px solid #e8b45a;display:flex;align-items:center;justify-content:center"><div style="width:54px;height:54px;border-radius:50%;background:#e8b45a;display:flex;align-items:center;justify-content:center;color:#10141c;font-size:24px;font-weight:800">S</div></div>
+    <div style="margin-top:20px;font-size:28px;font-weight:700;color:#f2f0ea;letter-spacing:-.02em">Sésame</div>
+    <div style="margin-top:6px;font-size:15px;color:#8a92a3;text-align:center;max-width:250px;line-height:1.4">Coffre-fort local. Aucune donnée ne quitte votre iPhone.</div>
+    <div style="margin-top:48px;display:flex;gap:14px">
+      <span style="width:14px;height:14px;border-radius:50%;background:#e8b45a;display:block"></span><span style="width:14px;height:14px;border-radius:50%;background:#e8b45a;display:block"></span><span style="width:14px;height:14px;border-radius:50%;border:1.5px solid #3a4254;display:block"></span><span style="width:14px;height:14px;border-radius:50%;border:1.5px solid #3a4254;display:block"></span><span style="width:14px;height:14px;border-radius:50%;border:1.5px solid #3a4254;display:block"></span><span style="width:14px;height:14px;border-radius:50%;border:1.5px solid #3a4254;display:block"></span>
+    </div>
+    <div style="margin-top:14px;font-size:14px;color:#8a92a3">Entrez votre code PIN</div>
+    <div style="margin-top:40px;display:grid;grid-template-columns:repeat(3,64px);gap:14px;justify-content:center">
+      <div style="height:64px;border-radius:50%;background:#1a2130;color:#f2f0ea;font-size:24px;display:flex;align-items:center;justify-content:center">1</div><div style="height:64px;border-radius:50%;background:#1a2130;color:#f2f0ea;font-size:24px;display:flex;align-items:center;justify-content:center">2</div><div style="height:64px;border-radius:50%;background:#1a2130;color:#f2f0ea;font-size:24px;display:flex;align-items:center;justify-content:center">3</div>
+      <div style="height:64px;border-radius:50%;background:#1a2130;color:#f2f0ea;font-size:24px;display:flex;align-items:center;justify-content:center">4</div><div style="height:64px;border-radius:50%;background:#1a2130;color:#f2f0ea;font-size:24px;display:flex;align-items:center;justify-content:center">5</div><div style="height:64px;border-radius:50%;background:#1a2130;color:#f2f0ea;font-size:24px;display:flex;align-items:center;justify-content:center">6</div>
+    </div>
+    <div style="margin-top:auto;font-size:13px;color:#e8b45a;font-weight:500">Utiliser Face ID</div>
+  </div>
+</x-import>
+<x-import component-from-global-scope="IOSDevice" dark="{{ true }}" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:#10141c;padding:64px 20px 0;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-size:26px;font-weight:700;color:#f2f0ea;letter-spacing:-.02em">Mon coffre</div><div style="width:38px;height:38px;border-radius:50%;background:#1a2130;display:flex;align-items:center;justify-content:center;color:#8a92a3;font-size:16px">⚙</div></div>
+    <div style="margin-top:14px;background:#1a2130;border-radius:14px;padding:12px 14px;display:flex;gap:8px;align-items:center;color:#5d6577;font-size:15px"><div style="width:14px;height:14px;border:2px solid #5d6577;border-radius:50%"></div>Rechercher…</div>
+    <div style="margin-top:20px;background:linear-gradient(135deg,#1d2536,#161c29);border:1px solid #2a3245;border-radius:18px;padding:18px"><div style="font-size:13px;color:#e8b45a;font-weight:600;letter-spacing:.06em;text-transform:uppercase">Bientôt expiré</div><div style="margin-top:8px;font-size:16px;font-weight:600;color:#f2f0ea">Passeport – Camille</div><div style="font-size:13px;color:#8a92a3">Expire le 3 mars 2027 · Identité</div></div>
+    <div style="margin-top:22px;display:flex;align-items:baseline;justify-content:space-between"><div style="font-size:16px;font-weight:700;color:#f2f0ea">Catégories</div><div style="font-size:13px;color:#e8b45a">Nouvelle</div></div>
+    <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px">
+      <div style="background:#1a2130;border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px"><span style="width:10px;height:10px;border-radius:3px;background:#e8b45a;display:block"></span><div style="flex:1;font-size:15px;font-weight:600;color:#f2f0ea">Identité</div><div style="font-size:13px;color:#5d6577">6</div><div style="color:#3a4254">›</div></div>
+      <div style="background:#1a2130;border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px"><span style="width:10px;height:10px;border-radius:50%;background:#6fb3a8;display:block"></span><div style="flex:1;font-size:15px;font-weight:600;color:#f2f0ea">Voyage</div><div style="font-size:13px;color:#5d6577">4</div><div style="color:#3a4254">›</div></div>
+      <div style="background:#1a2130;border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px"><span style="width:10px;height:10px;transform:rotate(45deg);background:#9b8ed6;display:block"></span><div style="flex:1;font-size:15px;font-weight:600;color:#f2f0ea">Santé</div><div style="font-size:13px;color:#5d6577">9</div><div style="color:#3a4254">›</div></div>
+      <div style="background:#1a2130;border-radius:14px;padding:14px 16px;display:flex;align-items:center;gap:12px"><span style="width:10px;height:10px;border-radius:4px 4px 50% 50%;background:#d67f6c;display:block"></span><div style="flex:1;font-size:15px;font-weight:600;color:#f2f0ea">Finances</div><div style="font-size:13px;color:#5d6577">12</div><div style="color:#3a4254">›</div></div>
+    </div>
+    <div style="margin-top:auto;margin-bottom:20px;background:#e8b45a;color:#10141c;font-size:16px;font-weight:700;padding:15px;border-radius:14px;text-align:center">+ Ajouter un document</div>
+  </div>
+</x-import>
+<x-import component-from-global-scope="IOSDevice" dark="{{ true }}" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:#10141c;padding:64px 20px 0;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-size:16px;color:#e8b45a">‹ Identité</div><div style="font-size:16px;color:#e8b45a">Modifier</div></div>
+    <div style="margin-top:16px;border-radius:18px;height:250px;background:repeating-linear-gradient(45deg,#1a2130,#1a2130 8px,#202839 8px,#202839 16px);display:flex;align-items:center;justify-content:center"><span style="font-family:ui-monospace,monospace;font-size:12px;color:#8a92a3;background:#10141c;padding:4px 10px;border-radius:6px">photo du passeport</span></div>
+    <div style="margin-top:18px;font-size:22px;font-weight:700;color:#f2f0ea;letter-spacing:-.02em">Passeport – Camille</div>
+    <div style="margin-top:10px;display:flex;gap:8px"><span style="font-size:12.5px;font-weight:600;color:#e8b45a;background:rgba(232,180,90,.12);padding:5px 12px;border-radius:999px">Identité</span><span style="font-size:12.5px;font-weight:600;color:#6fb3a8;background:rgba(111,179,168,.12);padding:5px 12px;border-radius:999px">Voyage</span></div>
+    <div style="margin-top:18px;background:#1a2130;border-radius:16px;padding:4px 16px">
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #232b3d;font-size:14.5px"><span style="color:#8a92a3">Ajouté le</span><span style="color:#f2f0ea;font-weight:500">12 juin 2026</span></div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid #232b3d;font-size:14.5px"><span style="color:#8a92a3">Expire le</span><span style="color:#e8b45a;font-weight:600">3 mars 2027</span></div>
+      <div style="display:flex;justify-content:space-between;padding:12px 0;font-size:14.5px"><span style="color:#8a92a3">Taille</span><span style="color:#f2f0ea;font-weight:500">2,4 Mo · JPG</span></div>
+    </div>
+    <div style="margin-top:auto;margin-bottom:20px;display:flex;flex-direction:column;gap:10px">
+      <div style="background:#e8b45a;color:#10141c;font-size:16px;font-weight:700;padding:15px;border-radius:14px;text-align:center">Partager par AirDrop sécurisé</div>
+      <div style="background:#1a2130;color:#f2f0ea;font-size:16px;font-weight:600;padding:15px;border-radius:14px;text-align:center">Exporter chiffré (.zip + mot de passe)</div>
+    </div>
+  </div>
+</x-import>
+</div>
+</div>
+
+<div class="dv-opt" id="1c" data-screen-label="1c Pop clair">
+<div class="dv-olabel"><a class="dv-oid" href="#1c">1c</a>Pop clair — blanc net, accent indigo, étiquettes colorées</div>
+<div style="display:flex;gap:20px;flex-wrap:wrap">
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;background:#fbfbfd;padding:32px">
+    <div style="width:76px;height:76px;border-radius:50%;background:#5b5bd6;display:flex;align-items:center;justify-content:center"><div style="width:30px;height:30px;border:3px solid #fff;border-radius:9px"></div></div>
+    <div style="margin-top:18px;font-size:30px;font-weight:800;color:#17171f;letter-spacing:-.03em">Sésame</div>
+    <div style="margin-top:6px;font-size:15px;color:#71717d;text-align:center;max-width:250px;line-height:1.4">Simple. Privé. Tout reste ici, sur votre téléphone.</div>
+    <div style="margin-top:40px;display:flex;gap:8px">
+      <span style="font-size:12.5px;font-weight:600;color:#5b5bd6;background:#ececfa;padding:6px 13px;border-radius:999px">Passeports</span><span style="font-size:12.5px;font-weight:600;color:#1e8f6e;background:#e2f4ed;padding:6px 13px;border-radius:999px">Ordonnances</span><span style="font-size:12.5px;font-weight:600;color:#c15c9a;background:#f9e9f3;padding:6px 13px;border-radius:999px">Contrats</span>
+    </div>
+    <div style="margin-top:36px;width:100%;background:#5b5bd6;color:#fff;font-size:16px;font-weight:700;padding:16px;border-radius:16px;text-align:center;box-shadow:0 10px 24px rgba(91,91,214,.25)">Déverrouiller avec Face ID</div>
+    <div style="margin-top:14px;font-size:15px;color:#5b5bd6;font-weight:600">Code PIN ou mot de passe</div>
+    <div style="margin-top:auto;font-size:12px;color:#a5a5b0">Verrouillage automatique après 60 s d'inactivité</div>
+  </div>
+</x-import>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:#fbfbfd;padding:64px 20px 0;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-size:30px;font-weight:800;color:#17171f;letter-spacing:-.03em">Coffre</div><div style="display:flex;gap:8px"><div style="width:38px;height:38px;border-radius:50%;background:#f0f0f4;display:flex;align-items:center;justify-content:center;color:#71717d;font-size:16px">⌕</div><div style="width:38px;height:38px;border-radius:50%;background:#f0f0f4;display:flex;align-items:center;justify-content:center;color:#71717d;font-size:16px">⚙</div></div></div>
+    <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+      <span style="font-size:13px;font-weight:600;color:#fff;background:#5b5bd6;padding:8px 15px;border-radius:999px">Tout · 31</span><span style="font-size:13px;font-weight:600;color:#5b5bd6;background:#ececfa;padding:8px 15px;border-radius:999px">Identité 6</span><span style="font-size:13px;font-weight:600;color:#1e8f6e;background:#e2f4ed;padding:8px 15px;border-radius:999px">Santé 9</span><span style="font-size:13px;font-weight:600;color:#b3762a;background:#faf0df;padding:8px 15px;border-radius:999px">Voyage 4</span><span style="font-size:13px;font-weight:600;color:#c15c9a;background:#f9e9f3;padding:8px 15px;border-radius:999px">Finances 12</span><span style="font-size:13px;font-weight:600;color:#71717d;border:1.5px dashed #d5d5de;padding:8px 15px;border-radius:999px">+</span>
+    </div>
+    <div style="margin-top:22px;display:grid;grid-template-columns:1fr 1fr;gap:12px">
+      <div style="background:#fff;border:1px solid #ececf1;border-radius:18px;padding:10px;box-shadow:0 1px 3px rgba(23,23,31,.04)"><div style="height:110px;border-radius:12px;background:repeating-linear-gradient(45deg,#efeff4,#efeff4 7px,#f7f7fa 7px,#f7f7fa 14px)"></div><div style="margin-top:10px;padding:0 4px 6px"><div style="font-size:14px;font-weight:700;color:#17171f">Passeport – Camille</div><div style="margin-top:5px;display:flex;gap:5px"><span style="font-size:10.5px;font-weight:600;color:#5b5bd6;background:#ececfa;padding:3px 8px;border-radius:999px">Identité</span><span style="font-size:10.5px;font-weight:600;color:#b3762a;background:#faf0df;padding:3px 8px;border-radius:999px">Voyage</span></div></div></div>
+      <div style="background:#fff;border:1px solid #ececf1;border-radius:18px;padding:10px;box-shadow:0 1px 3px rgba(23,23,31,.04)"><div style="height:110px;border-radius:12px;background:repeating-linear-gradient(45deg,#efeff4,#efeff4 7px,#f7f7fa 7px,#f7f7fa 14px);display:flex;align-items:center;justify-content:center"><span style="font-size:11px;font-weight:700;color:#c15c9a;background:#f9e9f3;padding:3px 8px;border-radius:6px">PDF</span></div><div style="margin-top:10px;padding:0 4px 6px"><div style="font-size:14px;font-weight:700;color:#17171f">Bail 2026–2027</div><div style="margin-top:5px;display:flex;gap:5px"><span style="font-size:10.5px;font-weight:600;color:#c15c9a;background:#f9e9f3;padding:3px 8px;border-radius:999px">Finances</span></div></div></div>
+      <div style="background:#fff;border:1px solid #ececf1;border-radius:18px;padding:10px;box-shadow:0 1px 3px rgba(23,23,31,.04)"><div style="height:110px;border-radius:12px;background:repeating-linear-gradient(45deg,#efeff4,#efeff4 7px,#f7f7fa 7px,#f7f7fa 14px)"></div><div style="margin-top:10px;padding:0 4px 6px"><div style="font-size:14px;font-weight:700;color:#17171f">Carte d'assurance</div><div style="margin-top:5px;display:flex;gap:5px"><span style="font-size:10.5px;font-weight:600;color:#1e8f6e;background:#e2f4ed;padding:3px 8px;border-radius:999px">Santé</span></div></div></div>
+      <div style="background:#fff;border:1px solid #ececf1;border-radius:18px;padding:10px;box-shadow:0 1px 3px rgba(23,23,31,.04)"><div style="height:110px;border-radius:12px;background:repeating-linear-gradient(45deg,#efeff4,#efeff4 7px,#f7f7fa 7px,#f7f7fa 14px);display:flex;align-items:center;justify-content:center"><span style="font-size:11px;font-weight:700;color:#71717d;background:#f0f0f4;padding:3px 8px;border-radius:6px">NOTE</span></div><div style="margin-top:10px;padding:0 4px 6px"><div style="font-size:14px;font-weight:700;color:#17171f">Numéros d'urgence</div><div style="margin-top:5px;display:flex;gap:5px"><span style="font-size:10.5px;font-weight:600;color:#1e8f6e;background:#e2f4ed;padding:3px 8px;border-radius:999px">Santé</span></div></div></div>
+    </div>
+    <div style="position:relative;margin-top:auto;align-self:center;margin-bottom:22px"><div style="background:#17171f;color:#fff;font-size:15px;font-weight:700;padding:14px 26px;border-radius:999px;display:flex;gap:8px;align-items:center;box-shadow:0 10px 24px rgba(23,23,31,.25)"><span style="font-size:18px">+</span>Ajouter</div></div>
+  </div>
+</x-import>
+<x-import component-from-global-scope="IOSDevice" from="./ios-frame.jsx" hint-size="390px,844px">
+  <div style="height:100%;display:flex;flex-direction:column;background:#fbfbfd;padding:64px 20px 0;overflow:hidden">
+    <div style="display:flex;align-items:center;justify-content:space-between"><div style="font-size:16px;color:#5b5bd6;font-weight:600">‹ Coffre</div><div style="font-size:16px;color:#5b5bd6;font-weight:600">Modifier</div></div>
+    <div style="margin-top:16px;text-align:center;font-size:17px;font-weight:800;color:#17171f">Ajouter un document</div>
+    <div style="margin-top:24px;display:flex;flex-direction:column;gap:12px">
+      <div style="background:#5b5bd6;border-radius:18px;padding:20px;display:flex;gap:14px;align-items:center;box-shadow:0 10px 24px rgba(91,91,214,.22)"><div style="width:44px;height:44px;border-radius:14px;background:rgba(255,255,255,.18);display:flex;align-items:center;justify-content:center"><div style="width:16px;height:16px;border:2.5px solid #fff;border-radius:5px"></div></div><div><div style="font-size:16px;font-weight:700;color:#fff">Scanner un document</div><div style="font-size:13px;color:rgba(255,255,255,.75)">Recadrage automatique des bords</div></div></div>
+      <div style="background:#fff;border:1px solid #ececf1;border-radius:18px;padding:20px;display:flex;gap:14px;align-items:center"><div style="width:44px;height:44px;border-radius:14px;background:#ececfa;display:flex;align-items:center;justify-content:center"><div style="width:16px;height:16px;border-radius:50%;border:2.5px solid #5b5bd6"></div></div><div><div style="font-size:16px;font-weight:700;color:#17171f">Prendre une photo</div><div style="font-size:13px;color:#71717d">Appareil photo, jamais enregistrée ailleurs</div></div></div>
+      <div style="background:#fff;border:1px solid #ececf1;border-radius:18px;padding:20px;display:flex;gap:14px;align-items:center"><div style="width:44px;height:44px;border-radius:14px;background:#e2f4ed;display:flex;align-items:center;justify-content:center"><div style="width:16px;height:16px;background:#1e8f6e;border-radius:4px;transform:rotate(45deg)"></div></div><div><div style="font-size:16px;font-weight:700;color:#17171f">Importer de la galerie</div><div style="font-size:13px;color:#71717d">L'original peut être supprimé après import</div></div></div>
+      <div style="background:#fff;border:1px solid #ececf1;border-radius:18px;padding:20px;display:flex;gap:14px;align-items:center"><div style="width:44px;height:44px;border-radius:14px;background:#faf0df;display:flex;align-items:center;justify-content:center"><span style="font-size:11px;font-weight:800;color:#b3762a">PDF</span></div><div><div style="font-size:16px;font-weight:700;color:#17171f">Importer un fichier</div><div style="font-size:13px;color:#71717d">PDF, images, depuis Fichiers</div></div></div>
+      <div style="background:#fff;border:1px solid #ececf1;border-radius:18px;padding:20px;display:flex;gap:14px;align-items:center"><div style="width:44px;height:44px;border-radius:14px;background:#f9e9f3;display:flex;align-items:center;justify-content:center"><span style="width:16px;height:2.5px;background:#c15c9a;display:block;box-shadow:0 5px 0 #c15c9a,0 -5px 0 #c15c9a"></span></div><div><div style="font-size:16px;font-weight:700;color:#17171f">Nouvelle note</div><div style="font-size:13px;color:#71717d">Texte chiffré : codes, numéros, mémos</div></div></div>
+    </div>
+    <div style="margin-top:auto;margin-bottom:24px;text-align:center;font-size:12px;color:#a5a5b0">Tout est chiffré dès l'ajout · rien ne quitte l'appareil</div>
+  </div>
+</x-import>
+</div>
+</div>
+
+</div>
+<p class="dv-next">À essayer : « garde <a class="dv-oid" href="#1a">1a</a> mais avec les étiquettes colorées de <a class="dv-oid" href="#1c">1c</a> » · « montre l'écran de partage AirDrop pour <a class="dv-oid" href="#1b">1b</a> » · « transforme la direction choisie en prototype cliquable »</p>
+</section>
+</x-dc>
+</body>
+</html>
