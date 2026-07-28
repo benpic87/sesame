@@ -47,6 +47,16 @@ Sesame/
 └── Resources/               Localizable.xcstrings (fr = langue source), Assets
 ```
 
+## Publication App Store
+
+Tout le dossier de soumission est dans [`docs/`](docs/) :
+- [`docs/app-store/GUIDE-PUBLICATION.md`](docs/app-store/GUIDE-PUBLICATION.md) — parcours complet, du compte développeur à la review ;
+- [`docs/app-store/FICHE-METADONNEES.md`](docs/app-store/FICHE-METADONNEES.md) — nom, description, mots-clés (FR + EN), réponses au questionnaire de confidentialité ;
+- [`docs/app-store/NOTES-REVIEW.md`](docs/app-store/NOTES-REVIEW.md) — notes pour l'examinateur Apple ;
+- [`docs/POLITIQUE-CONFIDENTIALITE.md`](docs/POLITIQUE-CONFIDENTIALITE.md) — politique de confidentialité (FR + EN) à publier via GitHub Pages.
+
+La conformité export (`ITSAppUsesNonExemptEncryption = NO`) et l'icône 1024 px sont déjà dans le projet.
+
 ## Monétisation (freemium)
 
 - **Version gratuite** : coffre limité à **2 documents** (toutes les autres fonctions restent ouvertes). Un bandeau sur l'accueil affiche le compteur ; le bouton « + Ajouter » ouvre l'écran Premium quand la limite est atteinte.

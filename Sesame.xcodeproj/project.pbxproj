@@ -344,6 +344,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Sésame utilise l'appareil photo pour scanner et photographier vos documents. Les images sont chiffrées immédiatement et ne quittent jamais l'appareil.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID déverrouille votre coffre de documents.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Sésame accède à la galerie pour importer des documents et, si vous le demandez, supprimer l'original après import.";
@@ -375,6 +376,7 @@
 				DEVELOPMENT_ASSET_PATHS = "";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Sésame utilise l'appareil photo pour scanner et photographier vos documents. Les images sont chiffrées immédiatement et ne quittent jamais l'appareil.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID déverrouille votre coffre de documents.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Sésame accède à la galerie pour importer des documents et, si vous le demandez, supprimer l'original après import.";
