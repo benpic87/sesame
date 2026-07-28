@@ -39,7 +39,8 @@ final class VaultStore {
         type: DocumentType,
         fileExtension: String,
         tagIDs: [UUID] = [],
-        expiresAt: Date? = nil
+        expiresAt: Date? = nil,
+        addedAt: Date = .now
     ) throws -> Document {
         let fileName = UUID().uuidString + ".enc"
         try crypto.encryptToFile(data, at: vaultDirectory.appendingPathComponent(fileName))
@@ -56,6 +57,7 @@ final class VaultStore {
             name: name,
             type: type,
             sizeBytes: Int64(data.count),
+            addedAt: addedAt,
             tagIDs: tagIDs,
             encryptedFileName: fileName,
             thumbnailFileName: thumbnailFileName,
@@ -145,6 +147,79 @@ final class VaultStore {
     /// À appeler au verrouillage : aucune donnée déchiffrée ne reste en cache.
     func clearCaches() {
         thumbnailCache.removeAllObjects()
+    }
+
+    // MARK: Restauration de sauvegarde
+
+    struct RestoreSummary {
+        var documentsRestored = 0
+        var duplicatesSkipped = 0
+        var categoriesAdded = 0
+    }
+
+    /// Restaure un fichier `.sesamebackup` : déchiffre le conteneur avec la
+    /// phrase de récupération, puis fusionne — les catégories sont rapprochées
+    /// par identifiant puis par nom, les documents déjà présents (même nom,
+    /// même taille, même date d'ajout) sont ignorés. Chaque document restauré
+    /// est rechiffré avec la clé maîtresse locale.
+    func restoreBackup(_ container: Data, passphrase: String) throws -> RestoreSummary {
+        let json = try crypto.decrypt(container, passphrase: passphrase)
+        let backup = try BackupPayload.decoder().decode(BackupPayload.self, from: json)
+
+        var summary = RestoreSummary()
+        let existingCategories = (try? modelContext.fetch(FetchDescriptor<Category>())) ?? []
+        let existingDocuments = (try? modelContext.fetch(FetchDescriptor<Document>())) ?? []
+
+        // Catégories : id de la sauvegarde → id local.
+        var categoryMap: [UUID: UUID] = [:]
+        for backupCategory in backup.categories {
+            if existingCategories.contains(where: { $0.id == backupCategory.id }) {
+                categoryMap[backupCategory.id] = backupCategory.id
+            } else if let sameName = existingCategories.first(where: {
+                $0.name.localizedCaseInsensitiveCompare(backupCategory.name) == .orderedSame
+            }) {
+                categoryMap[backupCategory.id] = sameName.id
+            } else {
+                let category = Category(
+                    name: backupCategory.name,
+                    colorToken: CategoryColorToken(rawValue: backupCategory.colorToken) ?? .indigo
+                )
+                category.id = backupCategory.id
+                modelContext.insert(category)
+                categoryMap[backupCategory.id] = backupCategory.id
+                summary.categoriesAdded += 1
+            }
+        }
+
+        for backupDocument in backup.documents {
+            guard let data = Data(base64Encoded: backupDocument.contentBase64) else {
+                throw CryptoError.invalidContainer
+            }
+            // Doublon : même nom, même taille, date d'ajout à la seconde près
+            // (l'ISO 8601 de l'export tronque les fractions de seconde).
+            let isDuplicate = existingDocuments.contains {
+                $0.name == backupDocument.name
+                    && $0.sizeBytes == Int64(data.count)
+                    && abs($0.addedAt.timeIntervalSince(backupDocument.addedAt)) < 1
+            }
+            if isDuplicate {
+                summary.duplicatesSkipped += 1
+                continue
+            }
+            try importDocument(
+                data: data,
+                name: backupDocument.name,
+                type: DocumentType(rawValue: backupDocument.type) ?? .image,
+                fileExtension: backupDocument.fileExtension,
+                tagIDs: backupDocument.tagIDs.compactMap { categoryMap[$0] },
+                expiresAt: backupDocument.expiresAt,
+                addedAt: backupDocument.addedAt
+            )
+            summary.documentsRestored += 1
+        }
+
+        try modelContext.save()
+        return summary
     }
 
     // MARK: Vignettes

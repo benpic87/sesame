@@ -98,3 +98,43 @@ final class CryptoServiceTests: XCTestCase {
                           "Deux empreintes du même secret doivent différer (sel aléatoire)")
     }
 }
+
+final class BackupPayloadTests: XCTestCase {
+    /// Aller-retour complet du format .sesamebackup :
+    /// payload → JSON → conteneur chiffré → déchiffré → payload identique.
+    func testEncryptedBackupRoundTrip() throws {
+        let crypto = CryptoService(masterKey: SymmetricKey(size: .bits256))
+        let categoryID = UUID()
+        // Dates à la seconde près : l'ISO 8601 tronque les fractions.
+        let payload = BackupPayload(
+            version: 1,
+            exportedAt: Date(timeIntervalSince1970: 1_753_000_000),
+            categories: [.init(id: categoryID, name: "Santé", colorToken: "green")],
+            documents: [.init(
+                name: "Passeport – Camille",
+                type: "image",
+                addedAt: Date(timeIntervalSince1970: 1_750_000_000),
+                expiresAt: Date(timeIntervalSince1970: 1_790_000_000),
+                tagIDs: [categoryID],
+                fileExtension: "jpg",
+                contentBase64: Data("contenu du passeport".utf8).base64EncodedString()
+            )]
+        )
+
+        let json = try BackupPayload.encoder().encode(payload)
+        let container = try crypto.encrypt(json, passphrase: "corail-lampe-92-nuit")
+        let decryptedJSON = try crypto.decrypt(container, passphrase: "corail-lampe-92-nuit")
+        let decoded = try BackupPayload.decoder().decode(BackupPayload.self, from: decryptedJSON)
+
+        XCTAssertEqual(decoded.version, 1)
+        XCTAssertEqual(decoded.categories.first?.id, categoryID)
+        XCTAssertEqual(decoded.categories.first?.colorToken, "green")
+        XCTAssertEqual(decoded.documents.first?.name, "Passeport – Camille")
+        XCTAssertEqual(decoded.documents.first?.addedAt, payload.documents.first?.addedAt)
+        XCTAssertEqual(decoded.documents.first?.tagIDs, [categoryID])
+        XCTAssertEqual(
+            Data(base64Encoded: decoded.documents.first?.contentBase64 ?? ""),
+            Data("contenu du passeport".utf8)
+        )
+    }
+}

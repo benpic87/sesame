@@ -50,28 +50,7 @@ final class ShareService {
     /// Sauvegarde chiffrée manuelle : toutes les métadonnées + contenus dans un
     /// seul conteneur protégé par phrase de passe, à exporter vers Fichiers.
     func makeBackup(documents: [Document], categories: [Category], passphrase: String) throws -> URL {
-        struct BackupDocument: Codable {
-            var name: String
-            var type: String
-            var addedAt: Date
-            var expiresAt: Date?
-            var tagIDs: [UUID]
-            var fileExtension: String
-            var contentBase64: String
-        }
-        struct BackupCategory: Codable {
-            var id: UUID
-            var name: String
-            var colorToken: String
-        }
-        struct Backup: Codable {
-            var version: Int
-            var exportedAt: Date
-            var categories: [BackupCategory]
-            var documents: [BackupDocument]
-        }
-
-        let backup = Backup(
+        let backup = BackupPayload(
             version: 1,
             exportedAt: .now,
             categories: categories.map { .init(id: $0.id, name: $0.name, colorToken: $0.colorTokenRaw) },
@@ -88,9 +67,7 @@ final class ShareService {
             }
         )
 
-        let encoder = JSONEncoder()
-        encoder.dateEncodingStrategy = .iso8601
-        let json = try encoder.encode(backup)
+        let json = try BackupPayload.encoder().encode(backup)
         let container = try vault.crypto.encrypt(json, passphrase: passphrase)
 
         let formatter = DateFormatter()

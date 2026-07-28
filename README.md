@@ -84,6 +84,11 @@ L'interface est traduite en 11 langues : français (langue de développement), a
 - `AutoLockTests` : politique d'auto-verrouillage (délai, report par activité), déverrouillage PIN/mot de passe.
 - `PassphraseGeneratorTests` : format « mot-mot-nombre-mot ».
 
+## Sauvegarde et restauration
+
+- **Export** (Réglages ▸ Sauvegarde chiffrée locale) : conteneur `.sesamebackup` chiffré par une phrase de récupération générée, à enregistrer où l'on veut via Fichiers (y compris iCloud Drive, au choix de l'utilisateur).
+- **Restauration** (Réglages ▸ Restaurer une sauvegarde) : fusion dans le coffre existant — catégories rapprochées par identifiant puis par nom, documents déjà présents (même nom, taille et date d'ajout) ignorés, contenus rechiffrés avec la clé maîtresse locale de l'appareil. La restauration n'est pas bloquée par la limite gratuite (les données de l'utilisateur ne sont jamais prises en otage) ; seule l'*ajout* de nouveaux documents reste soumis à la limite.
+
 ## Hors périmètre v1
 
-Mode sombre, iPad, import de sauvegarde (`.sesamebackup` — export uniquement pour l'instant), ouverture des fichiers `.sesame` reçus.
+Mode sombre, iPad, ouverture des fichiers `.sesame` reçus.

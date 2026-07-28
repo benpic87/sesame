@@ -11,6 +11,7 @@ struct SettingsView: View {
 
     @State private var showPINChange = false
     @State private var showBackup = false
+    @State private var showRestore = false
     @State private var showPaywall = false
     @State private var confirmWipe1 = false
     @State private var confirmWipe2 = false
@@ -79,6 +80,14 @@ struct SettingsView: View {
                             showBackup = true
                         }
                         Divider().overlay(Theme.border)
+                        SettingsLinkRow(
+                            title: "Restaurer une sauvegarde",
+                            subtitle: "Depuis un fichier .sesamebackup",
+                            value: ""
+                        ) {
+                            showRestore = true
+                        }
+                        Divider().overlay(Theme.border)
                         SettingsLinkRow(title: "Langue", value: languageName) {
                             if let url = URL(string: UIApplication.openSettingsURLString) {
                                 UIApplication.shared.open(url)
@@ -105,6 +114,7 @@ struct SettingsView: View {
         .navigationBarTitleDisplayMode(.inline)
         .sheet(isPresented: $showPINChange) { PINChangeView() }
         .sheet(isPresented: $showBackup) { BackupExportView() }
+        .sheet(isPresented: $showRestore) { BackupRestoreView() }
         .sheet(isPresented: $showPaywall) { PaywallView() }
         .alert("Effacer tout le coffre ?", isPresented: $confirmWipe1) {
             Button("Continuer", role: .destructive) { confirmWipe2 = true }
