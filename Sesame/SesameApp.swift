@@ -11,7 +11,14 @@ struct SesameApp: App {
 
     init() {
         do {
-            container = try ModelContainer(for: Document.self, Category.self)
+            // Base en mémoire pendant les tests : pas d'accès disque,
+            // pas d'état résiduel entre deux exécutions.
+            let isTesting = ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
+            let configuration = ModelConfiguration(isStoredInMemoryOnly: isTesting)
+            container = try ModelContainer(
+                for: Document.self, Category.self,
+                configurations: configuration
+            )
         } catch {
             fatalError("Impossible d'initialiser la base locale : \(error)")
         }

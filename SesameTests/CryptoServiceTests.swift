@@ -98,16 +98,3 @@ final class CryptoServiceTests: XCTestCase {
                           "Deux empreintes du même secret doivent différer (sel aléatoire)")
     }
 }
-
-extension CryptoError: Equatable {
-    public static func == (lhs: CryptoError, rhs: CryptoError) -> Bool {
-        switch (lhs, rhs) {
-        case (.invalidContainer, .invalidContainer),
-             (.wrongPassphrase, .wrongPassphrase),
-             (.keyDerivationFailed, .keyDerivationFailed):
-            true
-        default:
-            false
-        }
-    }
-}
