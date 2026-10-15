@@ -39,6 +39,16 @@
                ReferencedContainer = "container:Sesame.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "AA0000000000000000000070"
+               BuildableName = "SesameUITests.xctest"
+               BlueprintName = "SesameUITests"
+               ReferencedContainer = "container:Sesame.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction

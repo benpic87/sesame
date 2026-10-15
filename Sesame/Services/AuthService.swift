@@ -42,16 +42,19 @@ final class AuthService {
     }
 
     var faceIDEnabled: Bool {
-        didSet { UserDefaults.standard.set(faceIDEnabled, forKey: Self.faceIDKey) }
+        didSet { defaults.set(faceIDEnabled, forKey: Self.faceIDKey) }
     }
 
     var autoLockInterval: TimeInterval {
-        didSet { UserDefaults.standard.set(autoLockInterval, forKey: Self.autoLockKey) }
+        didSet { defaults.set(autoLockInterval, forKey: Self.autoLockKey) }
     }
 
-    init(keychain: KeychainStoring = KeychainStore()) {
+    /// Préférences (Face ID, délai) ; injectables pour isoler les tests.
+    private let defaults: UserDefaults
+
+    init(keychain: KeychainStoring = KeychainStore(), defaults: UserDefaults = .standard) {
         self.keychain = keychain
-        let defaults = UserDefaults.standard
+        self.defaults = defaults
         faceIDEnabled = defaults.object(forKey: Self.faceIDKey) as? Bool ?? true
         autoLockInterval = defaults.object(forKey: Self.autoLockKey) as? TimeInterval ?? 60
         startAutoLockTimer()

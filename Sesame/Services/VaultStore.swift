@@ -14,12 +14,14 @@ final class VaultStore {
 
     let vaultDirectory: URL
 
-    init(modelContext: ModelContext, crypto: CryptoService = CryptoService()) {
+    /// `directoryName` : dossier distinct pour les tests d'interface, afin de
+    /// ne jamais toucher au coffre réel de l'appareil.
+    init(modelContext: ModelContext, crypto: CryptoService = CryptoService(), directoryName: String = "Vault") {
         self.modelContext = modelContext
         self.crypto = crypto
 
         let support = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-        vaultDirectory = support.appendingPathComponent("Vault", isDirectory: true)
+        vaultDirectory = support.appendingPathComponent(directoryName, isDirectory: true)
         try? FileManager.default.createDirectory(at: vaultDirectory, withIntermediateDirectories: true)
 
         // Jamais dans les sauvegardes iCloud/iTunes.
