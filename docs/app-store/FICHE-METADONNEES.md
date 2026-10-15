@@ -24,7 +24,7 @@ Sésame garde vos documents sensibles — passeports, cartes, ordonnances, contr
 100 % LOCAL, 0 % CLOUD
 • Aucun compte, aucun serveur, aucune requête réseau
 • Chiffrement AES sur l'appareil, clé protégée par la puce sécurisée
-• Rien ne quitte votre téléphone, jamais
+• Rien ne quitte votre téléphone sans votre accord
 
 VERROUILLÉ, VRAIMENT
 • Face ID, code PIN à 6 chiffres ou mot de passe
@@ -95,7 +95,7 @@ Sésame keeps your sensitive documents — passports, cards, prescriptions, cont
 100% LOCAL, 0% CLOUD
 • No account, no server, no network requests
 • On-device AES encryption, key protected by the secure enclave
-• Nothing ever leaves your phone
+• Nothing leaves your phone without your consent
 
 TRULY LOCKED
 • Face ID, 6-digit PIN or password

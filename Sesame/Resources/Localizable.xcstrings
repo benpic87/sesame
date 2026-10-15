@@ -11412,66 +11412,66 @@
         }
       }
     },
-    "Trop de tentatives. Réessayez dans 30 secondes." : {
+    "Trop de tentatives. Réessayez à %@." : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "محاولات كثيرة جدًا. حاول مرة أخرى بعد 30 ثانية."
+            "value" : "محاولات كثيرة جدًا. أعد المحاولة في %@."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Zu viele Versuche. Versuchen Sie es in 30 Sekunden erneut."
+            "value" : "Zu viele Versuche. Versuchen Sie es um %@ erneut."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Too many attempts. Try again in 30 seconds."
+            "value" : "Too many attempts. Try again at %@."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Demasiados intentos. Inténtalo de nuevo en 30 segundos."
+            "value" : "Demasiados intentos. Vuelve a intentarlo a las %@."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Troppi tentativi. Riprova tra 30 secondi."
+            "value" : "Troppi tentativi. Riprova alle %@."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "試行回数が多すぎます。30秒後にやり直してください。"
+            "value" : "試行回数が多すぎます。%@ に再試行してください。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "시도 횟수가 너무 많습니다. 30초 후에 다시 시도하세요."
+            "value" : "시도 횟수가 너무 많습니다. %@에 다시 시도하세요."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Te veel pogingen. Probeer het over 30 seconden opnieuw."
+            "value" : "Te veel pogingen. Probeer het opnieuw om %@."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Demasiadas tentativas. Tente novamente dentro de 30 segundos."
+            "value" : "Demasiadas tentativas. Tente novamente às %@."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "尝试次数过多。请在30秒后重试。"
+            "value" : "尝试次数过多。请在 %@ 再试。"
           }
         }
       }

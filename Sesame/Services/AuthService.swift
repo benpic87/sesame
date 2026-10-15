@@ -32,9 +32,27 @@ final class AuthService {
     private(set) var isLocked = true
     private(set) var lastActivityAt = Date()
 
-    /// Anti-force brute : 5 échecs PIN/mot de passe → attente de 30 s.
+    /// Anti-force brute : toutes les 5 erreurs PIN/mot de passe, attente
+    /// croissante (30 s, 1 min, 2 min… jusqu'à 1 h). Gardé dans le trousseau
+    /// pour qu'une relance de l'app ne remette pas le compteur à zéro.
     private(set) var failedAttempts = 0
     private(set) var lockoutUntil: Date?
+
+    private static let throttleKey = "pin-throttle.v1"
+    static let attemptsBeforeLockout = 5
+    static let maximumLockout: TimeInterval = 3600
+
+    private struct ThrottleState: Codable {
+        var failedAttempts: Int
+        var lockoutUntil: Date?
+    }
+
+    /// Durée d'attente après `failures` erreurs (0 entre deux paliers).
+    static func lockoutDuration(afterFailures failures: Int) -> TimeInterval {
+        guard failures > 0, failures % attemptsBeforeLockout == 0 else { return 0 }
+        let step = failures / attemptsBeforeLockout - 1
+        return min(30 * pow(2, Double(min(step, 20))), maximumLockout)
+    }
 
     var isThrottled: Bool {
         guard let lockoutUntil else { return false }
@@ -57,6 +75,11 @@ final class AuthService {
         self.defaults = defaults
         faceIDEnabled = defaults.object(forKey: Self.faceIDKey) as? Bool ?? true
         autoLockInterval = defaults.object(forKey: Self.autoLockKey) as? TimeInterval ?? 60
+        if let data = keychain.data(for: Self.throttleKey),
+           let state = try? JSONDecoder().decode(ThrottleState.self, from: data) {
+            failedAttempts = state.failedAttempts
+            lockoutUntil = state.lockoutUntil
+        }
         startAutoLockTimer()
     }
 
@@ -117,15 +140,20 @@ final class AuthService {
         isLocked = false
         failedAttempts = 0
         lockoutUntil = nil
+        keychain.delete(Self.throttleKey)
         registerActivity()
     }
 
-    private func registerFailedAttempt() {
+    private func registerFailedAttempt(now: Date = .now) {
         guard !isThrottled else { return }
         failedAttempts += 1
-        if failedAttempts >= 5 {
-            lockoutUntil = .now.addingTimeInterval(30)
-            failedAttempts = 0
+        let duration = Self.lockoutDuration(afterFailures: failedAttempts)
+        if duration > 0 {
+            lockoutUntil = now.addingTimeInterval(duration)
+        }
+        let state = ThrottleState(failedAttempts: failedAttempts, lockoutUntil: lockoutUntil)
+        if let data = try? JSONEncoder().encode(state) {
+            keychain.set(data, for: Self.throttleKey)
         }
     }
 

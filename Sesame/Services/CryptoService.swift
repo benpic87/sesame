@@ -7,6 +7,9 @@ enum CryptoError: Error {
     case invalidContainer
     case wrongPassphrase
     case keyDerivationFailed
+    /// Trousseau inaccessible pour l'instant (appareil verrouillé…) :
+    /// l'opération échoue, mais aucune clé n'est créée ni effacée.
+    case masterKeyUnavailable
 }
 
 /// Chiffrement du coffre : AES-GCM avec une clé maîtresse de 256 bits gardée
@@ -20,33 +23,65 @@ final class CryptoService {
     private static let pbkdf2Rounds: UInt32 = 210_000
     private static let saltLength = 16
 
-    private let masterKey: SymmetricKey
+    private let keychain: KeychainStoring?
+    private var cachedMasterKey: SymmetricKey?
+    private let keyLock = NSLock()
 
-    /// Charge la clé maîtresse depuis le Keychain, ou la crée au premier lancement.
+    /// La clé maîtresse est chargée au premier usage, pas au lancement : l'app
+    /// peut démarrer (pré-lancement iOS) alors que le trousseau est encore
+    /// inaccessible. Elle n'est créée que si le trousseau confirme son absence.
     init(keychain: KeychainStoring = KeychainStore()) {
-        if let stored = keychain.data(for: Self.masterKeyKeychainKey) {
-            masterKey = SymmetricKey(data: stored)
-        } else {
-            let key = SymmetricKey(size: .bits256)
-            keychain.set(key.withUnsafeBytes { Data($0) }, for: Self.masterKeyKeychainKey)
-            masterKey = key
-        }
+        self.keychain = keychain
     }
 
     /// Initialisation directe pour les tests (aucun Keychain requis).
     init(masterKey: SymmetricKey) {
-        self.masterKey = masterKey
+        keychain = nil
+        cachedMasterKey = masterKey
     }
 
     // MARK: Clé maîtresse (fichiers du coffre)
 
     func encrypt(_ plaintext: Data) throws -> Data {
-        try AES.GCM.seal(plaintext, using: masterKey).combined!
+        try AES.GCM.seal(plaintext, using: masterKey()).combined!
     }
 
     func decrypt(_ ciphertext: Data) throws -> Data {
         let box = try AES.GCM.SealedBox(combined: ciphertext)
-        return try AES.GCM.open(box, using: masterKey)
+        return try AES.GCM.open(box, using: masterKey())
+    }
+
+    private func masterKey() throws -> SymmetricKey {
+        keyLock.lock()
+        defer { keyLock.unlock() }
+        if let cachedMasterKey { return cachedMasterKey }
+        guard let keychain else { throw CryptoError.masterKeyUnavailable }
+        let key = try Self.loadOrCreateMasterKey(in: keychain)
+        cachedMasterKey = key
+        return key
+    }
+
+    /// Ne recrée JAMAIS une clé sur une erreur de lecture : une nouvelle clé
+    /// rendrait illisibles tous les documents chiffrés avec l'ancienne.
+    static func loadOrCreateMasterKey(in keychain: KeychainStoring) throws -> SymmetricKey {
+        let stored: Data?
+        do {
+            stored = try keychain.read(masterKeyKeychainKey)
+        } catch {
+            throw CryptoError.masterKeyUnavailable
+        }
+        if let stored {
+            return SymmetricKey(data: stored)
+        }
+        // Absence confirmée : premier lancement. La clé n'est utilisée que si
+        // son enregistrement a réussi (ajout seul, jamais d'écrasement).
+        let key = SymmetricKey(size: .bits256)
+        do {
+            try keychain.add(key.withUnsafeBytes { Data($0) }, for: masterKeyKeychainKey)
+        } catch {
+            throw CryptoError.masterKeyUnavailable
+        }
+        return key
     }
 
     func encryptToFile(_ plaintext: Data, at url: URL) throws {

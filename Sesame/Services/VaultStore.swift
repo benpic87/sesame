@@ -20,15 +20,40 @@ final class VaultStore {
         self.modelContext = modelContext
         self.crypto = crypto
 
-        let support = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-        vaultDirectory = support.appendingPathComponent(directoryName, isDirectory: true)
-        try? FileManager.default.createDirectory(at: vaultDirectory, withIntermediateDirectories: true)
+        vaultDirectory = Self.preparedDirectory(named: directoryName)
+    }
 
-        // Jamais dans les sauvegardes iCloud/iTunes.
+    /// Dossier du coffre, créé si besoin et exclu des sauvegardes iCloud et
+    /// ordinateur (exclusion héritée par tout son contenu, base comprise).
+    static func preparedDirectory(named name: String = "Vault") -> URL {
+        let support = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+        var directory = support.appendingPathComponent(name, isDirectory: true)
+        try? FileManager.default.createDirectory(at: directory, withIntermediateDirectories: true)
+
         var values = URLResourceValues()
         values.isExcludedFromBackup = true
-        var dir = vaultDirectory
-        try? dir.setResourceValues(values)
+        try? directory.setResourceValues(values)
+        return directory
+    }
+
+    /// Base des métadonnées (noms, dates, étiquettes) rangée dans le coffre,
+    /// donc hors sauvegardes. Déplace l'ancienne base `default.store` (placée
+    /// à la racine d'Application Support, sauvegardée) au premier lancement.
+    static func metadataStoreURL(in directory: URL) -> URL {
+        let storeURL = directory.appendingPathComponent("Sesame.store")
+        let manager = FileManager.default
+        let legacy = directory.deletingLastPathComponent().appendingPathComponent("default.store")
+        guard !manager.fileExists(atPath: storeURL.path), manager.fileExists(atPath: legacy.path) else {
+            return storeURL
+        }
+        for suffix in ["", "-wal", "-shm"] {
+            let from = URL(fileURLWithPath: legacy.path + suffix)
+            let to = URL(fileURLWithPath: storeURL.path + suffix)
+            if manager.fileExists(atPath: from.path) {
+                try? manager.moveItem(at: from, to: to)
+            }
+        }
+        return storeURL
     }
 
     // MARK: Import

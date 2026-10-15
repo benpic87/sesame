@@ -21,12 +21,23 @@ struct SesameApp: App {
 
     init() {
         let isUITesting = Self.isUITesting
+        let vaultDirectoryName = isUITesting ? "Vault-UITests" : "Vault"
+        if isUITesting {
+            let support = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
+            try? FileManager.default.removeItem(at: support.appendingPathComponent(vaultDirectoryName))
+        }
+
         do {
             // Base en mémoire pendant les tests : pas d'accès disque,
-            // pas d'état résiduel entre deux exécutions.
+            // pas d'état résiduel entre deux exécutions. Sinon, dans le
+            // dossier du coffre, exclu des sauvegardes.
             let isTesting = isUITesting
                 || ProcessInfo.processInfo.environment["XCTestConfigurationFilePath"] != nil
-            let configuration = ModelConfiguration(isStoredInMemoryOnly: isTesting)
+            let configuration = isTesting
+                ? ModelConfiguration(isStoredInMemoryOnly: true)
+                : ModelConfiguration(url: VaultStore.metadataStoreURL(
+                    in: VaultStore.preparedDirectory(named: vaultDirectoryName)
+                ))
             container = try ModelContainer(
                 for: Document.self, Category.self,
                 configurations: configuration
@@ -36,10 +47,7 @@ struct SesameApp: App {
         }
 
         let keychain: KeychainStoring = isUITesting ? InMemoryKeychain() : KeychainStore()
-        let vaultDirectoryName = isUITesting ? "Vault-UITests" : "Vault"
         if isUITesting {
-            let support = FileManager.default.urls(for: .applicationSupportDirectory, in: .userDomainMask)[0]
-            try? FileManager.default.removeItem(at: support.appendingPathComponent(vaultDirectoryName))
             UserDefaults.standard.removePersistentDomain(forName: Self.uiTestingDefaultsSuite)
             appStorage = UserDefaults(suiteName: Self.uiTestingDefaultsSuite) ?? .standard
         } else {

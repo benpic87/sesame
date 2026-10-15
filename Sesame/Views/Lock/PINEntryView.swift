@@ -46,8 +46,8 @@ struct PINEntryView: View {
 
             PINDots(count: pin.count, isError: showError)
 
-            if auth.isThrottled {
-                Text("Trop de tentatives. Réessayez dans 30 secondes.")
+            if auth.isThrottled, let lockoutUntil = auth.lockoutUntil {
+                Text("Trop de tentatives. Réessayez à \(lockoutUntil.formatted(date: .omitted, time: .shortened)).")
                     .appFont(13, .semibold, relativeTo: .footnote)
                     .foregroundStyle(Theme.alert)
             } else if showError {
