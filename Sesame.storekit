@@ -1,5 +1,15 @@
 {
-  "identifier" : "A1B2C3D4",
+  "appPolicies" : {
+    "eula" : "",
+    "policies" : [
+      {
+        "locale" : "en_US",
+        "policyText" : "",
+        "policyURL" : ""
+      }
+    ]
+  },
+  "identifier" : "5E5A3E01",
   "nonRenewingSubscriptions" : [
 
   ],
@@ -7,17 +17,17 @@
     {
       "displayPrice" : "4.99",
       "familyShareable" : false,
-      "internalID" : "F0E1D2C3",
+      "internalID" : "6740000001",
       "localizations" : [
-        {
-          "description" : "Coffre illimité, pour toujours",
-          "displayName" : "Sésame Premium",
-          "locale" : "fr"
-        },
         {
           "description" : "Unlimited vault, forever",
           "displayName" : "Sésame Premium",
-          "locale" : "en"
+          "locale" : "en_US"
+        },
+        {
+          "description" : "Coffre illimité, pour toujours",
+          "displayName" : "Sésame Premium",
+          "locale" : "fr_FR"
         }
       ],
       "productID" : "app.sesame.premium",
@@ -26,13 +36,18 @@
     }
   ],
   "settings" : {
+    "_failTransactionsEnabled" : false,
+    "_locale" : "en_US",
+    "_storefront" : "USA",
+    "_storeKitErrors" : [
 
+    ]
   },
   "subscriptionGroups" : [
 
   ],
   "version" : {
-    "major" : 3,
+    "major" : 4,
     "minor" : 0
   }
 }

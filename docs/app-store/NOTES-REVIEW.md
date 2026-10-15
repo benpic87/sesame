@@ -16,7 +16,7 @@ HOW TO TEST
 2. Add documents: tap "+", use "Import a file" or "New note" (camera and
    scanner require a physical device). Everything is encrypted with AES-GCM
    before being written to disk.
-3. Free tier: the vault is limited to 2 documents. Adding a 3rd opens the
+3. Free tier: the vault is limited to 3 documents. Adding a 4th opens the
    paywall.
 4. IN-APP PURCHASE "Sésame Premium" (app.sesame.premium, non-consumable):
    unlocks unlimited documents. "Restore purchases" is available on the

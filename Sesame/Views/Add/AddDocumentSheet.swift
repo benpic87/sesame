@@ -26,20 +26,27 @@ struct AddDocumentSheet: View {
 
                 ScrollView {
                     VStack(spacing: 12) {
+                        // Sans caméra (simulateur), les cartes restent visibles mais
+                        // désactivées : VNDocumentCameraViewController lève une
+                        // exception à l'init sur un appareil non compatible.
                         AddMethodCard(
                             icon: "doc.viewfinder",
                             title: "Scanner un document",
-                            subtitle: "Recadrage automatique des bords",
-                            isPrimary: true
+                            subtitle: DocumentScannerView.isSupported
+                                ? "Recadrage automatique des bords"
+                                : "Nécessite l'appareil photo d'un iPhone",
+                            isPrimary: true,
+                            isEnabled: DocumentScannerView.isSupported
                         ) { showScanner = true }
 
-                        if UIImagePickerController.isSourceTypeAvailable(.camera) {
-                            AddMethodCard(
-                                icon: "camera",
-                                title: "Prendre une photo",
-                                subtitle: "Appareil photo, jamais enregistrée ailleurs"
-                            ) { showCamera = true }
-                        }
+                        AddMethodCard(
+                            icon: "camera",
+                            title: "Prendre une photo",
+                            subtitle: CameraPicker.isAvailable
+                                ? "Appareil photo, jamais enregistrée ailleurs"
+                                : "Nécessite l'appareil photo d'un iPhone",
+                            isEnabled: CameraPicker.isAvailable
+                        ) { showCamera = true }
 
                         PhotosPicker(
                             selection: $galleryItem,
@@ -168,12 +175,15 @@ private struct AddMethodCard: View {
     let title: LocalizedStringKey
     let subtitle: LocalizedStringKey
     var isPrimary = false
+    var isEnabled = true
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
             AddMethodCardLabel(icon: icon, title: title, subtitle: subtitle, isPrimary: isPrimary)
         }
+        .disabled(!isEnabled)
+        .opacity(isEnabled ? 1 : 0.45)
     }
 }
 

@@ -47,7 +47,7 @@ PARTAGE SÉCURISÉ
 • Ou envoi AirDrop direct
 • Sauvegarde chiffrée manuelle vers Fichiers — jamais automatique
 
-VERSION GRATUITE : 2 documents. Sésame Premium (achat unique, pas d'abonnement) : documents illimités.
+VERSION GRATUITE : 3 documents. Sésame Premium (achat unique, pas d'abonnement) : documents illimités.
 
 Sésame ne collecte aucune donnée. Pas de pub, pas de traqueurs, pas de statistiques. Votre vie privée n'est pas un réglage, c'est l'architecture.
 ```
@@ -118,7 +118,7 @@ SECURE SHARING
 • Or direct AirDrop
 • Manual encrypted backup to Files — never automatic
 
-FREE VERSION: 2 documents. Sésame Premium (one-time purchase, no subscription): unlimited documents.
+FREE VERSION: 3 documents. Sésame Premium (one-time purchase, no subscription): unlimited documents.
 
 Sésame collects no data. No ads, no trackers, no analytics. Your privacy isn't a setting — it's the architecture.
 ```

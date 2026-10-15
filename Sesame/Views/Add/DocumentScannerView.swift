@@ -7,6 +7,9 @@ struct DocumentScannerView: UIViewControllerRepresentable {
     @Environment(\.dismiss) private var dismiss
     let completion: (Result<PendingImport, Error>) -> Void
 
+    /// À vérifier avant toute présentation : l'init du contrôleur plante sinon.
+    static var isSupported: Bool { VNDocumentCameraViewController.isSupported }
+
     func makeUIViewController(context: Context) -> VNDocumentCameraViewController {
         let controller = VNDocumentCameraViewController()
         controller.delegate = context.coordinator
@@ -77,6 +80,9 @@ struct DocumentScannerView: UIViewControllerRepresentable {
 struct CameraPicker: UIViewControllerRepresentable {
     @Environment(\.dismiss) private var dismiss
     let completion: (Data) -> Void
+
+    /// À vérifier avant toute présentation : la source `.camera` plante sinon.
+    static var isAvailable: Bool { UIImagePickerController.isSourceTypeAvailable(.camera) }
 
     func makeUIViewController(context: Context) -> UIImagePickerController {
         let picker = UIImagePickerController()

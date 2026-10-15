@@ -29,7 +29,7 @@ Sesame/
 │   ├── VaultStore.swift     Source de vérité : import chiffré, vignettes chiffrées, catégories,
 │   │                        effacement ; répertoire du coffre exclu des sauvegardes (isExcludedFromBackup)
 │   ├── ShareService.swift   Archive chiffrée .sesame, copie AirDrop temporaire, sauvegarde .sesamebackup
-│   ├── StoreService.swift   Freemium StoreKit 2 : limite gratuite de 2 documents, achat unique Premium
+│   ├── StoreService.swift   Freemium StoreKit 2 : limite gratuite de 3 documents, achat unique Premium
 │   ├── PassphraseGenerator.swift  Mots de passe « corail-lampe-92-nuit » (mot-mot-nombre-mot)
 │   └── KeychainStore.swift  Accès Keychain injectable (InMemoryKeychain pour les tests)
 ├── Views/
@@ -59,7 +59,7 @@ La conformité export (`ITSAppUsesNonExemptEncryption = NO`) et l'icône 1024 px
 
 ## Monétisation (freemium)
 
-- **Version gratuite** : coffre limité à **2 documents** (toutes les autres fonctions restent ouvertes). Un bandeau sur l'accueil affiche le compteur ; le bouton « + Ajouter » ouvre l'écran Premium quand la limite est atteinte.
+- **Version gratuite** : coffre limité à **3 documents** (toutes les autres fonctions restent ouvertes). Un bandeau sur l'accueil affiche le compteur ; le bouton « + Ajouter » ouvre l'écran Premium quand la limite est atteinte.
 - **Sésame Premium** : achat unique non consommable `app.sesame.premium` (StoreKit 2, aucun SDK tiers, pas d'abonnement, pas de publicité) → documents illimités. Restauration des achats dans les Réglages et sur l'écran de vente.
 - La limite ne s'applique qu'à l'**ajout** : si un achat est remboursé, les documents existants restent accessibles — jamais de données prises en otage.
 - **Test local** : sélectionner `Sesame.storekit` dans le schéma (Product ▸ Scheme ▸ Edit Scheme ▸ Run ▸ Options ▸ StoreKit Configuration) pour tester l'achat sans App Store Connect. En production, créer le produit `app.sesame.premium` dans App Store Connect.

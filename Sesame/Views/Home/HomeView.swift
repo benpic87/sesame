@@ -42,7 +42,7 @@ struct HomeView: View {
 
                 addButton
             }
-            .navigationBarHidden(true)
+            .toolbar(.hidden, for: .navigationBar)
             .sheet(isPresented: $showAddSheet) { AddDocumentSheet() }
             .sheet(isPresented: $showPaywall) { PaywallView() }
             .sheet(isPresented: $showNewCategory) { CategoryEditorSheet(category: nil) }
@@ -130,7 +130,7 @@ struct HomeView: View {
         }
     }
 
-    /// Bandeau version gratuite : compteur 2 documents + accès Premium.
+    /// Bandeau version gratuite : compteur 3 documents + accès Premium.
     private var freeBanner: some View {
         Button {
             showPaywall = true

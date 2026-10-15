@@ -18,6 +18,12 @@ struct DocumentDetailView: View {
     @State private var confirmDelete = false
     /// Contenu déchiffré une seule fois au chargement, jamais à chaque rendu.
     @State private var previewData: Data?
+    @State private var showViewer = false
+
+    /// Images et PDF s'ouvrent en plein écran ; les notes sont déjà lisibles.
+    private var canOpenViewer: Bool {
+        document.type != .note && previewData != nil
+    }
 
     private var documentCategories: [Category] {
         categories.filter { document.tagIDs.contains($0.id) }
@@ -37,6 +43,23 @@ struct DocumentDetailView: View {
                             RoundedRectangle(cornerRadius: 20, style: .continuous)
                                 .strokeBorder(Theme.border, lineWidth: 1)
                         )
+                        .overlay(alignment: .bottomTrailing) {
+                            if canOpenViewer {
+                                Image(systemName: "arrow.up.left.and.arrow.down.right")
+                                    .font(.system(size: 13, weight: .bold))
+                                    .foregroundStyle(.white)
+                                    .frame(width: 32, height: 32)
+                                    .background(.black.opacity(0.5), in: Circle())
+                                    .padding(10)
+                                    .accessibilityHidden(true)
+                            }
+                        }
+                        .contentShape(Rectangle())
+                        .onTapGesture {
+                            if canOpenViewer { showViewer = true }
+                        }
+                        .accessibilityAddTraits(canOpenViewer ? .isButton : [])
+                        .accessibilityLabel(canOpenViewer ? Text("Afficher en plein écran") : Text(document.name))
 
                     Text(document.name)
                         .appFont(24, .heavy, relativeTo: .title2, tracking: -0.02)
@@ -104,6 +127,11 @@ struct DocumentDetailView: View {
         .sheet(isPresented: $showShareSheet) {
             SecureShareSheet(document: document)
         }
+        .fullScreenCover(isPresented: $showViewer) {
+            if let previewData {
+                DocumentViewer(type: document.type, data: previewData)
+            }
+        }
         .sheet(isPresented: $showNoteEditor) {
             NoteEditorView(document: document)
         }
@@ -141,7 +169,9 @@ struct DocumentDetailView: View {
             }
         case .pdf:
             if let data = previewData {
+                // Aperçu figé : le toucher ouvre le visualiseur plein écran.
                 PDFPreview(data: data)
+                    .allowsHitTesting(false)
             } else {
                 StripedPlaceholder()
             }

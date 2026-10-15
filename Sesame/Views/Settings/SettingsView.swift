@@ -15,6 +15,11 @@ struct SettingsView: View {
     @State private var showPaywall = false
     @State private var confirmWipe1 = false
     @State private var confirmWipe2 = false
+    @State private var restoreResult: RestoreResult?
+
+    private enum RestoreResult {
+        case restored, nothingFound
+    }
 
     var body: some View {
         @Bindable var auth = auth
@@ -44,9 +49,21 @@ struct SettingsView: View {
                             ) {
                                 showPaywall = true
                             }
-                            Divider().overlay(Theme.border)
-                            SettingsLinkRow(title: "Restaurer mes achats", value: "") {
-                                Task { await store.restorePurchases() }
+                        }
+                        Divider().overlay(Theme.border)
+                        // Toujours présent (exigence App Store) : c'est justement
+                        // après une réinstallation que l'app se croit gratuite.
+                        SettingsLinkRow(
+                            title: "Restaurer mes achats",
+                            subtitle: store.isPremium
+                                ? "Premium déjà actif sur cet appareil"
+                                : "Déjà acheté ? Récupérez Premium sans repayer",
+                            value: "",
+                            isEnabled: !store.isPremium
+                        ) {
+                            Task {
+                                await store.restorePurchases()
+                                restoreResult = store.isPremium ? .restored : .nothingFound
                             }
                         }
                     }
@@ -112,10 +129,27 @@ struct SettingsView: View {
         }
         .navigationTitle("Réglages")
         .navigationBarTitleDisplayMode(.inline)
+        // L'accueil masque sa barre : on la réaffiche ici pour le bouton retour.
+        .toolbar(.visible, for: .navigationBar)
         .sheet(isPresented: $showPINChange) { PINChangeView() }
         .sheet(isPresented: $showBackup) { BackupExportView() }
         .sheet(isPresented: $showRestore) { BackupRestoreView() }
         .sheet(isPresented: $showPaywall) { PaywallView() }
+        .alert(
+            restoreResult == .restored ? "Premium restauré" : "Aucun achat trouvé",
+            isPresented: Binding(
+                get: { restoreResult != nil },
+                set: { if !$0 { restoreResult = nil } }
+            )
+        ) {
+            Button("OK", role: .cancel) {}
+        } message: {
+            if restoreResult == .restored {
+                Text("Votre coffre illimité est de nouveau actif.")
+            } else {
+                Text("Aucun achat Premium n'est associé à cet identifiant Apple.")
+            }
+        }
         .alert("Effacer tout le coffre ?", isPresented: $confirmWipe1) {
             Button("Continuer", role: .destructive) { confirmWipe2 = true }
             Button("Annuler", role: .cancel) {}
@@ -219,12 +253,15 @@ struct SettingsLinkRow: View {
     let title: LocalizedStringKey
     var subtitle: LocalizedStringKey?
     let value: String
+    var isEnabled = true
     let action: () -> Void
 
     var body: some View {
         Button(action: action) {
             SettingsRowLabel(title: title, subtitle: subtitle, value: value)
         }
+        .disabled(!isEnabled)
+        .opacity(isEnabled ? 1 : 0.45)
     }
 }
 

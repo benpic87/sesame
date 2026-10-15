@@ -27,12 +27,9 @@ struct RootView: View {
         .onChange(of: auth.isLocked) { _, locked in
             if locked { vault.clearCaches() }
         }
-        // Toute interaction repousse l'auto-verrouillage.
-        .simultaneousGesture(
-            DragGesture(minimumDistance: 0)
-                .onChanged { _ in auth.registerActivity() }
-                .onEnded { _ in auth.registerActivity() }
-        )
+        // Toute interaction repousse l'auto-verrouillage. Observateur passif
+        // au niveau de la fenêtre : un DragGesture ici bloquait le bouton retour.
+        .background(TouchActivityObserver { auth.registerActivity() })
     }
 }
 

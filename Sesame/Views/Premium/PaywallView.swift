@@ -1,7 +1,7 @@
 import SwiftUI
 
 /// Écran de vente Sésame Premium : coffre illimité, achat unique.
-/// Présenté quand la limite gratuite (2 documents) est atteinte,
+/// Présenté quand la limite gratuite (3 documents) est atteinte,
 /// ou depuis les Réglages.
 struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
@@ -29,7 +29,7 @@ struct PaywallView: View {
                     .appFont(28, .heavy, relativeTo: .title, tracking: -0.03)
                     .foregroundStyle(Theme.textPrimary)
 
-                Text("Le coffre gratuit est limité à 2 documents. Débloquez un coffre illimité, pour toujours.")
+                Text("Le coffre gratuit est limité à 3 documents. Débloquez un coffre illimité, pour toujours.")
                     .appFont(15, .regular, relativeTo: .subheadline)
                     .foregroundStyle(Theme.textSecondary)
                     .multilineTextAlignment(.center)
