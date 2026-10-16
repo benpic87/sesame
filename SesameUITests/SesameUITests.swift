@@ -123,6 +123,21 @@ final class SesameUITests: XCTestCase {
         XCTAssertTrue(app.staticTexts["Passeport reçu"].waitForExistence(timeout: 5))
     }
 
+    /// Régression : au retour dans l'app, le PIN s'ouvrait dans une feuille
+    /// qu'il fallait fermer pour retrouver Face ID. Le PIN est maintenant
+    /// directement sur l'écran de verrouillage.
+    func testReturningToAppShowsPINOnLockScreen() {
+        completeOnboardingAndUnlock()
+
+        XCUIDevice.shared.press(.home)
+        app.activate()
+
+        XCTAssertTrue(app.staticTexts["Entrez votre code PIN"].waitForExistence(timeout: 10))
+        XCTAssertFalse(app.buttons["Code PIN ou mot de passe"].exists, "Plus de bouton pour ouvrir le PIN")
+        enterPIN()
+        XCTAssertTrue(app.staticTexts["Coffre"].waitForExistence(timeout: 10))
+    }
+
     func testFourthDocumentOpensPaywall() {
         completeOnboardingAndUnlock()
 
@@ -161,7 +176,7 @@ final class SesameUITests: XCTestCase {
         XCTAssertTrue(create.waitForExistence(timeout: 5))
         create.tap()
 
-        // Pas de Face ID sur simulateur : le pavé PIN s'ouvre de lui-même.
+        // Pas de Face ID sur simulateur : PIN saisi sur l'écran de verrouillage.
         enterPIN()
 
         XCTAssertTrue(app.staticTexts["Coffre"].waitForExistence(timeout: 10))

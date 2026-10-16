@@ -1,91 +1,65 @@
 import SwiftUI
 
-/// Écran 1 — Déverrouillage : Face ID par défaut, repli PIN puis mot de passe.
+/// Écran 1 — Déverrouillage : PIN directement à l'écran (ou mot de passe),
+/// Face ID proposé automatiquement dès que l'app est au premier plan.
 struct LockView: View {
     @Environment(AuthService.self) private var auth
-    @State private var showPINEntry = false
+    @Environment(\.scenePhase) private var scenePhase
     @State private var attemptedBiometrics = false
+
+    private var canUseFaceID: Bool {
+        auth.faceIDEnabled && auth.biometricsAvailable
+    }
 
     var body: some View {
         ZStack {
             Theme.background.ignoresSafeArea()
 
-            VStack(spacing: 0) {
-                Spacer()
+            GeometryReader { proxy in
+                ScrollView {
+                    VStack(spacing: 0) {
+                        HStack(spacing: 10) {
+                            SesameLogo(diameter: 34)
+                            Text("Sésame")
+                                .appFont(24, .heavy, relativeTo: .title, tracking: -0.03)
+                                .foregroundStyle(Theme.textPrimary)
+                        }
+                        .padding(.bottom, 28)
 
-                SesameLogo(diameter: 76)
-                    .padding(.bottom, 22)
+                        UnlockEntryView()
 
-                Text("Sésame")
-                    .appFont(30, .heavy, relativeTo: .largeTitle, tracking: -0.03)
-                    .foregroundStyle(Theme.textPrimary)
+                        if canUseFaceID {
+                            Button {
+                                Task { _ = await auth.unlockWithBiometrics() }
+                            } label: {
+                                Label("Déverrouiller avec Face ID", systemImage: "faceid")
+                                    .appFont(15, .semibold, relativeTo: .subheadline)
+                                    .foregroundStyle(Theme.accent)
+                                    .frame(minHeight: 44)
+                            }
+                            .padding(.top, 8)
+                        }
 
-                Text("Simple. Privé. Tout reste ici, sur votre téléphone.")
-                    .appFont(15, .regular, relativeTo: .subheadline)
-                    .foregroundStyle(Theme.textSecondary)
-                    .multilineTextAlignment(.center)
-                    .padding(.top, 6)
-
-                HStack(spacing: 8) {
-                    ExampleChip(label: "Passeports")
-                    ExampleChip(label: "Ordonnances")
-                    ExampleChip(label: "Contrats")
+                        Text("Verrouillage automatique après \(Int(auth.autoLockInterval)) s d'inactivité")
+                            .appFont(12, .regular, relativeTo: .caption)
+                            .foregroundStyle(Theme.textTertiary)
+                            .padding(.top, 12)
+                    }
+                    .padding(.horizontal, 32)
+                    .padding(.vertical, 24)
+                    // Centré verticalement ; défile si l'écran est trop petit.
+                    .frame(maxWidth: .infinity, minHeight: proxy.size.height)
                 }
-                .padding(.top, 18)
-
-                Spacer()
-
-                PrimaryButton(
-                    title: "Déverrouiller avec Face ID",
-                    systemImage: "faceid"
-                ) {
-                    Task { await tryBiometrics() }
-                }
-
-                Button("Code PIN ou mot de passe") {
-                    showPINEntry = true
-                }
-                .appFont(15, .semibold, relativeTo: .subheadline)
-                .foregroundStyle(Theme.accent)
-                .frame(minHeight: 44)
-                .padding(.top, 8)
-
-                Text("Verrouillage automatique après \(Int(auth.autoLockInterval)) s d'inactivité")
-                    .appFont(12, .regular, relativeTo: .caption)
-                    .foregroundStyle(Theme.textTertiary)
-                    .padding(.top, 16)
+                .scrollBounceBehavior(.basedOnSize)
             }
-            .padding(32)
         }
-        .sheet(isPresented: $showPINEntry) {
-            PINEntryView()
-        }
-        .task {
-            // Face ID proposé automatiquement à l'arrivée sur l'écran.
-            guard !attemptedBiometrics else { return }
+        // Face ID seulement une fois l'app au premier plan : lancé pendant le
+        // retour d'arrière-plan, iOS le refusait et l'écran basculait sur le PIN.
+        // En cas d'échec ou d'annulation, rien ne change : le PIN reste là.
+        .task(id: scenePhase) {
+            guard scenePhase == .active, !attemptedBiometrics, canUseFaceID else { return }
             attemptedBiometrics = true
-            await tryBiometrics()
+            _ = await auth.unlockWithBiometrics()
         }
-    }
-
-    private func tryBiometrics() async {
-        let success = await auth.unlockWithBiometrics()
-        // Échec, refus ou fallback choisi dans la boîte Face ID : proposer le PIN.
-        if !success {
-            showPINEntry = true
-        }
-    }
-}
-
-private struct ExampleChip: View {
-    let label: LocalizedStringKey
-
-    var body: some View {
-        Text(label)
-            .appFont(13, .semibold, relativeTo: .footnote)
-            .foregroundStyle(Theme.textSecondary)
-            .padding(.horizontal, 12)
-            .padding(.vertical, 7)
-            .background(Theme.surfaceSecondary, in: Capsule())
     }
 }

@@ -1,9 +1,10 @@
 import SwiftUI
 
-/// Repli du déverrouillage : PIN 6 chiffres, puis mot de passe si défini.
-struct PINEntryView: View {
+/// Saisie de déverrouillage intégrée à l'écran de verrouillage : PIN
+/// 6 chiffres, ou mot de passe si défini. Toujours visible, même pendant
+/// ou après une tentative Face ID.
+struct UnlockEntryView: View {
     @Environment(AuthService.self) private var auth
-    @Environment(\.dismiss) private var dismiss
 
     @State private var pin = ""
     @State private var showError = false
@@ -11,38 +12,18 @@ struct PINEntryView: View {
     @State private var password = ""
 
     var body: some View {
-        ZStack {
-            Theme.background.ignoresSafeArea()
-
-            VStack(spacing: 24) {
-                Capsule()
-                    .fill(Theme.dashed)
-                    .frame(width: 36, height: 5)
-                    .padding(.top, 10)
-
-                if usePassword {
-                    passwordEntry
-                } else {
-                    pinEntry
-                }
-
-                Spacer()
-            }
-            .padding(.horizontal, 32)
-        }
-        .presentationDetents([.large])
-        .presentationCornerRadius(Theme.radiusSheet)
-        .onChange(of: auth.isLocked) { _, locked in
-            if !locked { dismiss() }
+        if usePassword {
+            passwordEntry
+        } else {
+            pinEntry
         }
     }
 
     private var pinEntry: some View {
         VStack(spacing: 20) {
             Text("Entrez votre code PIN")
-                .appFont(24, .heavy, relativeTo: .title2, tracking: -0.02)
+                .appFont(20, .bold, relativeTo: .title3, tracking: -0.02)
                 .foregroundStyle(Theme.textPrimary)
-                .padding(.top, 24)
 
             PINDots(count: pin.count, isError: showError)
 
@@ -84,9 +65,8 @@ struct PINEntryView: View {
     private var passwordEntry: some View {
         VStack(spacing: 20) {
             Text("Mot de passe")
-                .appFont(24, .heavy, relativeTo: .title2, tracking: -0.02)
+                .appFont(20, .bold, relativeTo: .title3, tracking: -0.02)
                 .foregroundStyle(Theme.textPrimary)
-                .padding(.top, 24)
 
             SecureField("Mot de passe", text: $password)
                 .textContentType(.password)
