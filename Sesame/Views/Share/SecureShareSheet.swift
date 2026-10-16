@@ -44,45 +44,51 @@ struct SecureShareSheet: View {
     }
 
     var body: some View {
-        VStack(alignment: .leading, spacing: 14) {
-            Capsule()
-                .fill(Theme.dashed)
-                .frame(width: 36, height: 5)
-                .frame(maxWidth: .infinity)
-                .padding(.top, 10)
+        // Défilement si le contenu dépasse la mi-hauteur (grands textes,
+        // petites tailles d'écran) au lieu de tronquer les explications.
+        ScrollView {
+            VStack(alignment: .leading, spacing: 14) {
+                Capsule()
+                    .fill(Theme.dashed)
+                    .frame(width: 36, height: 5)
+                    .frame(maxWidth: .infinity)
+                    .padding(.top, 10)
 
-            Text("Partage sécurisé")
-                .appFont(22, .heavy, relativeTo: .title2, tracking: -0.02)
-                .foregroundStyle(Theme.textPrimary)
+                Text("Partage sécurisé")
+                    .appFont(22, .heavy, relativeTo: .title2, tracking: -0.02)
+                    .foregroundStyle(Theme.textPrimary)
 
-            Text("\(document.name) · \(Format.fileSize(document.sizeBytes))")
-                .appFont(14, .regular, relativeTo: .subheadline)
-                .foregroundStyle(Theme.textSecondary)
+                Text("\(document.name) · \(Format.fileSize(document.sizeBytes))")
+                    .appFont(14, .regular, relativeTo: .subheadline)
+                    .foregroundStyle(Theme.textSecondary)
 
-            ShareModeOption(
-                title: "Chiffré avec mot de passe",
-                subtitle: "Le fichier est verrouillé. Communiquez le mot de passe de vive voix ou par un autre canal.",
-                isSelected: mode == .encrypted
-            ) { mode = .encrypted }
+                ShareModeOption(
+                    title: "Chiffré avec mot de passe",
+                    subtitle: "Le fichier est verrouillé. Communiquez le mot de passe de vive voix ou par un autre canal.",
+                    isSelected: mode == .encrypted
+                ) { mode = .encrypted }
 
-            ShareModeOption(
-                title: "Envoi AirDrop simple",
-                subtitle: "Déjà chiffré en transit par AirDrop, lisible dès réception.",
-                isSelected: mode == .plain
-            ) { mode = .plain }
+                ShareModeOption(
+                    title: "Envoi AirDrop simple",
+                    subtitle: "Déjà chiffré en transit par AirDrop, lisible dès réception.",
+                    isSelected: mode == .plain
+                ) { mode = .plain }
 
-            if mode == .encrypted {
-                passphraseBox
+                if mode == .encrypted {
+                    passphraseBox
+                }
+
+                PrimaryButton(title: "Continuer vers AirDrop", systemImage: "square.and.arrow.up") {
+                    prepareShare()
+                }
+                .padding(.top, 4)
             }
-
-            PrimaryButton(title: "Continuer vers AirDrop", systemImage: "square.and.arrow.up") {
-                prepareShare()
-            }
-            .padding(.top, 4)
+            .padding(.horizontal, 20)
+            .padding(.bottom, 20)
         }
-        .padding(.horizontal, 20)
-        .padding(.bottom, 20)
+        .scrollBounceBehavior(.basedOnSize)
         .presentationDetents([.medium, .large])
+        .presentationDragIndicator(.hidden)  // la poignée est dessinée ci-dessus
         .presentationCornerRadius(Theme.radiusSheet)
         .presentationBackground(Theme.background)
         .sheet(item: $shareItem) { item in
@@ -169,6 +175,8 @@ private struct ShareModeOption: View {
                         .appFont(13, .regular, relativeTo: .footnote)
                         .foregroundStyle(Theme.textSecondary)
                         .multilineTextAlignment(.leading)
+                        // Toujours en entier, sur plusieurs lignes : jamais « … ».
+                        .fixedSize(horizontal: false, vertical: true)
                 }
                 Spacer()
             }
