@@ -26,11 +26,27 @@ final class ShareService {
         try? FileManager.default.removeItem(at: stagingURL)
     }
 
-    /// Archive chiffrée AES-256 protégée par le mot de passe généré.
-    /// Format `.sesame` : conteneur documenté dans le README (magic + sel + AES-GCM).
+    /// Archive chiffrée AES-256 protégée par le mot de passe généré, à ouvrir
+    /// avec Sésame sur l'appareil du destinataire. Format `.sesame` v2 :
+    /// conteneur (magic + sel + AES-GCM) d'une sauvegarde d'un seul document,
+    /// pour transmettre aussi son nom, son type et son extension.
     func makeEncryptedArchive(for document: Document, passphrase: String) throws -> URL {
-        let payload = try vault.decryptedData(for: document)
-        let container = try vault.crypto.encrypt(payload, passphrase: passphrase)
+        let archive = BackupPayload(
+            version: 1,
+            exportedAt: .now,
+            categories: [],
+            documents: [.init(
+                name: document.name,
+                type: document.typeRaw,
+                addedAt: document.addedAt,
+                expiresAt: document.expiresAt,
+                tagIDs: [],
+                fileExtension: document.originalExtension,
+                contentBase64: try vault.decryptedData(for: document).base64EncodedString()
+            )]
+        )
+        let json = try BackupPayload.encoder().encode(archive)
+        let container = try vault.crypto.encrypt(json, passphrase: passphrase)
         let url = stagingDirectory.appendingPathComponent(sanitizedName(document.name) + ".sesame")
         try container.write(to: url, options: [.atomic, .completeFileProtection])
         return url

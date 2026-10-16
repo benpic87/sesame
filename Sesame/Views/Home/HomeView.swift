@@ -207,7 +207,7 @@ struct CategoryTile: View {
                 .lineLimit(1)
             Text("^[\(count) document](inflect: true)")
                 .appFont(13, .semibold, relativeTo: .footnote)
-                .foregroundStyle(token.main)
+                .foregroundStyle(token.ink)
         }
         .padding(14)
         .frame(maxWidth: .infinity, minHeight: Self.height, alignment: .leading)

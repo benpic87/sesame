@@ -7,6 +7,7 @@ struct SesameApp: App {
     private let appStorage: UserDefaults
     @State private var auth: AuthService
     @State private var store = StoreService()
+    @State private var incoming = IncomingArchive()
     @State private var vault: VaultStore
     @Environment(\.scenePhase) private var scenePhase
 
@@ -91,8 +92,11 @@ struct SesameApp: App {
                 .environment(auth)
                 .environment(vault)
                 .environment(store)
+                .environment(incoming)
                 .defaultAppStorage(appStorage)
                 .tint(Theme.accent)
+                // Archive .sesame ouverte depuis AirDrop, Fichiers, Mail…
+                .onOpenURL { url in incoming.receive(url) }
                 .onChange(of: scenePhase) { _, newPhase in
                     // Verrouillage à chaque passage en arrière-plan.
                     if newPhase == .background {

@@ -192,7 +192,34 @@ final class VaultStore {
     func restoreBackup(_ container: Data, passphrase: String) throws -> RestoreSummary {
         let json = try crypto.decrypt(container, passphrase: passphrase)
         let backup = try BackupPayload.decoder().decode(BackupPayload.self, from: json)
+        return try merge(backup)
+    }
 
+    // MARK: Archive partagée (.sesame)
+
+    /// Importe une archive `.sesame` reçue d'un autre appareil. Depuis la v2,
+    /// c'est une sauvegarde d'un seul document (nom, type, extension) ; les
+    /// archives plus anciennes ne contenaient que le contenu brut : le type
+    /// est alors déduit des octets et le nom repris du fichier reçu.
+    @discardableResult
+    func importSharedArchive(_ container: Data, passphrase: String, fileName: String) throws -> RestoreSummary {
+        let decrypted = try crypto.decrypt(container, passphrase: passphrase)
+        if let payload = try? BackupPayload.decoder().decode(BackupPayload.self, from: decrypted) {
+            return try merge(payload)
+        }
+        let (type, fileExtension) = Self.sniffType(of: decrypted)
+        try importDocument(data: decrypted, name: fileName, type: type, fileExtension: fileExtension)
+        return RestoreSummary(documentsRestored: 1)
+    }
+
+    /// Type d'un contenu sans métadonnées : PDF, image, sinon texte (note).
+    static func sniffType(of data: Data) -> (DocumentType, String) {
+        if data.starts(with: Data("%PDF".utf8)) { return (.pdf, "pdf") }
+        if UIImage(data: data) != nil { return (.image, "jpg") }
+        return (.note, "txt")
+    }
+
+    private func merge(_ backup: BackupPayload) throws -> RestoreSummary {
         var summary = RestoreSummary()
         let existingCategories = (try? modelContext.fetch(FetchDescriptor<Category>())) ?? []
         let existingDocuments = (try? modelContext.fetch(FetchDescriptor<Document>())) ?? []

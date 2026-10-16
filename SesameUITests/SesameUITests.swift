@@ -76,6 +76,53 @@ final class SesameUITests: XCTestCase {
         XCTAssertTrue(staticText(containing: "Photo portrait").exists)
     }
 
+    /// Un seul bouton « Partager », puis deux choix : archive chiffrée pour
+    /// quelqu'un qui a Sésame, ou fichier original pour les autres.
+    func testShareOffersEncryptedArchiveOrOriginalFile() {
+        completeOnboardingAndUnlock()
+        addNote(titled: "Passeport")
+
+        button(startingWith: "Tous les documents").tap()
+        app.staticTexts["Passeport"].firstMatch.tap()
+        XCTAssertFalse(button(startingWith: "Exporter chiffré").exists)
+        app.buttons["Partager"].firstMatch.tap()
+
+        XCTAssertTrue(button(startingWith: "Chiffré, pour l'app Sésame").waitForExistence(timeout: 5))
+        XCTAssertTrue(button(startingWith: "Fichier original (non chiffré)").exists)
+    }
+
+    /// De bout en bout : une archive .sesame reçue s'ouvre dans Sésame, refuse
+    /// un mauvais mot de passe, puis ajoute le document avec le bon.
+    func testOpeningReceivedArchiveImportsDocument() throws {
+        let url = try ArchiveFixture.make(
+            name: "Passeport reçu", text: "numéro 12AB34", passphrase: "corail-lampe-92-nuit"
+        )
+
+        // L'outil de test relance l'app pour ouvrir un fichier (un vrai envoi
+        // AirDrop arrive dans l'app déjà ouverte) : l'archive est reçue au
+        // lancement, puis proposée une fois le coffre créé et déverrouillé.
+        app.open(url)
+        completeOnboardingAndUnlock()
+
+        XCTAssertTrue(app.staticTexts["Document chiffré reçu"].waitForExistence(timeout: 10))
+        let field = app.textFields["Mot de passe"]
+        field.tap()
+        field.typeText("mauvais-mot-11-passe")
+        app.buttons["Importer dans le coffre"].tap()
+        XCTAssertTrue(app.staticTexts["Mot de passe incorrect"].waitForExistence(timeout: 5))
+
+        // Curseur en fin de champ, sinon une partie de l'ancien texte resterait.
+        field.coordinate(withNormalizedOffset: CGVector(dx: 0.97, dy: 0.5)).tap()
+        field.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: 30))
+        field.typeText("corail-lampe-92-nuit")
+        app.buttons["Importer dans le coffre"].tap()
+
+        XCTAssertTrue(app.staticTexts["Coffre"].waitForExistence(timeout: 10))
+        XCTAssertTrue(staticText(containing: "1/3 documents").waitForExistence(timeout: 5))
+        button(startingWith: "Tous les documents").tap()
+        XCTAssertTrue(app.staticTexts["Passeport reçu"].waitForExistence(timeout: 5))
+    }
+
     func testFourthDocumentOpensPaywall() {
         completeOnboardingAndUnlock()
 

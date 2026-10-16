@@ -55,7 +55,7 @@ struct CTAShadow: ViewModifier {
     }
 }
 
-/// Chip d'étiquette de catégorie (fond teinté, texte couleur pleine).
+/// Chip d'étiquette de catégorie (fond teinté, texte couleur foncée lisible).
 struct TagChip: View {
     let category: Category
     var size: CGFloat = 10.5
@@ -63,7 +63,7 @@ struct TagChip: View {
     var body: some View {
         Text(category.name)
             .appFont(size, .semibold, relativeTo: .caption2)
-            .foregroundStyle(category.colorToken.main)
+            .foregroundStyle(category.colorToken.ink)
             .padding(.horizontal, size * 0.85)
             .padding(.vertical, size * 0.4)
             .background(category.colorToken.tint, in: Capsule())

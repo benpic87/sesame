@@ -8,7 +8,6 @@
       "shouldTranslate" : false
     },
     "%@ · %@" : {
-      "shouldTranslate" : false,
       "localizations" : {
         "fr" : {
           "stringUnit" : {
@@ -16,7 +15,8 @@
             "value" : "%1$@ · %2$@"
           }
         }
-      }
+      },
+      "shouldTranslate" : false
     },
     "%lld minutes" : {
       "localizations" : {
@@ -146,194 +146,514 @@
         }
       }
     },
-    "Afficher en plein écran" : {
+    "Ardoise" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "عرض بملء الشاشة"
+            "value" : "رمادي أردوازي"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Im Vollbild anzeigen"
+            "value" : "Schiefergrau"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Show full screen"
+            "value" : "Slate"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ver en pantalla completa"
+            "value" : "Pizarra"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mostra a schermo intero"
+            "value" : "Ardesia"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "全画面で表示"
+            "value" : "スレート"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "전체 화면으로 보기"
+            "value" : "슬레이트"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Volledig scherm tonen"
+            "value" : "Leisteen"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Ver em ecrã inteiro"
+            "value" : "Ardósia"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "全屏显示"
+            "value" : "石板灰"
           }
         }
       }
     },
-    "Fermer" : {
+    "Bleu" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "إغلاق"
+            "value" : "أزرق"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Schließen"
+            "value" : "Blau"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Close"
+            "value" : "Blue"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cerrar"
+            "value" : "Azul"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Chiudi"
+            "value" : "Blu"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "閉じる"
+            "value" : "ブルー"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "닫기"
+            "value" : "파랑"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sluiten"
+            "value" : "Blauw"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Fechar"
+            "value" : "Azul"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "关闭"
+            "value" : "蓝色"
           }
         }
       }
     },
-    "Tous les documents" : {
+    "Brun" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "كل المستندات"
+            "value" : "بني"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Alle Dokumente"
+            "value" : "Braun"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "All documents"
+            "value" : "Brown"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Todos los documentos"
+            "value" : "Marrón"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Tutti i documenti"
+            "value" : "Marrone"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "すべての書類"
+            "value" : "ブラウン"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "모든 문서"
+            "value" : "갈색"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Alle documenten"
+            "value" : "Bruin"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Todos os documentos"
+            "value" : "Castanho"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "所有文档"
+            "value" : "棕色"
+          }
+        }
+      }
+    },
+    "Olive" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "زيتوني"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oliv"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Olive"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oliva"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oliva"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オリーブ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "올리브"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Olijf"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Azeitona"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "橄榄绿"
+          }
+        }
+      }
+    },
+    "Orange" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "برتقالي"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orange"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Orange"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Naranja"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Arancione"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "オレンジ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "주황"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Oranje"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Laranja"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "橙色"
+          }
+        }
+      }
+    },
+    "Rouge" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أحمر"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rot"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Red"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rojo"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rosso"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "レッド"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "빨강"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Rood"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vermelho"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "红色"
+          }
+        }
+      }
+    },
+    "Turquoise" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "فيروزي"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Türkis"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Teal"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turquesa"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turchese"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ターコイズ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "청록"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turquoise"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Turquesa"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "青绿色"
+          }
+        }
+      }
+    },
+    "Violet" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "بنفسجي"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Violett"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Purple"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Morado"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Viola"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "パープル"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "보라"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Paars"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Roxo"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "紫色"
           }
         }
       }
@@ -1285,6 +1605,70 @@
         }
       }
     },
+    "Afficher en plein écran" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عرض بملء الشاشة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Im Vollbild anzeigen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Show full screen"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver en pantalla completa"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mostra a schermo intero"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全画面で表示"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "전체 화면으로 보기"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Volledig scherm tonen"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ver em ecrã inteiro"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "全屏显示"
+          }
+        }
+      }
+    },
     "Ajouté le" : {
       "localizations" : {
         "ar" : {
@@ -2181,66 +2565,130 @@
         }
       }
     },
-    "Chiffré avec mot de passe" : {
+    "Ce fichier n'est pas une archive Sésame lisible." : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "مشفر بكلمة مرور"
+            "value" : "هذا الملف ليس أرشيف Sésame قابلًا للقراءة."
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Mit Passwort verschlüsselt"
+            "value" : "Diese Datei ist kein lesbares Sésame-Archiv."
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Encrypted with a password"
+            "value" : "This file isn't a readable Sésame archive."
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cifrado con contraseña"
+            "value" : "Este archivo no es un archivo de Sésame legible."
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cifrato con password"
+            "value" : "Questo file non è un archivio Sésame leggibile."
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "パスワードで暗号化"
+            "value" : "このファイルは読み込めるSésameアーカイブではありません。"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "비밀번호로 암호화"
+            "value" : "이 파일은 읽을 수 있는 Sésame 보관 파일이 아닙니다."
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Versleuteld met wachtwoord"
+            "value" : "Dit bestand is geen leesbaar Sésame-archief."
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Cifrado com palavra-passe"
+            "value" : "Este ficheiro não é um arquivo Sésame legível."
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "使用密码加密"
+            "value" : "此文件不是可读取的 Sésame 归档。"
+          }
+        }
+      }
+    },
+    "Chiffré, pour l'app Sésame" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مشفّر، لتطبيق Sésame"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verschlüsselt, für die App Sésame"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encrypted, for the Sésame app"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cifrado, para la app Sésame"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cifrato, per l'app Sésame"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暗号化（Sésameアプリ用）"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "암호화됨, Sésame 앱용"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versleuteld, voor de app Sésame"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encriptado, para a app Sésame"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "加密，供 Sésame 应用打开"
           }
         }
       }
@@ -3269,70 +3717,6 @@
         }
       }
     },
-    "Continuer vers AirDrop" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "المتابعة إلى AirDrop"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Weiter zu AirDrop"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continue to AirDrop"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continuar a AirDrop"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continua con AirDrop"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AirDropへ進む"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AirDrop으로 계속"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Doorgaan naar AirDrop"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Continuar para AirDrop"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "继续前往隔空投送"
-          }
-        }
-      }
-    },
     "Contrats" : {
       "localizations" : {
         "ar" : {
@@ -4040,70 +4424,6 @@
         }
       }
     },
-    "Déjà chiffré en transit par AirDrop, lisible dès réception." : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "مشفر أثناء النقل عبر AirDrop، وقابل للقراءة فور الاستلام."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Bereits von AirDrop bei der Übertragung verschlüsselt, nach Empfang lesbar."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Already encrypted in transit by AirDrop, readable on receipt."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Ya cifrado en tránsito por AirDrop; legible al recibirlo."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Già cifrato in transito da AirDrop, leggibile alla ricezione."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AirDropの通信は暗号化済み。受信後すぐに閲覧できます。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "AirDrop 전송 중에는 암호화되며, 수신 즉시 열람 가능합니다."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Al versleuteld tijdens verzending via AirDrop, leesbaar na ontvangst."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Já cifrado em trânsito pelo AirDrop, legível após a receção."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "隔空投送传输过程中已加密，接收后即可阅读。"
-          }
-        }
-      }
-    },
     "Depuis un fichier .sesamebackup" : {
       "localizations" : {
         "ar" : {
@@ -4420,6 +4740,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "解锁您的Sésame保险库"
+          }
+        }
+      }
+    },
+    "Document chiffré reçu" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم استلام مستند مشفّر"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Verschlüsseltes Dokument empfangen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encrypted document received"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Documento cifrado recibido"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Documento cifrato ricevuto"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暗号化された書類を受信"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "암호화된 문서 수신"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versleuteld document ontvangen"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Documento encriptado recebido"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "收到加密文档"
           }
         }
       }
@@ -5000,6 +5384,70 @@
         }
       }
     },
+    "Entrez le mot de passe communiqué par l'expéditeur." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أدخل كلمة المرور التي أبلغك بها المرسل."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geben Sie das Passwort ein, das Ihnen der Absender mitgeteilt hat."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter the password the sender gave you."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduce la contraseña que te dio el remitente."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserisci la password comunicata dal mittente."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "送信者から伝えられたパスワードを入力してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "보낸 사람이 알려 준 비밀번호를 입력하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voer het wachtwoord in dat de afzender je heeft gegeven."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introduza a palavra-passe indicada pelo remetente."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "输入发送者告知的密码。"
+          }
+        }
+      }
+    },
     "Entrez votre code PIN" : {
       "localizations" : {
         "ar" : {
@@ -5060,70 +5508,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "输入您的PIN码"
-          }
-        }
-      }
-    },
-    "Envoi AirDrop simple" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "إرسال AirDrop عادي"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Einfacher AirDrop-Versand"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Simple AirDrop send"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Envío AirDrop simple"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Invio AirDrop semplice"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "通常のAirDrop送信"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "일반 AirDrop 전송"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Eenvoudige AirDrop-verzending"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Envio AirDrop simples"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "普通隔空投送发送"
           }
         }
       }
@@ -5384,70 +5768,6 @@
         }
       }
     },
-    "Exporter chiffré (archive + mot de passe)" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "تصدير مشفر (أرشيف + كلمة مرور)"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Verschlüsselt exportieren (Archiv + Passwort)"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Export encrypted (archive + password)"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exportar cifrado (archivo + contraseña)"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Esporta cifrato (archivio + password)"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "暗号化して書き出す（アーカイブ＋パスワード）"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "암호화하여 내보내기 (아카이브 + 비밀번호)"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Versleuteld exporteren (archief + wachtwoord)"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Exportar cifrado (arquivo + palavra-passe)"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "加密导出（归档 + 密码）"
-          }
-        }
-      }
-    },
     "Exporter vers Fichiers" : {
       "localizations" : {
         "ar" : {
@@ -5515,6 +5835,70 @@
     "Face ID" : {
       "shouldTranslate" : false
     },
+    "Fermer" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إغلاق"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Schließen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Close"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Cerrar"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Chiudi"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "閉じる"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "닫기"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sluiten"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fechar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "关闭"
+          }
+        }
+      }
+    },
     "Fichier de sauvegarde invalide" : {
       "localizations" : {
         "ar" : {
@@ -5575,6 +5959,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "备份文件无效"
+          }
+        }
+      }
+    },
+    "Fichier original (non chiffré)" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الملف الأصلي (غير مشفّر)"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Originaldatei (unverschlüsselt)"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Original file (not encrypted)"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Archivo original (sin cifrar)"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "File originale (non cifrato)"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "元のファイル（暗号化なし）"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "원본 파일 (암호화 안 됨)"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Origineel bestand (niet versleuteld)"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ficheiro original (não encriptado)"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原始文件（未加密）"
           }
         }
       }
@@ -5959,6 +6407,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "图片"
+          }
+        }
+      }
+    },
+    "Importer dans le coffre" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "استيراد إلى الخزنة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "In den Tresor importieren"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Import into vault"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importar a la caja fuerte"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importa nella cassaforte"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金庫に読み込む"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "금고로 가져오기"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importeren in de kluis"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Importar para o cofre"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "导入保险库"
           }
         }
       }
@@ -6539,6 +7051,70 @@
         }
       }
     },
+    "La photo, le PDF ou le texte d'origine, lisible avec n'importe quelle app. À réserver aux personnes de confiance." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "الصورة أو ملف PDF أو النص الأصلي، يمكن قراءته بأي تطبيق. للأشخاص الموثوق بهم فقط."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das ursprüngliche Foto, PDF oder der Text, mit jeder App lesbar. Nur für Personen Ihres Vertrauens."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The original photo, PDF or text, readable with any app. Only for people you trust."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La foto, el PDF o el texto original, legible con cualquier app. Solo para personas de confianza."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La foto, il PDF o il testo originale, leggibile con qualsiasi app. Solo per persone di fiducia."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "元の写真・PDF・テキスト。どのアプリでも読めます。信頼できる相手にのみ。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "원본 사진, PDF 또는 텍스트로 어떤 앱에서도 읽을 수 있습니다. 신뢰하는 사람에게만 보내세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De originele foto, pdf of tekst, leesbaar met elke app. Alleen voor mensen die je vertrouwt."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A fotografia, o PDF ou o texto original, legível com qualquer app. Apenas para pessoas de confiança."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "原始照片、PDF 或文本，任何应用都能读取。仅限信任的人。"
+          }
+        }
+      }
+    },
     "La sauvegarde contient tous vos documents et catégories, chiffrés avec la phrase ci-dessous. Notez-la : sans elle, la sauvegarde est illisible." : {
       "localizations" : {
         "ar" : {
@@ -6919,70 +7495,6 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "加密文件将从设备上永久删除。"
-          }
-        }
-      }
-    },
-    "Le fichier est verrouillé. Communiquez le mot de passe de vive voix ou par un autre canal." : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "الملف مقفل. شارك كلمة المرور شفهيًا أو عبر قناة أخرى."
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Die Datei ist gesperrt. Teilen Sie das Passwort mündlich oder über einen anderen Kanal mit."
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "The file is locked. Share the password out loud or through another channel."
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "El archivo está bloqueado. Comunica la contraseña de viva voz o por otro canal."
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Il file è bloccato. Comunica la password a voce o tramite un altro canale."
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "ファイルはロックされています。パスワードは口頭または別の手段で伝えてください。"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "파일이 잠겨 있습니다. 비밀번호는 구두나 다른 채널로 전달하세요."
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Het bestand is vergrendeld. Deel het wachtwoord mondeling of via een ander kanaal."
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "O ficheiro está bloqueado. Comunique a palavra-passe oralmente ou por outro canal."
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "文件已锁定。请当面或通过其他渠道告知密码。"
           }
         }
       }
@@ -8267,130 +8779,66 @@
         }
       }
     },
-    "Partage sécurisé" : {
+    "Partager" : {
       "localizations" : {
         "ar" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "مشاركة آمنة"
+            "value" : "مشاركة"
           }
         },
         "de" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Sicheres Teilen"
+            "value" : "Teilen"
           }
         },
         "en" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Secure sharing"
+            "value" : "Share"
           }
         },
         "es" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Compartir seguro"
+            "value" : "Compartir"
           }
         },
         "it" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Condivisione sicura"
+            "value" : "Condividi"
           }
         },
         "ja" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安全な共有"
+            "value" : "共有"
           }
         },
         "ko" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "보안 공유"
+            "value" : "공유"
           }
         },
         "nl" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Beveiligd delen"
+            "value" : "Delen"
           }
         },
         "pt-PT" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "Partilha segura"
+            "value" : "Partilhar"
           }
         },
         "zh-Hans" : {
           "stringUnit" : {
             "state" : "translated",
-            "value" : "安全共享"
-          }
-        }
-      }
-    },
-    "Partager par AirDrop sécurisé" : {
-      "localizations" : {
-        "ar" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "مشاركة عبر AirDrop آمن"
-          }
-        },
-        "de" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Per sicherem AirDrop teilen"
-          }
-        },
-        "en" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Share via secure AirDrop"
-          }
-        },
-        "es" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Compartir por AirDrop seguro"
-          }
-        },
-        "it" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Condividi con AirDrop sicuro"
-          }
-        },
-        "ja" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "安全なAirDropで共有"
-          }
-        },
-        "ko" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "보안 AirDrop으로 공유"
-          }
-        },
-        "nl" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Delen via beveiligde AirDrop"
-          }
-        },
-        "pt-PT" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "Partilhar por AirDrop seguro"
-          }
-        },
-        "zh-Hans" : {
-          "stringUnit" : {
-            "state" : "translated",
-            "value" : "通过安全隔空投送共享"
+            "value" : "共享"
           }
         }
       }
@@ -8842,6 +9290,70 @@
           "stringUnit" : {
             "state" : "translated",
             "value" : "恢复口令不正确"
+          }
+        }
+      }
+    },
+    "Pour quelqu'un qui a Sésame : il ouvre le fichier avec le mot de passe ci-dessous. Communiquez-le de vive voix ou par un autre canal." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لمن لديه Sésame: يفتح الملف بكلمة المرور أدناه. أبلغه بها شفهيًا أو عبر قناة أخرى."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Für jemanden mit Sésame: Die Datei wird mit dem Passwort unten geöffnet. Teilen Sie es mündlich oder über einen anderen Kanal mit."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "For someone who has Sésame: they open the file with the password below. Share it in person or through another channel."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para alguien que tiene Sésame: abre el archivo con la contraseña de abajo. Comunícala de viva voz o por otro canal."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Per chi ha Sésame: apre il file con la password qui sotto. Comunicala a voce o tramite un altro canale."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésameを持っている相手向け：下のパスワードでファイルを開きます。パスワードは口頭か別の手段で伝えてください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésame이 있는 사람용: 아래 비밀번호로 파일을 엽니다. 비밀번호는 직접 말하거나 다른 경로로 전달하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Voor iemand met Sésame: die opent het bestand met het wachtwoord hieronder. Deel het mondeling of via een ander kanaal."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Para quem tem o Sésame: abre o ficheiro com a palavra-passe abaixo. Comunique-a de viva voz ou por outro canal."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "适用于安装了 Sésame 的人：用下方密码打开文件。请当面或通过其他渠道告知密码。"
           }
         }
       }
@@ -11156,6 +11668,70 @@
         }
       }
     },
+    "Tous les documents" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "كل المستندات"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle Dokumente"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "All documents"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos los documentos"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tutti i documenti"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "すべての書類"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "모든 문서"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Alle documenten"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Todos os documentos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "所有文档"
+          }
+        }
+      }
+    },
     "Tous les documents chiffrés seront supprimés de cet appareil. Cette action est irréversible." : {
       "localizations" : {
         "ar" : {
@@ -11285,6 +11861,7 @@
       }
     },
     "Tout · %lld" : {
+      "extractionState" : "stale",
       "localizations" : {
         "ar" : {
           "stringUnit" : {

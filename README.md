@@ -40,7 +40,7 @@ Sesame/
 │   │                        (avec proposition de suppression de l'original), fichier, note chiffrée
 │   ├── Detail/              Aperçu, étiquettes éditables, métadonnées, alerte expiration (< 6 mois)
 │   ├── Search/              Recherche temps réel par nom, filtres Tout/Images/PDF/Notes, surlignage
-│   ├── Share/               Bottom sheet : archive chiffrée + mot de passe généré, ou AirDrop simple
+│   ├── Share/               Partager : archive chiffrée .sesame (pour Sésame) ou fichier original ; import d'une archive reçue
 │   ├── Settings/            Sécurité, catégories, sauvegarde chiffrée, langue, effacement (double confirmation)
 │   └── Onboarding/          3 étapes : promesse locale-only → PIN/Face ID → premières catégories
 ├── Support/Theme.swift      Design tokens (couleurs, rayons, ombres, police mise à l'échelle Dynamic Type)
@@ -76,8 +76,9 @@ L'interface est traduite en 11 langues : français (langue de développement), a
 - **PIN / mot de passe** : jamais stockés — seulement une empreinte PBKDF2 salée dans le Keychain, comparée à temps constant. Toutes les 5 erreurs, attente croissante (30 s, 1 min, 2 min… 1 h max), conservée dans le Keychain : relancer l'app ne remet pas le compteur à zéro.
 - **Limite assumée** : le PIN et Face ID verrouillent l'interface ; ils ne servent pas à dériver la clé. Le chiffrement protège contre la lecture du stockage (appareil verrouillé, sauvegardes, autres apps), pas contre quelqu'un qui contrôle déjà un iPhone déverrouillé et compromis.
 - **Verrouillage** : automatique après 60 s d'inactivité (délai réglable : 30 s à 5 min) et immédiat à chaque passage en arrière-plan ; le contenu est masqué dans le sélecteur d'apps.
-- **Partage chiffré** : le format `.sesame` (et `.sesamebackup` pour la sauvegarde) est un conteneur autoportant : `"SESAME01"` ‖ sel 16 octets ‖ AES-GCM (nonce + chiffré + tag). Clé dérivée de la phrase de passe par PBKDF2-HMAC-SHA256 (210 000 itérations). Le mot de passe généré doit être communiqué **par un autre canal**. (La maquette évoquait un « .zip + mot de passe » : le format zip AES nécessiterait une dépendance tierce, exclue par les contraintes ; le conteneur documenté ci-dessus assure la même garantie et reste importable.)
-- **AirDrop simple** : copie déchiffrée temporaire, supprimée dès la fermeture de la share sheet (chiffrée en transit par AirDrop lui-même).
+- **Partage chiffré (pour Sésame)** : le format `.sesame` (et `.sesamebackup` pour la sauvegarde) est un conteneur autoportant : `"SESAME01"` ‖ sel 16 octets ‖ AES-GCM (nonce + chiffré + tag). Clé dérivée de la phrase de passe par PBKDF2-HMAC-SHA256 (210 000 itérations). Depuis la v2, une archive `.sesame` contient une sauvegarde d'un seul document (nom, type, extension, contenu) ; les archives v1 (contenu brut) restent importables, le type étant déduit des octets. Le mot de passe généré doit être communiqué **par un autre canal**.
+- **Ouverture d'une archive reçue** : Sésame déclare le type `app.sesame.archive` (`Config/Sesame-Info.plist`) ; toucher un `.sesame` (AirDrop, Fichiers, Mail) ouvre l'app, qui demande le mot de passe une fois le coffre déverrouillé, puis rechiffre le document avec la clé locale. La copie déposée par iOS (`Documents/Inbox`) est supprimée aussitôt. Recevoir compte comme ajouter (limite gratuite).
+- **Fichier original (non chiffré)** : pour quelqu'un sans Sésame ; copie déchiffrée temporaire, supprimée dès la fermeture de la share sheet (chiffrée en transit seulement si l'envoi passe par AirDrop).
 
 ## Tests
 

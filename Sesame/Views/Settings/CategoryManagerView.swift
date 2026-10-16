@@ -124,7 +124,8 @@ struct CategoryEditorSheet: View {
                             .textCase(.uppercase)
                             .foregroundStyle(Theme.textTertiary)
 
-                        HStack(spacing: 14) {
+                        // 12 couleurs : grille de 6 par ligne.
+                        LazyVGrid(columns: Array(repeating: GridItem(.flexible(), spacing: 10), count: 6), spacing: 12) {
                             ForEach(CategoryColorToken.allCases, id: \.self) { token in
                                 Button {
                                     colorToken = token

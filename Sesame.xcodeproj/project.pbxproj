@@ -276,6 +276,7 @@
 				DEVELOPMENT_TEAM = 2X5BHAH9TW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Sesame-Info.plist";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Sésame utilise l'appareil photo pour scanner et photographier vos documents. Les images sont chiffrées immédiatement et ne quittent jamais l'appareil.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID déverrouille votre coffre de documents.";
@@ -310,6 +311,7 @@
 				DEVELOPMENT_TEAM = 2X5BHAH9TW;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Config/Sesame-Info.plist";
 				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Sésame utilise l'appareil photo pour scanner et photographier vos documents. Les images sont chiffrées immédiatement et ne quittent jamais l'appareil.";
 				INFOPLIST_KEY_NSFaceIDUsageDescription = "Face ID déverrouille votre coffre de documents.";

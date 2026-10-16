@@ -69,13 +69,9 @@ struct DocumentDetailView: View {
 
                     metaCard
 
-                    VStack(spacing: 10) {
-                        PrimaryButton(title: "Partager par AirDrop sécurisé", systemImage: "square.and.arrow.up") {
-                            showShareSheet = true
-                        }
-                        SecondaryButton(title: "Exporter chiffré (archive + mot de passe)") {
-                            showShareSheet = true
-                        }
+                    // Un seul bouton : le choix chiffré / original se fait ensuite.
+                    PrimaryButton(title: "Partager", systemImage: "square.and.arrow.up") {
+                        showShareSheet = true
                     }
                     .padding(.top, 8)
 

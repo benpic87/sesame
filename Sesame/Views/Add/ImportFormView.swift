@@ -156,11 +156,11 @@ struct TagSelectionGrid: View {
                         Text(category.name)
                             .appFont(13, .semibold, relativeTo: .footnote)
                     }
-                    .foregroundStyle(isSelected ? .white : category.colorToken.main)
+                    .foregroundStyle(isSelected ? .white : category.colorToken.ink)
                     .padding(.horizontal, 12)
                     .frame(minHeight: 34)
                     .background(
-                        isSelected ? category.colorToken.main : category.colorToken.tint,
+                        isSelected ? category.colorToken.ink : category.colorToken.tint,
                         in: Capsule()
                     )
                 }

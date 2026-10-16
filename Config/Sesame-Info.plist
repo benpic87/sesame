@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<!-- Complète l'Info.plist généré par Xcode (GENERATE_INFOPLIST_FILE) avec
+	     ce qui ne peut pas passer par les réglages INFOPLIST_KEY_ : le type
+	     de fichier .sesame, que Sésame déclare et sait ouvrir. -->
+	<key>UTExportedTypeDeclarations</key>
+	<array>
+		<dict>
+			<key>UTTypeIdentifier</key>
+			<string>app.sesame.archive</string>
+			<key>UTTypeDescription</key>
+			<string>Archive Sésame</string>
+			<key>UTTypeConformsTo</key>
+			<array>
+				<string>public.data</string>
+				<string>public.content</string>
+			</array>
+			<key>UTTypeTagSpecification</key>
+			<dict>
+				<key>public.filename-extension</key>
+				<array>
+					<string>sesame</string>
+				</array>
+				<key>public.mime-type</key>
+				<array>
+					<string>application/x-sesame</string>
+				</array>
+			</dict>
+		</dict>
+	</array>
+	<key>CFBundleDocumentTypes</key>
+	<array>
+		<dict>
+			<key>CFBundleTypeName</key>
+			<string>Archive Sésame</string>
+			<key>CFBundleTypeRole</key>
+			<string>Viewer</string>
+			<key>LSHandlerRank</key>
+			<string>Owner</string>
+			<key>LSItemContentTypes</key>
+			<array>
+				<string>app.sesame.archive</string>
+			</array>
+		</dict>
+	</array>
+	<!-- Fichier copié dans l'app à l'ouverture, jamais modifié sur place. -->
+	<key>LSSupportsOpeningDocumentsInPlace</key>
+	<false/>
+</dict>
+</plist>

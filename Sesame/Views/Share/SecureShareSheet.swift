@@ -16,8 +16,9 @@ extension UIPasteboard {
     }
 }
 
-/// Écran 7 — Partage sécurisé (bottom sheet) : archive chiffrée avec mot de
-/// passe généré, ou envoi AirDrop simple. Les deux passent par la share sheet.
+/// Écran 7 — Partage (bottom sheet) : archive chiffrée `.sesame` à ouvrir avec
+/// Sésame et le mot de passe généré, ou fichier original non chiffré pour
+/// quelqu'un sans l'app. Les deux passent par la share sheet (AirDrop, etc.).
 struct SecureShareSheet: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(VaultStore.self) private var vault
@@ -54,7 +55,7 @@ struct SecureShareSheet: View {
                     .frame(maxWidth: .infinity)
                     .padding(.top, 10)
 
-                Text("Partage sécurisé")
+                Text("Partager")
                     .appFont(22, .heavy, relativeTo: .title2, tracking: -0.02)
                     .foregroundStyle(Theme.textPrimary)
 
@@ -63,14 +64,14 @@ struct SecureShareSheet: View {
                     .foregroundStyle(Theme.textSecondary)
 
                 ShareModeOption(
-                    title: "Chiffré avec mot de passe",
-                    subtitle: "Le fichier est verrouillé. Communiquez le mot de passe de vive voix ou par un autre canal.",
+                    title: "Chiffré, pour l'app Sésame",
+                    subtitle: "Pour quelqu'un qui a Sésame : il ouvre le fichier avec le mot de passe ci-dessous. Communiquez-le de vive voix ou par un autre canal.",
                     isSelected: mode == .encrypted
                 ) { mode = .encrypted }
 
                 ShareModeOption(
-                    title: "Envoi AirDrop simple",
-                    subtitle: "Déjà chiffré en transit par AirDrop, lisible dès réception.",
+                    title: "Fichier original (non chiffré)",
+                    subtitle: "La photo, le PDF ou le texte d'origine, lisible avec n'importe quelle app. À réserver aux personnes de confiance.",
                     isSelected: mode == .plain
                 ) { mode = .plain }
 
@@ -78,7 +79,7 @@ struct SecureShareSheet: View {
                     passphraseBox
                 }
 
-                PrimaryButton(title: "Continuer vers AirDrop", systemImage: "square.and.arrow.up") {
+                PrimaryButton(title: "Partager", systemImage: "square.and.arrow.up") {
                     prepareShare()
                 }
                 .padding(.top, 4)
