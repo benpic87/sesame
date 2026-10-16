@@ -16,6 +16,10 @@ struct DocumentCard: View {
                 .frame(height: 110)
                 .frame(maxWidth: .infinity)
                 .clipShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
+                // clipShape ne masque que l'affichage : une photo en portrait
+                // (scaledToFill) déborde sinon en zone touchable invisible,
+                // jusque sur les catégories au-dessus de la grille.
+                .contentShape(RoundedRectangle(cornerRadius: 12, style: .continuous))
                 .overlay(alignment: .topTrailing) {
                     if let badge = document.type.badge {
                         Text(badge)
@@ -50,6 +54,7 @@ struct DocumentCard: View {
         .padding(10)
         .frame(maxWidth: .infinity, alignment: .leading)
         .card()
+        .contentShape(RoundedRectangle(cornerRadius: Theme.radiusCard, style: .continuous))
     }
 
     @ViewBuilder

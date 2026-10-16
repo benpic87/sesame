@@ -52,6 +52,30 @@ final class SesameUITests: XCTestCase {
         XCTAssertTrue(button(startingWith: "Nouvelle note").isEnabled)
     }
 
+    /// Accueil en tuiles : une catégorie ouvre ses propres documents (jamais
+    /// un document par erreur), le retour ramène aux tuiles, et « Tous les
+    /// documents » liste tout le coffre. La photo de test, très haute,
+    /// vérifie au passage que les vignettes ne débordent pas sur les tuiles.
+    func testCategoryTilesOpenTheirDocuments() {
+        app.terminate()
+        app.launchArguments.append("-seed-portrait-document")
+        app.launch()
+        completeOnboardingAndUnlock()
+
+        button(startingWith: "Identité").tap()
+        let identity = app.navigationBars["Identité"]
+        XCTAssertTrue(identity.waitForExistence(timeout: 5))
+        XCTAssertTrue(staticText(containing: "Aucun document dans cette catégorie").exists)
+        XCTAssertFalse(app.buttons["Modifier"].exists, "Aucun document ne doit s'ouvrir")
+
+        identity.buttons.element(boundBy: 0).tap()
+        XCTAssertTrue(app.staticTexts["Coffre"].waitForExistence(timeout: 5))
+
+        button(startingWith: "Tous les documents").tap()
+        XCTAssertTrue(app.navigationBars["Tous les documents"].waitForExistence(timeout: 5))
+        XCTAssertTrue(staticText(containing: "Photo portrait").exists)
+    }
+
     func testFourthDocumentOpensPaywall() {
         completeOnboardingAndUnlock()
 

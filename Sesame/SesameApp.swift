@@ -55,16 +55,35 @@ struct SesameApp: App {
         }
 
         _auth = State(initialValue: AuthService(keychain: keychain, defaults: appStorage))
-        _vault = State(initialValue: VaultStore(
+        let vaultStore = VaultStore(
             modelContext: container.mainContext,
             crypto: CryptoService(keychain: keychain),
             directoryName: vaultDirectoryName
-        ))
+        )
+        #if DEBUG
+        if isUITesting, ProcessInfo.processInfo.arguments.contains("-seed-portrait-document") {
+            Self.seedPortraitDocument(in: vaultStore)
+        }
+        #endif
+        _vault = State(initialValue: vaultStore)
         // Aucune copie de partage en clair ne doit survivre au lancement précédent.
         ShareService.purgeStaging()
     }
 
     private static let uiTestingDefaultsSuite = "app.sesame.ui-testing"
+
+    #if DEBUG
+    /// Tests d'interface : une photo très haute, dont la vignette (scaledToFill)
+    /// déborde de sa carte — cas qui recouvrait les catégories.
+    private static func seedPortraitDocument(in vault: VaultStore) {
+        let image = UIGraphicsImageRenderer(size: CGSize(width: 300, height: 1200)).image { context in
+            UIColor.systemTeal.setFill()
+            context.fill(CGRect(x: 0, y: 0, width: 300, height: 1200))
+        }
+        guard let data = image.jpegData(compressionQuality: 0.8) else { return }
+        _ = try? vault.importDocument(data: data, name: "Photo portrait", type: .image, fileExtension: "jpg")
+    }
+    #endif
 
     var body: some Scene {
         WindowGroup {

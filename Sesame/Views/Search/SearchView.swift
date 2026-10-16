@@ -136,6 +136,7 @@ struct SearchResultRow: View {
             thumbnail
                 .frame(width: 52, height: 52)
                 .clipShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
+                .contentShape(RoundedRectangle(cornerRadius: 10, style: .continuous))
 
             VStack(alignment: .leading, spacing: 4) {
                 Text(highlightedName)

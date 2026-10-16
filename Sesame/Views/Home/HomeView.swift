@@ -1,25 +1,19 @@
 import SwiftData
 import SwiftUI
 
-/// Écran 2 — Accueil / Coffre : filtres par catégorie, grille 2 colonnes,
-/// bouton flottant « + Ajouter ».
+/// Écran 2 — Accueil / Coffre : tuiles de catégories (chacune ouvre ses
+/// documents), tuile « Tous les documents », bouton flottant « + Ajouter ».
 struct HomeView: View {
     @Environment(VaultStore.self) private var vault
     @Environment(StoreService.self) private var store
     @Query(sort: \Document.addedAt, order: .reverse) private var documents: [Document]
     @Query(sort: \Category.createdAt) private var categories: [Category]
 
-    @State private var activeCategoryID: UUID?
     @State private var showAddSheet = false
     @State private var showSearch = false
     @State private var showSettings = false
     @State private var showNewCategory = false
     @State private var showPaywall = false
-
-    private var filteredDocuments: [Document] {
-        guard let activeCategoryID else { return documents }
-        return documents.filter { $0.tagIDs.contains(activeCategoryID) }
-    }
 
     var body: some View {
         NavigationStack {
@@ -32,8 +26,7 @@ struct HomeView: View {
                         if !store.isPremium {
                             freeBanner
                         }
-                        filterChips
-                        documentGrid
+                        categoryTiles
                         Spacer(minLength: 90)
                     }
                     .padding(.horizontal, 20)
@@ -66,67 +59,68 @@ struct HomeView: View {
         }
     }
 
-    private var filterChips: some View {
-        ScrollView(.horizontal, showsIndicators: false) {
-            HStack(spacing: 8) {
-                FilterChip(
-                    label: String(localized: "Tout · \(documents.count)"),
-                    isActive: activeCategoryID == nil,
-                    dotColor: nil
-                ) {
-                    activeCategoryID = nil
-                }
-
+    private var categoryTiles: some View {
+        VStack(spacing: 12) {
+            LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible())], spacing: 12) {
                 ForEach(categories) { category in
-                    let count = documents.filter { $0.tagIDs.contains(category.id) }.count
-                    FilterChip(
-                        label: "\(category.name) \(count)",
-                        isActive: activeCategoryID == category.id,
-                        dotColor: category.colorToken.main
-                    ) {
-                        activeCategoryID = activeCategoryID == category.id ? nil : category.id
+                    NavigationLink {
+                        CategoryDocumentsView(category: category)
+                    } label: {
+                        CategoryTile(
+                            name: category.name,
+                            count: documents.filter { $0.tagIDs.contains(category.id) }.count,
+                            token: category.colorToken
+                        )
                     }
+                    .buttonStyle(.plain)
                 }
 
-                // Chip « + » pointillée : créer une catégorie.
+                // Tuile pointillée : créer une catégorie.
                 Button {
                     showNewCategory = true
                 } label: {
-                    Image(systemName: "plus")
-                        .appFont(13, .semibold, relativeTo: .footnote)
-                        .foregroundStyle(Theme.textSecondary)
-                        .frame(width: 44, height: 34)
-                        .background(
-                            Capsule().strokeBorder(
-                                Theme.dashed,
-                                style: StrokeStyle(lineWidth: 1.5, dash: [4, 3])
-                            )
-                        )
+                    VStack(spacing: 6) {
+                        Image(systemName: "plus")
+                            .font(.system(size: 20, weight: .semibold))
+                        Text("Nouvelle catégorie")
+                            .appFont(13, .semibold, relativeTo: .footnote)
+                    }
+                    .foregroundStyle(Theme.textSecondary)
+                    .frame(maxWidth: .infinity, minHeight: CategoryTile.height)
+                    .background(
+                        RoundedRectangle(cornerRadius: Theme.radiusCard, style: .continuous)
+                            .strokeBorder(Theme.dashed, style: StrokeStyle(lineWidth: 1.5, dash: [5, 4]))
+                    )
+                    .contentShape(RoundedRectangle(cornerRadius: Theme.radiusCard, style: .continuous))
                 }
+                .buttonStyle(.plain)
                 .accessibilityLabel("Créer une catégorie")
             }
-            .padding(.vertical, 2)
-        }
-    }
 
-    private var documentGrid: some View {
-        Group {
-            if filteredDocuments.isEmpty {
-                EmptyVaultView(hasAnyDocument: !documents.isEmpty)
-                    .padding(.top, 60)
-                    .frame(maxWidth: .infinity)
-            } else {
-                LazyVGrid(columns: [GridItem(.flexible(), spacing: 12), GridItem(.flexible())], spacing: 12) {
-                    ForEach(filteredDocuments) { document in
-                        NavigationLink {
-                            DocumentDetailView(document: document)
-                        } label: {
-                            DocumentCard(document: document, categories: categories)
-                        }
-                        .buttonStyle(.plain)
-                    }
+            NavigationLink {
+                CategoryDocumentsView(category: nil)
+            } label: {
+                HStack {
+                    Image(systemName: "square.grid.2x2")
+                        .font(.system(size: 16, weight: .semibold))
+                        .foregroundStyle(Theme.accent)
+                    Text("Tous les documents")
+                        .appFont(16, .bold, relativeTo: .headline)
+                        .foregroundStyle(Theme.textPrimary)
+                    Spacer()
+                    Text("^[\(documents.count) document](inflect: true)")
+                        .appFont(14, .semibold, relativeTo: .subheadline)
+                        .foregroundStyle(Theme.textSecondary)
+                    Image(systemName: "chevron.right")
+                        .font(.system(size: 13, weight: .semibold))
+                        .foregroundStyle(Theme.textTertiary)
                 }
+                .padding(.horizontal, 16)
+                .frame(minHeight: 56)
+                .card()
+                .contentShape(RoundedRectangle(cornerRadius: Theme.radiusCard, style: .continuous))
             }
+            .buttonStyle(.plain)
         }
     }
 
@@ -193,30 +187,33 @@ struct RoundIconButton: View {
     }
 }
 
-struct FilterChip: View {
-    let label: String
-    let isActive: Bool
-    let dotColor: Color?
-    let action: () -> Void
+/// Tuile de catégorie de l'accueil : fond teinté, nom, nombre de documents.
+struct CategoryTile: View {
+    static let height: CGFloat = 96
+
+    let name: String
+    let count: Int
+    let token: CategoryColorToken
 
     var body: some View {
-        Button(action: action) {
-            HStack(spacing: 6) {
-                if let dotColor, !isActive {
-                    Circle().fill(dotColor).frame(width: 7, height: 7)
-                }
-                Text(label)
-                    .appFont(13, .semibold, relativeTo: .footnote)
-            }
-            .foregroundStyle(isActive ? .white : Theme.textSecondary)
-            .padding(.horizontal, 13)
-            .frame(minHeight: 34)
-            .background(
-                isActive ? Theme.accent : Theme.surface,
-                in: Capsule()
-            )
-            .overlay(Capsule().strokeBorder(isActive ? .clear : Theme.border, lineWidth: 1))
+        VStack(alignment: .leading, spacing: 0) {
+            Circle()
+                .fill(token.main)
+                .frame(width: 10, height: 10)
+            Spacer(minLength: 8)
+            Text(name)
+                .appFont(16, .bold, relativeTo: .headline)
+                .foregroundStyle(Theme.textPrimary)
+                .lineLimit(1)
+            Text("^[\(count) document](inflect: true)")
+                .appFont(13, .semibold, relativeTo: .footnote)
+                .foregroundStyle(token.main)
         }
+        .padding(14)
+        .frame(maxWidth: .infinity, minHeight: Self.height, alignment: .leading)
+        .background(token.tint, in: RoundedRectangle(cornerRadius: Theme.radiusCard, style: .continuous))
+        .contentShape(RoundedRectangle(cornerRadius: Theme.radiusCard, style: .continuous))
+        .accessibilityElement(children: .combine)
     }
 }
 
