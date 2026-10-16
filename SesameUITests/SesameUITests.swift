@@ -98,11 +98,17 @@ final class SesameUITests: XCTestCase {
             name: "Passeport reçu", text: "numéro 12AB34", passphrase: "corail-lampe-92-nuit"
         )
 
-        // L'outil de test relance l'app pour ouvrir un fichier (un vrai envoi
-        // AirDrop arrive dans l'app déjà ouverte) : l'archive est reçue au
-        // lancement, puis proposée une fois le coffre créé et déverrouillé.
+        // Selon la version d'iOS, l'outil de test relance l'app pour ouvrir le
+        // fichier, la garde ouverte, ou demande d'abord une confirmation.
+        // Dans tous les cas, l'archive n'est proposée qu'une fois le coffre
+        // créé et déverrouillé.
         app.open(url)
-        completeOnboardingAndUnlock()
+        confirmSystemOpenPromptIfShown()
+        if app.buttons["Commencer"].waitForExistence(timeout: 10) {
+            completeOnboardingAndUnlock()
+        } else if app.buttons["1"].waitForExistence(timeout: 5) {
+            enterPIN()
+        }
 
         XCTAssertTrue(app.staticTexts["Document chiffré reçu"].waitForExistence(timeout: 10))
         let field = app.textFields["Mot de passe"]
@@ -180,6 +186,18 @@ final class SesameUITests: XCTestCase {
         enterPIN()
 
         XCTAssertTrue(app.staticTexts["Coffre"].waitForExistence(timeout: 10))
+    }
+
+    /// Confirmation « Ouvrir dans Sésame ? » que certaines versions d'iOS
+    /// affichent quand le test ouvre un fichier dans l'app.
+    private func confirmSystemOpenPromptIfShown() {
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        let open = springboard.buttons.matching(
+            NSPredicate(format: "label IN %@", ["Open", "Ouvrir"])
+        ).firstMatch
+        if open.waitForExistence(timeout: 3) {
+            open.tap()
+        }
     }
 
     private func enterPIN() {
