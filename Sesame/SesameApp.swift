@@ -7,7 +7,7 @@ struct SesameApp: App {
     private let appStorage: UserDefaults
     @State private var auth: AuthService
     @State private var store = StoreService()
-    @State private var incoming = IncomingArchive()
+    @State private var incoming: IncomingArchive
     @State private var vault: VaultStore
     @Environment(\.scenePhase) private var scenePhase
 
@@ -67,6 +67,14 @@ struct SesameApp: App {
         }
         #endif
         _vault = State(initialValue: vaultStore)
+
+        let incomingArchive = IncomingArchive()
+        #if DEBUG
+        if isUITesting {
+            Self.deliverTestArchive(to: incomingArchive)
+        }
+        #endif
+        _incoming = State(initialValue: incomingArchive)
         // Aucune copie de partage en clair ne doit survivre au lancement précédent.
         ShareService.purgeStaging()
     }
@@ -74,6 +82,25 @@ struct SesameApp: App {
     private static let uiTestingDefaultsSuite = "app.sesame.ui-testing"
 
     #if DEBUG
+    /// Tests d'interface : archive `.sesame` remise à l'app comme le fait iOS
+    /// pour un fichier reçu (copie dans `Documents/Inbox`, puis ouverture).
+    /// L'outil de test ne sait pas transmettre un fichier à l'app de façon
+    /// fiable d'une version d'iOS à l'autre ; le contenu arrive donc par
+    /// l'environnement de lancement (`SESAME_UITEST_ARCHIVE`, en base64).
+    private static func deliverTestArchive(to incoming: IncomingArchive) {
+        let environment = ProcessInfo.processInfo.environment
+        guard let base64 = environment["SESAME_UITEST_ARCHIVE"],
+              let data = Data(base64Encoded: base64) else { return }
+        let name = environment["SESAME_UITEST_ARCHIVE_NAME"] ?? "Archive"
+
+        let inbox = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
+            .appendingPathComponent("Inbox", isDirectory: true)
+        try? FileManager.default.createDirectory(at: inbox, withIntermediateDirectories: true)
+        let url = inbox.appendingPathComponent("\(name).sesame")
+        guard (try? data.write(to: url)) != nil else { return }
+        incoming.receive(url)
+    }
+
     /// Tests d'interface : une photo très haute, dont la vignette (scaledToFill)
     /// déborde de sa carte — cas qui recouvrait les catégories.
     private static func seedPortraitDocument(in vault: VaultStore) {

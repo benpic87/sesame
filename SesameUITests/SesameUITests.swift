@@ -91,24 +91,24 @@ final class SesameUITests: XCTestCase {
         XCTAssertTrue(button(startingWith: "Fichier original (non chiffré)").exists)
     }
 
-    /// De bout en bout : une archive .sesame reçue s'ouvre dans Sésame, refuse
-    /// un mauvais mot de passe, puis ajoute le document avec le bon.
+    /// Une archive .sesame reçue est proposée une fois le coffre créé et
+    /// déverrouillé, refuse un mauvais mot de passe, puis ajoute le document
+    /// avec le bon.
+    ///
+    /// L'archive est remise à l'app par son environnement de lancement, qui
+    /// la dépose là où iOS dépose un fichier reçu (voir `deliverTestArchive`).
+    /// `XCUIApplication.open(_:)` ne convient pas : sur iOS 18, il relance
+    /// l'app sans lui transmettre le fichier, et le test ne passait que sur
+    /// les versions plus récentes.
     func testOpeningReceivedArchiveImportsDocument() throws {
         let url = try ArchiveFixture.make(
             name: "Passeport reçu", text: "numéro 12AB34", passphrase: "corail-lampe-92-nuit"
         )
-
-        // Selon la version d'iOS, l'outil de test relance l'app pour ouvrir le
-        // fichier, la garde ouverte, ou demande d'abord une confirmation.
-        // Dans tous les cas, l'archive n'est proposée qu'une fois le coffre
-        // créé et déverrouillé.
-        app.open(url)
-        confirmSystemOpenPromptIfShown()
-        if app.buttons["Commencer"].waitForExistence(timeout: 10) {
-            completeOnboardingAndUnlock()
-        } else if app.buttons["1"].waitForExistence(timeout: 5) {
-            enterPIN()
-        }
+        app.terminate()
+        app.launchEnvironment["SESAME_UITEST_ARCHIVE"] = try Data(contentsOf: url).base64EncodedString()
+        app.launchEnvironment["SESAME_UITEST_ARCHIVE_NAME"] = "Passeport reçu"
+        app.launch()
+        completeOnboardingAndUnlock()
 
         XCTAssertTrue(app.staticTexts["Document chiffré reçu"].waitForExistence(timeout: 10))
         let field = app.textFields["Mot de passe"]
@@ -186,18 +186,6 @@ final class SesameUITests: XCTestCase {
         enterPIN()
 
         XCTAssertTrue(app.staticTexts["Coffre"].waitForExistence(timeout: 10))
-    }
-
-    /// Confirmation « Ouvrir dans Sésame ? » que certaines versions d'iOS
-    /// affichent quand le test ouvre un fichier dans l'app.
-    private func confirmSystemOpenPromptIfShown() {
-        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
-        let open = springboard.buttons.matching(
-            NSPredicate(format: "label IN %@", ["Open", "Ouvrir"])
-        ).firstMatch
-        if open.waitForExistence(timeout: 3) {
-            open.tap()
-        }
     }
 
     private func enterPIN() {
