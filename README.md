@@ -29,7 +29,8 @@ Sesame/
 │   ├── VaultStore.swift     Source de vérité : import chiffré, vignettes chiffrées, catégories,
 │   │                        effacement ; répertoire du coffre exclu des sauvegardes (isExcludedFromBackup)
 │   ├── ShareService.swift   Archive chiffrée .sesame, copie AirDrop temporaire, sauvegarde .sesamebackup
-│   ├── StoreService.swift   Freemium StoreKit 2 : limite gratuite de 3 documents, achat unique Premium
+│   ├── StoreService.swift   Freemium StoreKit 2 : limite gratuite de 3 documents, achat unique Premium,
+│   │                        déblocage par code promotionnel (codes d'offre de l'App Store)
 │   ├── PassphraseGenerator.swift  Mots de passe « corail-lampe-92-nuit » (mot-mot-nombre-mot)
 │   └── KeychainStore.swift  Accès Keychain injectable (InMemoryKeychain pour les tests)
 ├── Views/
@@ -41,7 +42,9 @@ Sesame/
 │   ├── Detail/              Aperçu, étiquettes éditables, métadonnées, alerte expiration (< 6 mois)
 │   ├── Search/              Recherche temps réel par nom, filtres Tout/Images/PDF/Notes, surlignage
 │   ├── Share/               Partager : archive chiffrée .sesame (pour Sésame) ou fichier original ; import d'une archive reçue
-│   ├── Settings/            Sécurité, catégories, sauvegarde chiffrée, langue, effacement (double confirmation)
+│   ├── Settings/            Sécurité, catégories, sauvegarde chiffrée, langue, guide d'utilisation,
+│   │                        effacement (double confirmation)
+│   ├── Premium/             Écran de vente, saisie d'un code promotionnel
 │   └── Onboarding/          3 étapes : promesse locale-only → PIN/Face ID → premières catégories
 ├── Support/Theme.swift      Design tokens (couleurs, rayons, ombres, police mise à l'échelle Dynamic Type)
 └── Resources/               Localizable.xcstrings (fr = langue source), Assets
@@ -61,8 +64,13 @@ La conformité export (`ITSAppUsesNonExemptEncryption = NO`) et l'icône 1024 px
 
 - **Version gratuite** : coffre limité à **3 documents** (toutes les autres fonctions restent ouvertes). Un bandeau sur l'accueil affiche le compteur ; le bouton « + Ajouter » ouvre l'écran Premium quand la limite est atteinte.
 - **Sésame Premium** : achat unique non consommable `app.sesame.premium` (StoreKit 2, aucun SDK tiers, pas d'abonnement, pas de publicité) → documents illimités. Restauration des achats dans les Réglages et sur l'écran de vente.
+- **Code promotionnel** : « J'ai un code promo » (écran Premium et Réglages) ouvre la feuille de saisie d'Apple. Ce sont les **codes d'offre de l'App Store**, créés dans App Store Connect pour le produit `app.sesame.premium` avec une offre gratuite ; un code accepté délivre la même transaction qu'un achat (restauration comprise). Aucun code ni secret n'est embarqué dans l'app, donc rien à extraire ni à falsifier : Apple valide le code, compte les utilisations et gère l'expiration. Marche à suivre : [`docs/app-store/GUIDE-PUBLICATION.md`](docs/app-store/GUIDE-PUBLICATION.md) § 4 bis.
 - La limite ne s'applique qu'à l'**ajout** : si un achat est remboursé, les documents existants restent accessibles — jamais de données prises en otage.
 - **Test local** : sélectionner `Sesame.storekit` dans le schéma (Product ▸ Scheme ▸ Edit Scheme ▸ Run ▸ Options ▸ StoreKit Configuration) pour tester l'achat sans App Store Connect. En production, créer le produit `app.sesame.premium` dans App Store Connect.
+
+## Guide d'utilisation
+
+Réglages ▸ Aide ▸ **Guide d'utilisation** (`Views/Settings/GuideView.swift`) : huit rubriques courtes — ajouter, classer, retrouver, dates d'expiration, verrouillage, partage, sauvegarde, Premium et code promo — traduites dans les 11 langues comme le reste de l'interface.
 
 ## Localisation
 

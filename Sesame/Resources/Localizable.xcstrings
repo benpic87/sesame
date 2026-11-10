@@ -12692,6 +12692,1606 @@
           }
         }
       }
+    },
+    "Aide" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المساعدة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hilfe"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Help"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ayuda"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Aiuto"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "ヘルプ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "도움말"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hulp"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ajuda"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "帮助"
+          }
+        }
+      }
+    },
+    "Guide d'utilisation" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "دليل الاستخدام"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Kurzanleitung"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "User guide"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guía de uso"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guida all'uso"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使い方ガイド"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "사용 가이드"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Gebruiksgids"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Guia de utilização"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "使用指南"
+          }
+        }
+      }
+    },
+    "L'essentiel de Sésame en quelques minutes" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أساسيات Sésame في دقائق معدودة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Das Wichtigste zu Sésame in wenigen Minuten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The essentials of Sésame in a few minutes"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Lo esencial de Sésame en unos minutos"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "L'essenziale di Sésame in pochi minuti"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésameの基本を数分で"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "몇 분 만에 알아보는 Sésame의 핵심"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De basis van Sésame in een paar minuten"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O essencial do Sésame em poucos minutos"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "几分钟了解 Sésame 的要点"
+          }
+        }
+      }
+    },
+    "J'ai un code promo" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "لديّ رمز ترويجي"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ich habe einen Promo-Code"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I have a promo code"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tengo un código promocional"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ho un codice promozionale"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "プロモーションコードを使う"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "프로모션 코드가 있어요"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ik heb een promotiecode"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tenho um código promocional"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "我有优惠码"
+          }
+        }
+      }
+    },
+    "Débloquez Premium sans achat" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "افتح Premium دون شراء"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium ohne Kauf freischalten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Unlock Premium without a purchase"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloquea Premium sin comprar"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sblocca Premium senza acquisto"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "購入なしでPremiumをロック解除"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "구매 없이 Premium 잠금 해제"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ontgrendel Premium zonder aankoop"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desbloqueie o Premium sem comprar"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "无需购买即可解锁Premium"
+          }
+        }
+      }
+    },
+    "Premium débloqué" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم فتح Premium"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium freigeschaltet"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium unlocked"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium desbloqueado"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium sbloccato"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premiumがロック解除されました"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium이 잠금 해제되었습니다"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium ontgrendeld"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium desbloqueado"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium已解锁"
+          }
+        }
+      }
+    },
+    "Votre code a été accepté. Votre coffre est désormais illimité." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تم قبول رمزك. أصبحت خزنتك غير محدودة."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihr Code wurde akzeptiert. Ihr Tresor ist jetzt unbegrenzt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your code was accepted. Your vault is now unlimited."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tu código se ha aceptado. Tu caja fuerte ya no tiene límite."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Il codice è stato accettato. La tua cassaforte è ora illimitata."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コードが受け付けられました。金庫が無制限になりました。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "코드가 승인되었습니다. 이제 금고를 무제한으로 사용할 수 있습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je code is geaccepteerd. Je kluis is nu onbeperkt."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O seu código foi aceite. O seu cofre é agora ilimitado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "优惠码已生效，你的保险库现在不限数量。"
+          }
+        }
+      }
+    },
+    "Saisie du code indisponible" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "إدخال الرمز غير متاح"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Code-Eingabe nicht verfügbar"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Code entry unavailable"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "No se puede introducir el código"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inserimento del codice non disponibile"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "コードを入力できません"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "코드를 입력할 수 없습니다"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Code invoeren niet beschikbaar"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Introdução do código indisponível"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "暂时无法输入优惠码"
+          }
+        }
+      }
+    },
+    "Réessayez plus tard. Vous pouvez aussi utiliser votre code dans l'App Store, depuis votre compte." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أعد المحاولة لاحقًا. يمكنك أيضًا استخدام رمزك في App Store من حسابك."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versuchen Sie es später erneut. Sie können Ihren Code auch im App Store über Ihren Account einlösen."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Try again later. You can also redeem your code in the App Store, from your account."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Inténtalo más tarde. También puedes canjear tu código en el App Store, desde tu cuenta."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Riprova più tardi. Puoi anche utilizzare il codice nell'App Store, dal tuo account."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "しばらくしてからもう一度お試しください。App Storeのアカウント画面からコードを使うこともできます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "나중에 다시 시도해 주세요. App Store의 계정 화면에서도 코드를 사용할 수 있습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Probeer het later opnieuw. Je kunt je code ook inwisselen in de App Store, via je account."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tente novamente mais tarde. Também pode utilizar o código na App Store, a partir da sua conta."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "请稍后再试。你也可以在 App Store 的账户页面兑换优惠码。"
+          }
+        }
+      }
+    },
+    "Sésame garde vos documents chiffrés sur cet iPhone, et nulle part ailleurs. Voici l'essentiel pour bien l'utiliser." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "يحفظ Sésame مستنداتك مشفّرة على هذا الـ iPhone فقط، ولا مكان آخر. إليك الأساسيات لاستخدامه جيدًا."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésame bewahrt Ihre Dokumente verschlüsselt auf diesem iPhone auf – und nirgendwo sonst. Hier das Wichtigste für die Nutzung."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésame keeps your documents encrypted on this iPhone, and nowhere else. Here are the essentials for using it well."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésame guarda tus documentos cifrados en este iPhone y en ningún otro lugar. Esto es lo esencial para usarlo bien."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésame conserva i tuoi documenti cifrati su questo iPhone e in nessun altro luogo. Ecco l'essenziale per usarlo al meglio."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésameは書類を暗号化してこのiPhoneだけに保管します。上手に使うための基本をご紹介します。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésame은 문서를 암호화하여 이 iPhone에만 보관합니다. 잘 사용하기 위한 핵심을 소개합니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésame bewaart je documenten versleuteld op deze iPhone, en nergens anders. Dit is wat je moet weten om de app goed te gebruiken."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O Sésame guarda os seus documentos cifrados neste iPhone e em mais lado nenhum. Eis o essencial para o utilizar bem."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sésame 将你的文档加密保存在这台 iPhone 上，不会存到别处。以下是使用要点。"
+          }
+        }
+      }
+    },
+    "Touchez « Ajouter » sur l'écran du coffre, puis scannez un document, prenez une photo, importez une image ou un fichier, ou rédigez une note. Tout est chiffré dès l'ajout." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "اضغط على «إضافة» في شاشة الخزنة، ثم امسح مستندًا ضوئيًا، أو التقط صورة، أو استورد صورة أو ملفًا، أو اكتب ملاحظة. يُشفَّر كل شيء فور إضافته."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tippen Sie im Tresor auf „Hinzufügen“ und scannen Sie ein Dokument, nehmen Sie ein Foto auf, importieren Sie ein Bild oder eine Datei oder schreiben Sie eine Notiz. Alles wird beim Hinzufügen sofort verschlüsselt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tap “Add” on the vault screen, then scan a document, take a photo, import an image or a file, or write a note. Everything is encrypted as soon as it is added."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toca «Añadir» en la pantalla de la caja fuerte y luego escanea un documento, haz una foto, importa una imagen o un archivo, o escribe una nota. Todo se cifra en cuanto se añade."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tocca «Aggiungi» nella schermata della cassaforte, poi scansiona un documento, scatta una foto, importa un'immagine o un file oppure scrivi una nota. Tutto viene cifrato al momento dell'aggiunta."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金庫の画面で「追加」をタップし、書類のスキャン、写真の撮影、画像やファイルの読み込み、メモの作成を行います。追加と同時にすべて暗号化されます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "금고 화면에서 ‘추가’를 탭한 다음 문서를 스캔하거나, 사진을 찍거나, 이미지나 파일을 가져오거나, 메모를 작성하세요. 모든 항목은 추가하는 즉시 암호화됩니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tik op ‘Toevoegen’ in het kluisscherm en scan een document, maak een foto, importeer een afbeelding of bestand, of schrijf een notitie. Alles wordt bij het toevoegen direct versleuteld."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Toque em «Adicionar» no ecrã do cofre e, em seguida, digitalize um documento, tire uma fotografia, importe uma imagem ou um ficheiro, ou escreva uma nota. Tudo é cifrado assim que é adicionado."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在保险库界面轻点“添加”，然后扫描文档、拍照、导入图片或文件，或撰写笔记。所有内容在添加时即被加密。"
+          }
+        }
+      }
+    },
+    "Classer par catégories" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "التنظيم حسب الفئات"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Mit Kategorien ordnen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organize with categories"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizar por categorías"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizzare per categorie"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "カテゴリで整理"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "카테고리로 정리"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ordenen met categorieën"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Organizar por categorias"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "按分类整理"
+          }
+        }
+      }
+    },
+    "Attribuez une ou plusieurs étiquettes à chaque document. Vous pouvez créer, renommer ou recolorer vos catégories à tout moment dans les Réglages." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "عيّن وسمًا واحدًا أو أكثر لكل مستند. يمكنك إنشاء فئاتك أو إعادة تسميتها أو تغيير لونها في أي وقت من الإعدادات."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Versehen Sie jedes Dokument mit einem oder mehreren Etiketten. Kategorien können Sie jederzeit in den Einstellungen anlegen, umbenennen oder neu einfärben."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Give each document one or more tags. You can create, rename or recolor your categories at any time in Settings."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Asigna una o varias etiquetas a cada documento. Puedes crear, renombrar o cambiar el color de tus categorías en cualquier momento desde Ajustes."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Assegna una o più etichette a ogni documento. Puoi creare, rinominare o cambiare colore alle categorie in qualsiasi momento dalle Impostazioni."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "各書類には1つ以上のタグを付けられます。カテゴリは「設定」からいつでも作成、名前の変更、色の変更ができます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "각 문서에 태그를 하나 이상 지정하세요. 카테고리는 설정에서 언제든지 만들거나, 이름을 바꾸거나, 색상을 변경할 수 있습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geef elk document een of meer labels. Je kunt categorieën op elk moment aanmaken, hernoemen of een andere kleur geven in Instellingen."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Atribua uma ou várias etiquetas a cada documento. Pode criar, mudar o nome ou alterar a cor das suas categorias a qualquer momento nas Definições."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "为每份文档添加一个或多个标签。你可以随时在“设置”中创建分类、重新命名或更改颜色。"
+          }
+        }
+      }
+    },
+    "Retrouver un document" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "العثور على مستند"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ein Dokument finden"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Find a document"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontrar un documento"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Trovare un documento"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書類を探す"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문서 찾기"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een document terugvinden"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Encontrar um documento"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "查找文档"
+          }
+        }
+      }
+    },
+    "La loupe recherche par nom au fil de la saisie. Les filtres Images, PDF et Notes affinent les résultats." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تبحث العدسة المكبّرة بالاسم أثناء الكتابة. وتساعد فلاتر «الصور» و«PDF» و«الملاحظات» على تضييق النتائج."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Lupe sucht schon während der Eingabe nach dem Namen. Die Filter „Bilder“, „PDF“ und „Notizen“ grenzen die Ergebnisse ein."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The magnifying glass searches by name as you type. The Images, PDF and Notes filters narrow the results."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La lupa busca por nombre mientras escribes. Los filtros Imágenes, PDF y Notas acotan los resultados."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La lente cerca per nome mentre scrivi. I filtri Immagini, PDF e Note restringono i risultati."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "虫眼鏡のアイコンから、入力に合わせて名前で検索できます。「画像」「PDF」「メモ」のフィルタで結果を絞り込めます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "돋보기를 누르면 입력하는 대로 이름으로 검색합니다. 이미지, PDF, 메모 필터로 결과를 좁힐 수 있습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Het vergrootglas zoekt op naam terwijl je typt. Met de filters Afbeeldingen, PDF en Notities verfijn je de resultaten."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A lupa pesquisa por nome à medida que escreve. Os filtros Imagens, PDF e Notas refinam os resultados."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "轻点放大镜，输入时即可按名称搜索。可用“图片”“PDF”“笔记”筛选结果。"
+          }
+        }
+      }
+    },
+    "Suivre les dates d'expiration" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "متابعة تواريخ الانتهاء"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ablaufdaten im Blick behalten"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Keep track of expiry dates"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Controlar las fechas de caducidad"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tenere d'occhio le scadenze"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "有効期限を管理"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "만료일 관리"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vervaldatums in de gaten houden"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Acompanhar as datas de validade"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "留意到期日期"
+          }
+        }
+      }
+    },
+    "Indiquez la date d'expiration lorsque vous ajoutez un passeport ou une carte : Sésame la signale lorsqu'elle approche." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "أدخل تاريخ الانتهاء عند إضافة جواز سفر أو بطاقة: سينبّهك Sésame عند اقترابه."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Geben Sie beim Hinzufügen eines Reisepasses oder einer Karte das Ablaufdatum an: Sésame weist darauf hin, sobald es näher rückt."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Enter the expiry date when you add a passport or a card: Sésame flags it when it is getting close."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indica la fecha de caducidad al añadir un pasaporte o una tarjeta: Sésame te avisa cuando se acerca."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indica la data di scadenza quando aggiungi un passaporto o una tessera: Sésame la segnala quando si avvicina."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "パスポートやカードを追加するときに有効期限を入力しておくと、期限が近づいたときにSésameが知らせます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "여권이나 카드를 추가할 때 만료일을 입력하세요. 만료일이 가까워지면 Sésame이 알려 줍니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vul de vervaldatum in wanneer je een paspoort of kaart toevoegt: Sésame geeft het aan zodra die dichterbij komt."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Indique a data de validade ao adicionar um passaporte ou um cartão: o Sésame assinala-a quando estiver próxima."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "添加护照或卡片时填写到期日期，临近到期时 Sésame 会提醒你。"
+          }
+        }
+      }
+    },
+    "Verrouillage du coffre" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "قفل الخزنة"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sperren des Tresors"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vault locking"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bloqueo de la caja fuerte"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Blocco della cassaforte"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金庫のロック"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "금고 잠금"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Vergrendeling van de kluis"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Bloqueio do cofre"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "保险库锁定"
+          }
+        }
+      }
+    },
+    "Le coffre se verrouille dès que vous quittez l'app et après un délai d'inactivité, réglable dans les Réglages. Face ID ou votre code PIN le rouvre." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تُقفل الخزنة فور مغادرتك التطبيق وبعد فترة من عدم النشاط يمكن ضبطها من الإعدادات. ويعيد Face ID أو رمز PIN فتحها."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Der Tresor wird gesperrt, sobald Sie die App verlassen, sowie nach einer Zeit der Inaktivität, die Sie in den Einstellungen anpassen können. Mit Face ID oder Ihrem PIN-Code öffnen Sie ihn wieder."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The vault locks as soon as you leave the app and after a period of inactivity, which you can adjust in Settings. Face ID or your PIN code opens it again."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La caja fuerte se bloquea en cuanto sales de la app y tras un tiempo de inactividad, que puedes ajustar en Ajustes. Face ID o tu código PIN la vuelven a abrir."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La cassaforte si blocca non appena esci dall'app e dopo un periodo di inattività, regolabile nelle Impostazioni. Face ID o il codice PIN la riaprono."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "アプリを離れたときと、一定時間操作がなかったときに金庫はロックされます。ロックまでの時間は「設定」で変更できます。Face IDまたはPINコードで再び開けます。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "앱을 벗어나는 즉시, 그리고 일정 시간 사용하지 않으면 금고가 잠깁니다. 잠금 시간은 설정에서 조정할 수 있습니다. Face ID 또는 PIN 코드로 다시 열 수 있습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De kluis wordt vergrendeld zodra je de app verlaat en na een periode van inactiviteit, die je in Instellingen kunt aanpassen. Met Face ID of je pincode open je de kluis weer."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "O cofre bloqueia assim que sai da app e após um período de inatividade, ajustável nas Definições. O Face ID ou o seu código PIN voltam a abri-lo."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "离开应用时以及闲置一段时间后，保险库会自动锁定，时长可在“设置”中调整。使用 Face ID 或 PIN码即可重新打开。"
+          }
+        }
+      }
+    },
+    "Partager en sécurité" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "المشاركة بأمان"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Sicher teilen"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Share securely"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Compartir con seguridad"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Condividere in sicurezza"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安全に共有"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "안전하게 공유"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Veilig delen"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Partilhar em segurança"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "安全共享"
+          }
+        }
+      }
+    },
+    "Depuis un document, touchez « Partager ». L'envoi chiffré s'adresse à une personne qui utilise Sésame : transmettez-lui le mot de passe généré par un autre canal. Le fichier original, non chiffré, est à réserver aux personnes de confiance." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "من داخل المستند، اضغط على «مشاركة». الإرسال المشفّر موجَّه لمن يستخدم Sésame: أرسل إليه كلمة المرور المُنشأة عبر قناة أخرى. أما الملف الأصلي غير المشفّر فلا ترسله إلا لمن تثق بهم."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tippen Sie in einem Dokument auf „Teilen“. Der verschlüsselte Versand ist für Personen gedacht, die Sésame nutzen: Übermitteln Sie ihnen das generierte Passwort auf einem anderen Weg. Die unverschlüsselte Originaldatei sollten Sie nur vertrauenswürdigen Personen senden."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "From a document, tap “Share”. The encrypted option is for someone who uses Sésame: give them the generated password through another channel. The original, unencrypted file should only go to people you trust."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Desde un documento, toca «Compartir». El envío cifrado es para alguien que usa Sésame: hazle llegar la contraseña generada por otro canal. El archivo original, sin cifrar, resérvalo para personas de confianza."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Da un documento, tocca «Condividi». L'invio cifrato è destinato a chi usa Sésame: comunicagli la password generata tramite un altro canale. Il file originale, non cifrato, va riservato alle persone di fiducia."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書類の画面で「共有」をタップします。暗号化して送る方法はSésameを使っている相手向けです。生成されたパスワードは別の手段で伝えてください。暗号化されていない元のファイルは、信頼できる相手にだけ送ってください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문서에서 ‘공유’를 탭하세요. 암호화 전송은 Sésame을 사용하는 사람을 위한 방식입니다. 생성된 비밀번호는 다른 경로로 전달하세요. 암호화되지 않은 원본 파일은 신뢰할 수 있는 사람에게만 보내세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tik in een document op ‘Delen’. Versleuteld verzenden is bedoeld voor iemand die Sésame gebruikt: geef het gegenereerde wachtwoord via een ander kanaal door. Stuur het originele, niet-versleutelde bestand alleen naar mensen die je vertrouwt."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Num documento, toque em «Partilhar». O envio cifrado destina-se a quem utiliza o Sésame: transmita-lhe a palavra-passe gerada por outro canal. O ficheiro original, não cifrado, deve ser reservado a pessoas de confiança."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "在文档中轻点“共享”。加密发送适用于同样使用 Sésame 的人：请通过其他渠道把生成的密码告诉对方。未加密的原始文件只应发给你信任的人。"
+          }
+        }
+      }
+    },
+    "Sauvegarder le coffre" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "نسخ الخزنة احتياطيًا"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Den Tresor sichern"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Back up the vault"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Hacer una copia de la caja fuerte"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Eseguire il backup della cassaforte"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "金庫をバックアップ"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "금고 백업"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Een reservekopie van de kluis maken"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Fazer uma cópia do cofre"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "备份保险库"
+          }
+        }
+      }
+    },
+    "Vos documents n'existent que sur cet appareil et ne figurent pas dans les sauvegardes iCloud. Exportez régulièrement une sauvegarde chiffrée depuis les Réglages et conservez la phrase de récupération : sans elle, la sauvegarde est illisible." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "مستنداتك موجودة على هذا الجهاز فقط ولا تدخل ضمن نسخ iCloud الاحتياطية. صدِّر بانتظام نسخة احتياطية مشفّرة من الإعدادات واحتفظ بعبارة الاسترداد: بدونها تتعذّر قراءة النسخة."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Ihre Dokumente existieren nur auf diesem Gerät und sind nicht in iCloud-Backups enthalten. Exportieren Sie in den Einstellungen regelmäßig ein verschlüsseltes Backup und bewahren Sie die Wiederherstellungsphrase auf: Ohne sie ist das Backup nicht lesbar."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Your documents exist only on this device and are not included in iCloud backups. Regularly export an encrypted backup from Settings and keep the recovery phrase: without it, the backup cannot be read."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Tus documentos solo existen en este dispositivo y no se incluyen en las copias de iCloud. Exporta con regularidad una copia de seguridad cifrada desde Ajustes y guarda la frase de recuperación: sin ella, la copia es ilegible."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "I tuoi documenti esistono solo su questo dispositivo e non sono inclusi nei backup di iCloud. Esporta regolarmente un backup cifrato dalle Impostazioni e conserva la frase di recupero: senza di essa il backup è illeggibile."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "書類はこのデバイスにしか存在せず、iCloudバックアップにも含まれません。「設定」から暗号化バックアップを定期的に書き出し、リカバリーフレーズを保管してください。フレーズがないとバックアップは読み取れません。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "문서는 이 기기에만 있으며 iCloud 백업에 포함되지 않습니다. 설정에서 암호화 백업을 정기적으로 내보내고 복구 문구를 보관하세요. 복구 문구가 없으면 백업을 읽을 수 없습니다."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Je documenten staan alleen op dit apparaat en zitten niet in iCloud-reservekopieën. Exporteer regelmatig een versleutelde reservekopie via Instellingen en bewaar de herstelzin: zonder die zin is de reservekopie onleesbaar."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Os seus documentos existem apenas neste dispositivo e não constam das cópias de segurança do iCloud. Exporte regularmente uma cópia de segurança cifrada a partir das Definições e guarde a frase de recuperação: sem ela, a cópia é ilegível."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "你的文档只保存在这台设备上，不包含在 iCloud 备份中。请定期在“设置”中导出加密备份，并妥善保管恢复口令：没有它，备份将无法读取。"
+          }
+        }
+      }
+    },
+    "Premium et code promo" : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium والرمز الترويجي"
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium und Promo-Code"
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium and promo codes"
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium y código promocional"
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium e codice promozionale"
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premiumとプロモーションコード"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium 및 프로모션 코드"
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium en promotiecode"
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium e código promocional"
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Premium与优惠码"
+          }
+        }
+      }
+    },
+    "La version gratuite accueille 3 documents. Sésame Premium, un achat unique, rend le coffre illimité. Si vous avez un code promo, saisissez-le dans les Réglages, section Sésame Premium." : {
+      "localizations" : {
+        "ar" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "تتّسع النسخة المجانية لـ 3 مستندات. أمّا Sésame Premium، وهو شراء لمرة واحدة، فيجعل الخزنة غير محدودة. إذا كان لديك رمز ترويجي، فأدخله من الإعدادات في قسم Sésame Premium."
+          }
+        },
+        "de" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "Die Gratisversion fasst 3 Dokumente. Sésame Premium, ein einmaliger Kauf, macht den Tresor unbegrenzt. Wenn Sie einen Promo-Code haben, geben Sie ihn in den Einstellungen im Abschnitt „Sésame Premium“ ein."
+          }
+        },
+        "en" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "The free version holds 3 documents. Sésame Premium, a one-time purchase, makes the vault unlimited. If you have a promo code, enter it in Settings, in the Sésame Premium section."
+          }
+        },
+        "es" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La versión gratuita admite 3 documentos. Sésame Premium, una compra única, elimina el límite de la caja fuerte. Si tienes un código promocional, introdúcelo en Ajustes, en la sección Sésame Premium."
+          }
+        },
+        "it" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "La versione gratuita contiene 3 documenti. Sésame Premium, un acquisto unico, rende la cassaforte illimitata. Se hai un codice promozionale, inseriscilo nelle Impostazioni, nella sezione Sésame Premium."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "無料版では書類を3件まで保管できます。買い切りのSésame Premiumで金庫が無制限になります。プロモーションコードをお持ちの場合は、「設定」の「Sésame Premium」で入力してください。"
+          }
+        },
+        "ko" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "무료 버전에는 문서를 3개까지 보관할 수 있습니다. 일회성 구매인 Sésame Premium을 이용하면 금고를 무제한으로 사용할 수 있습니다. 프로모션 코드가 있다면 설정의 Sésame Premium 섹션에서 입력하세요."
+          }
+        },
+        "nl" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "De gratis versie biedt plaats aan 3 documenten. Sésame Premium, een eenmalige aankoop, maakt de kluis onbeperkt. Heb je een promotiecode? Voer die in bij Instellingen, in het gedeelte Sésame Premium."
+          }
+        },
+        "pt-PT" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "A versão gratuita aceita 3 documentos. O Sésame Premium, uma compra única, torna o cofre ilimitado. Se tiver um código promocional, introduza-o nas Definições, na secção Sésame Premium."
+          }
+        },
+        "zh-Hans" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "免费版可保存 3 份文档。一次性购买 Sésame Premium 后，保险库不再限量。如有优惠码，请在“设置”的“Sésame Premium”部分输入。"
+          }
+        }
+      }
     }
   },
   "version" : "1.0"

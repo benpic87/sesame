@@ -13,6 +13,7 @@ struct SettingsView: View {
     @State private var showBackup = false
     @State private var showRestore = false
     @State private var showPaywall = false
+    @State private var showPromoCode = false
     @State private var confirmWipe1 = false
     @State private var confirmWipe2 = false
     @State private var restoreResult: RestoreResult?
@@ -48,6 +49,14 @@ struct SettingsView: View {
                                 value: ""
                             ) {
                                 showPaywall = true
+                            }
+                            Divider().overlay(Theme.border)
+                            SettingsLinkRow(
+                                title: "J'ai un code promo",
+                                subtitle: "Débloquez Premium sans achat",
+                                value: ""
+                            ) {
+                                showPromoCode = true
                             }
                         }
                         Divider().overlay(Theme.border)
@@ -112,6 +121,18 @@ struct SettingsView: View {
                         }
                     }
 
+                    SettingsGroup(title: "Aide") {
+                        NavigationLink {
+                            GuideView()
+                        } label: {
+                            SettingsRowLabel(
+                                title: "Guide d'utilisation",
+                                subtitle: "L'essentiel de Sésame en quelques minutes",
+                                value: ""
+                            )
+                        }
+                    }
+
                     Button("Effacer tout le coffre…") {
                         confirmWipe1 = true
                     }
@@ -135,6 +156,7 @@ struct SettingsView: View {
         .sheet(isPresented: $showBackup) { BackupExportView() }
         .sheet(isPresented: $showRestore) { BackupRestoreView() }
         .sheet(isPresented: $showPaywall) { PaywallView() }
+        .promoCodeRedemption(isPresented: $showPromoCode)
         .alert(
             restoreResult == .restored ? "Premium restauré" : "Aucun achat trouvé",
             isPresented: Binding(

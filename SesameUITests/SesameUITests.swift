@@ -168,6 +168,35 @@ final class SesameUITests: XCTestCase {
         XCTAssertTrue(staticText(containing: "Récupérez Premium sans repayer").exists)
     }
 
+    func testGuideOpensFromSettings() {
+        completeOnboardingAndUnlock()
+
+        app.buttons["Réglages"].tap()
+        XCTAssertTrue(app.navigationBars["Réglages"].waitForExistence(timeout: 5))
+        app.swipeUp()
+
+        let guide = button(startingWith: "Guide d'utilisation")
+        XCTAssertTrue(guide.waitForExistence(timeout: 5))
+        guide.tap()
+
+        XCTAssertTrue(app.navigationBars["Guide d'utilisation"].waitForExistence(timeout: 5))
+        XCTAssertTrue(staticText(containing: "nulle part ailleurs").exists)
+    }
+
+    /// Le code promotionnel se saisit dans la feuille d'Apple (non pilotable
+    /// ici) : on vérifie que l'entrée est proposée aux deux endroits.
+    func testPromoCodeEntryIsOfferedInSettingsAndPaywall() {
+        completeOnboardingAndUnlock()
+
+        app.buttons["Réglages"].tap()
+        XCTAssertTrue(button(startingWith: "J'ai un code promo").waitForExistence(timeout: 5))
+        XCTAssertTrue(staticText(containing: "Débloquez Premium sans achat").exists)
+
+        button(startingWith: "Passer à Premium").tap()
+        XCTAssertTrue(staticText(containing: "limité à 3 documents").waitForExistence(timeout: 5))
+        XCTAssertTrue(app.buttons["J'ai un code promo"].exists)
+    }
+
     // MARK: Étapes
 
     private func completeOnboardingAndUnlock() {

@@ -50,6 +50,24 @@ Dans la fiche de l'app ▸ *Monétisation* ▸ *Achats intégrés* ▸ **+** :
 - Joindre une **capture d'écran de review** à l'achat intégré (une capture de l'écran Premium de l'app suffit).
 - Lors de la première soumission, **cocher l'achat intégré pour qu'il parte avec le binaire** (section « Achats intégrés » de la version dans App Store Connect). Un IAP jamais soumis = achat qui échoue en production.
 
+## 4 bis. Codes promotionnels (offrir Premium sans achat)
+
+Le bouton « J'ai un code promo » de l'app ouvre la feuille de saisie d'Apple : les codes sont des **codes d'offre** de l'App Store, pris en charge pour les achats non consommables à partir d'iOS 16.3. Rien n'est à modifier dans le code pour créer, limiter ou retirer un code — tout se passe dans App Store Connect.
+
+Dans la fiche de l'app ▸ *Achats intégrés* ▸ `Premium` ▸ section **Codes d'offre** :
+
+1. Créer une offre : nom de référence (ex. `Premium offert`), admissibilité (cocher les trois cases pour l'ouvrir à tout le monde), type **Offre gratuite**, pays concernés.
+2. Créer les codes, au choix :
+   - **Code personnalisé** (ex. `SESAMEAMIS`) : un mot que vous choisissez, avec un nombre maximal d'utilisations (jusqu'à 25 000) et une date de fin facultative. Le plus simple pour quelques proches ou une campagne.
+   - **Codes à usage unique** : lots de 500 à 25 000 codes générés par Apple, valables 6 mois au plus. Pour une distribution nominative.
+3. Distribuer le code. La personne le saisit dans l'app (Réglages ▸ Sésame Premium ▸ « J'ai un code promo », ou sur l'écran Premium), ou l'utilise par le lien de validation fourni par App Store Connect.
+
+À savoir :
+- Chaque personne ne peut utiliser qu'un code par offre ; 10 offres actives au plus par app.
+- Un code peut mettre jusqu'à une heure à devenir valide ; des développeurs ont signalé des délais de 48 à 72 h pour un premier code sur un achat non consommable.
+- Pour retirer un code, le désactiver dans App Store Connect : les déblocages déjà accordés restent acquis.
+- **Tester** : créer des codes d'environnement *sandbox* dans la même section et les saisir depuis l'app avec un compte Sandbox ; ou, dans Xcode, ajouter un code d'offre au produit dans l'éditeur de `Sesame.storekit`.
+
 ## 5. Icône de l'app — ✅ déjà en place
 
 Une icône 1024 × 1024 px reprenant le logo (cercle indigo `#5b5bd6`, carré arrondi blanc, fond `#fbfbfd`) est déjà dans `Sesame/Resources/Assets.xcassets/AppIcon.appiconset`. Elle est fonctionnelle pour la soumission ; libre à vous de la remplacer par une version de designer plus tard (même fichier, mêmes contraintes : PNG sans transparence, coins droits — Apple arrondit lui-même).
@@ -85,6 +103,7 @@ Dans App Store Connect ▸ TestFlight : s'ajouter comme testeur interne et véri
 - [ ] Appareil photo et import galerie (+ proposition de suppression de l'original)
 - [ ] AirDrop réel vers un autre appareil (les deux modes)
 - [ ] **Parcours d'achat Premium en sandbox** (compte de test : App Store Connect ▸ Utilisateurs et accès ▸ Sandbox)
+- [ ] **Code promotionnel en sandbox** : « J'ai un code promo » ▸ saisir un code sandbox ▸ le coffre devient illimité
 - [ ] Verrouillage à la mise en arrière-plan + masquage dans le sélecteur d'apps
 - [ ] Les 11 langues (Réglages iOS ▸ Sésame ▸ Langue) et la disposition droite-à-gauche en arabe
 
@@ -102,6 +121,7 @@ Dans App Store Connect ▸ TestFlight : s'ajouter comme testeur interne et véri
 |---|---|---|
 | 2.1 Complétude | IAP non testable | Notes de review + IAP joint à la soumission |
 | 3.1.1 Paiements | Achat hors App Store | Aucun — StoreKit uniquement, bouton restaurer présent |
+| 3.1.1 Paiements | Code de déblocage « maison » (clé de licence) | Aucun — le code promo est un code d'offre Apple, saisi dans la feuille système |
 | 5.1.1 Confidentialité | Permissions injustifiées | Purpose strings caméra/photos/Face ID explicites et honnêtes |
 | 2.3.7 Métadonnées | Nom d'app générique déjà pris | Utiliser « Sésame — Coffre de documents » |
 | 4.0 Design | App « trop simple » | Peu probable : fonctionnalité réelle et complète |
