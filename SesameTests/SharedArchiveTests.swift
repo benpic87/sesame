@@ -115,4 +115,23 @@ final class SharedArchiveTests: XCTestCase {
         XCTAssertEqual(incoming.pending?.fileName, "Passeport")
         XCTAssertEqual(incoming.pending?.data, Data("conteneur".utf8))
     }
+
+    /// iOS ne propose Sésame pour un fichier `.sesame` (AirDrop, Fichiers,
+    /// Mail) que si l'app déclare ce type et s'en dit capable de l'ouvrir.
+    func testAppDeclaresSesameArchiveType() throws {
+        let documentTypes = try XCTUnwrap(
+            Bundle.main.object(forInfoDictionaryKey: "CFBundleDocumentTypes") as? [[String: Any]]
+        )
+        let handled = documentTypes.flatMap { $0["LSItemContentTypes"] as? [String] ?? [] }
+        XCTAssertTrue(handled.contains("app.sesame.archive"))
+
+        let exported = try XCTUnwrap(
+            Bundle.main.object(forInfoDictionaryKey: "UTExportedTypeDeclarations") as? [[String: Any]]
+        )
+        let extensions = exported.flatMap { declaration -> [String] in
+            let tags = declaration["UTTypeTagSpecification"] as? [String: Any]
+            return tags?["public.filename-extension"] as? [String] ?? []
+        }
+        XCTAssertTrue(extensions.contains("sesame"))
+    }
 }
