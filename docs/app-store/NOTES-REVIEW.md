@@ -21,6 +21,9 @@ HOW TO TEST
 4. IN-APP PURCHASE "Sésame Premium" (app.sesame.premium, non-consumable):
    unlocks unlimited documents. "Restore purchases" is available on the
    paywall and in Settings.
+   "I have a promo code" (paywall and Settings) presents Apple's own offer
+   code redemption sheet (StoreKit offerCodeRedemption) for that same
+   product. The app has no custom code or license-key mechanism.
 5. Secure sharing: open a document → share → an encrypted archive is
    created with a generated password (to be communicated separately).
 

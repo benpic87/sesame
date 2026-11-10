@@ -55,4 +55,18 @@ final class StoreKitConfigurationTests: XCTestCase {
         XCTAssertTrue(purchased)
         XCTAssertTrue(store.isPremium)
     }
+
+    /// Un code promotionnel validé produit une transaction sans passer par le
+    /// bouton d'achat de l'app (feuille d'Apple, App Store, lien). On simule
+    /// cette arrivée « de l'extérieur » : Premium doit être reconnu.
+    @MainActor
+    func testTransactionReceivedOutsidePurchaseFlowUnlocksPremium() async throws {
+        let store = StoreService()
+        _ = try await session.buyProduct(identifier: StoreService.premiumProductID)
+
+        let outcome = await store.completePromoCodeRedemption(.success(()))
+
+        XCTAssertEqual(outcome, .unlocked)
+        XCTAssertTrue(store.isPremium)
+    }
 }

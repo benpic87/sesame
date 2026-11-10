@@ -2,13 +2,15 @@ import SwiftUI
 
 /// Écran de vente Sésame Premium : coffre illimité, achat unique.
 /// Présenté quand la limite gratuite (3 documents) est atteinte,
-/// ou depuis les Réglages.
+/// ou depuis les Réglages. Un code promotionnel (code d'offre de
+/// l'App Store) débloque le même coffre illimité sans achat.
 struct PaywallView: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(StoreService.self) private var store
 
     @State private var purchasing = false
     @State private var purchaseError = false
+    @State private var showPromoCode = false
 
     var body: some View {
         ZStack {
@@ -76,12 +78,20 @@ struct PaywallView: View {
                 .foregroundStyle(Theme.accent)
                 .frame(minHeight: 44)
                 .padding(.top, 6)
+
+                Button("J'ai un code promo") {
+                    showPromoCode = true
+                }
+                .appFont(14, .semibold, relativeTo: .footnote)
+                .foregroundStyle(Theme.accent)
+                .frame(minHeight: 44)
             }
             .padding(.horizontal, 24)
             .padding(.bottom, 16)
         }
         .presentationDetents([.large])
         .presentationCornerRadius(Theme.radiusSheet)
+        .promoCodeRedemption(isPresented: $showPromoCode) { dismiss() }
         .alert("Achat impossible pour le moment", isPresented: $purchaseError) {
             Button("OK", role: .cancel) {}
         }
